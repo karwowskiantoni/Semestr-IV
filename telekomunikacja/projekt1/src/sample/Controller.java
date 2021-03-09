@@ -6,24 +6,30 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class Controller {
+
     @FXML
-    TextArea dataField = new TextArea();
+    TextArea inputText = new TextArea();
     @FXML
-   TextField keyField1 = new TextField();
+    TextArea semiOutputText = new TextArea();
     @FXML
-    TextField pathField = new TextField();
+    TextArea outputText = new TextArea();
+
     @FXML
-    TextArea resultField = new TextArea();
+    Button inputButton = new Button();
     @FXML
-    Button encryptButtonText = new Button();
+    Button semiOutputButton = new Button();
     @FXML
-    Button decryptButtonText = new Button();
+    Button outputButton = new Button();
+
+
+    public void sendToSemi() {
+        semiOutputText.setText(inputText.getText());
+        inputText.setText("");
+    }
+
     @FXML
-    Button encryptButtonFile = new Button();
-    @FXML
-    Button decryptButtonFile = new Button();
-    @FXML
-    Button directoryButton = new Button();
-    @FXML
-    Button saveFileButton = new Button();
+    public void sendToOutput() {
+        outputText.setText(semiOutputText.getText());
+        semiOutputText.setText("");
+    }
 }

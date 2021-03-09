@@ -38,14 +38,14 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <tabs>
     <Tab text="Wyślij">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
-                  <TextArea layoutX="40.0" layoutY="29.0" prefHeight="255.0" prefWidth="520.0" />
+                  <Button fx:id="inputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToSemi" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
+                  <TextArea fx:id="inputText" layoutX="40.0" layoutY="29.0" prefHeight="255.0" prefWidth="520.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -53,8 +53,8 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
-                  <TextArea layoutX="40.0" layoutY="30.0" prefHeight="255.0" prefWidth="520.0" />
+                  <Button fx:id="semiOutputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToOutput" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
+                  <TextArea fx:id="semiOutputText" layoutX="40.0" layoutY="30.0" prefHeight="255.0" prefWidth="520.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -62,8 +62,8 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="308.0" text="Popraw Błędy" />
-                  <TextArea layoutX="40.0" layoutY="31.0" prefHeight="255.0" prefWidth="520.0" />
+                  <Button fx:id="outputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="308.0" text="Popraw Błędy" />
+                  <TextArea fx:id="outputText" layoutX="40.0" layoutY="31.0" prefHeight="255.0" prefWidth="520.0" />
                </children>
             </AnchorPane>
         </content>
