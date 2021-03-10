@@ -136,8 +136,8 @@ public class BitArray {
             rightArray.setBit(this.getBit(left+i), i);
         }
         length = leftArray.getLength();
-        bytes = leftArray.getBytes();
-        return rightArray;
+        bytes = rightArray.getBytes();
+        return leftArray;
     }
 
     public BitArray XOR(BitArray bitArray) {
@@ -149,7 +149,17 @@ public class BitArray {
         return bitArray;
     }
 
-    public BitArray connect(BitArray array){
+    public boolean isParity() {
+        int sum = 0;
+        for(int i = 0 ; i < length ; i++) {
+            if(this.getBit(i) == 1) {
+                sum += 1;
+            }
+        }
+        return sum % 2 == 0;
+    }
+
+    public BitArray connect(BitArray array) {
         BitArray result = new BitArray(array.getLength() + this.getLength());
         for(int i = 0; i < this.getLength(); i++){
             result.setBit(this.getBit(i), i);
@@ -157,6 +167,18 @@ public class BitArray {
 
         for(int i = this.getLength(); i < result.getLength(); i++){
             result.setBit(array.getBit(i-this.getLength()) ,i);
+        }
+        return result;
+    }
+
+    public BitArray OR(BitArray array) {
+        BitArray result = new BitArray(this.length);
+        for(int i = 0; i < length; i++){
+            if(array.getBit(i) == 1 || this.getBit(i) == 1) {
+                result.setBit(1, i);
+            } else {
+                result.setBit(0, i);
+            }
         }
         return result;
     }

@@ -36,18 +36,19 @@ public class Controller {
     @FXML
     Button outputButton = new Button();
 
-    @FXML
-    public void initialize() {
-        inputTextBit.textProperty().bindBidirectional(inputText.textProperty(), prepareConverter());
-        editTextBit.textProperty().bindBidirectional(editText.textProperty(), prepareConverter());
-        outputTextBit.textProperty().bindBidirectional(outputText.textProperty(), prepareConverter());
-
-    }
-
+//    @FXML
+//    public void initialize() {
+//        inputTextBit.textProperty().bindBidirectional(inputText.textProperty(), prepareConverter());
+//        editTextBit.textProperty().bindBidirectional(editText.textProperty(), prepareConverter());
+//        outputTextBit.textProperty().bindBidirectional(outputText.textProperty(), prepareConverter());
+//
+//    }
 
     public void sendToEdit() {
         editText.setText(inputText.getText());
         inputText.setText("");
+        ErrorCorrectionAlgorithm errorCorrection = new ErrorCorrectionAlgorithm();
+        inputTextBit.setText(errorCorrection.addParityBits(BitArray.stringToBitArray("a")).bitArrayToBitString());
     }
 
     @FXML
@@ -56,17 +57,19 @@ public class Controller {
         editText.setText("");
     }
 
-    private StringConverter prepareConverter() {
-        return new StringConverter() {
-            @Override
-            public String toString(Object object) {
-                return BitArray.stringToBitArray(object.toString()).bitArrayToBitString();
-            }
 
-            @Override
-            public Object fromString(String string) {
-                return BitArray.bitStringToBitArray(string).bitArrayToString();
-            }
-        };
-    }
+
+//    private StringConverter prepareConverter() {
+//        return new StringConverter() {
+//            @Override
+//            public String toString(Object object) {
+//                return BitArray.stringToBitArray(object.toString()).bitArrayToBitString();
+//            }
+//
+//            @Override
+//            public Object fromString(String string) {
+//                return BitArray.bitStringToBitArray(string).bitArrayToString();
+//            }
+//        };
+//    }
 }
