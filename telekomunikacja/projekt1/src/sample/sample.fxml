@@ -12,8 +12,9 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="inputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToSemi" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
-                  <TextArea fx:id="inputText" layoutX="40.0" layoutY="29.0" prefHeight="255.0" prefWidth="520.0" />
+                  <Button fx:id="inputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToEdit" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
+                  <TextArea fx:id="inputText" layoutX="40.0" layoutY="29.0" prefHeight="126.0" prefWidth="520.0" />
+                  <TextArea fx:id="inputTextBit" layoutX="40.0" layoutY="166.0" prefHeight="126.0" prefWidth="520.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -21,8 +22,9 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="semiOutputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToOutput" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
-                  <TextArea fx:id="semiOutputText" layoutX="40.0" layoutY="30.0" prefHeight="255.0" prefWidth="520.0" />
+                  <Button fx:id="editButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToOutput" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
+                  <TextArea fx:id="editText" layoutX="40.0" layoutY="30.0" prefHeight="126.0" prefWidth="520.0" />
+                  <TextArea fx:id="editTextBit" layoutX="40.0" layoutY="165.0" prefHeight="124.0" prefWidth="520.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -31,7 +33,8 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <Button fx:id="outputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="308.0" text="Popraw Błędy" />
-                  <TextArea fx:id="outputText" layoutX="40.0" layoutY="31.0" prefHeight="255.0" prefWidth="520.0" />
+                  <TextArea fx:id="outputText" layoutX="40.0" layoutY="31.0" prefHeight="116.0" prefWidth="520.0" />
+                  <TextArea fx:id="outputTextBit" layoutX="40.0" layoutY="165.0" prefHeight="124.0" prefWidth="520.0" />
                </children>
             </AnchorPane>
         </content>

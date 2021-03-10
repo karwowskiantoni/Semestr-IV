@@ -124,16 +124,6 @@ public class BitArray {
         return new BitArray(dataInFourTimesBits);
     }
 
-
-
-//    public BitArray permute(PermuteTable table) {
-//        BitArray array = new BitArray(table.getTable().length);
-//        for (int i = 0; i < array.getLength(); i++) {
-//            array.setBit(this.getBit(table.getTable()[i]-1), i);
-//        }
-//        return array;
-//    }
-
     public BitArray divide(int left, int right) {
         BitArray leftArray = new BitArray(left);
         BitArray rightArray = new BitArray(right);
