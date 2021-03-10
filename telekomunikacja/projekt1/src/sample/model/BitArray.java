@@ -57,7 +57,7 @@ public class BitArray {
     }
 
     static public BitArray bitStringToBitArray(String data){
-        data.replace(" ", "");
+        data = data.replace(" ", "");
         BitArray array = new BitArray(data.length());
         for (int i = 0; i < array.getLength(); i++) {
             if(data.split("")[i].equals("1")){
@@ -73,9 +73,9 @@ public class BitArray {
         String result = "";
 
         for(int i = 0; i < this.getBytes().length*8; i++){
-//            if(i%8 == 0 && i != 0){
-//                result += " ";
-//            }
+            if(i%8 == 0 && i != 0){
+                result += " ";
+            }
             if(this.getBit(i) == 2){
                 result += "2";
             }
