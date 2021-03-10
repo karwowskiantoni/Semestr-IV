@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.util.StringConverter;
 import sample.model.BitArray;
+import sample.model.ErrorCorrectionAlgorithm;
 
 import java.net.URL;
 import java.util.ResourceBundle;
