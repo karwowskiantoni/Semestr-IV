@@ -194,5 +194,25 @@ public class BitArray {
         }
         return result;
     }
+    public int recursiveXOR() {
+        int value = this.getBit(0);
+        for(int i = 1; i < length; i++) {
+            if(value == this.getBit(i)) {
+                value = 0;
+            }else {
+                value = 1;
+            }
+        }
+        return value;
+    }
+
+    public boolean isZero() {
+        for(int i = 0; i < length; i++) {
+            if(this.getBit(i) == 1){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

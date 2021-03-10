@@ -36,6 +36,9 @@ public class Controller {
     @FXML
     Button outputButton = new Button();
 
+
+    ErrorCorrectionAlgorithm errorCorrection = new ErrorCorrectionAlgorithm();
+
 //    @FXML
 //    public void initialize() {
 //        inputTextBit.textProperty().bindBidirectional(inputText.textProperty(), prepareConverter());
@@ -45,16 +48,24 @@ public class Controller {
 //    }
 
     public void sendToEdit() {
-        editText.setText(inputText.getText());
-        inputText.setText("");
-        ErrorCorrectionAlgorithm errorCorrection = new ErrorCorrectionAlgorithm();
-        inputTextBit.setText(errorCorrection.addParityBits(BitArray.stringToBitArray("a")).bitArrayToBitString());
+        //editText.setText(inputText.getText());
+        //inputText.setText("");
+        editTextBit.setText(errorCorrection.addParityBits(BitArray.stringToBitArray("a")).bitArrayToBitString());
     }
 
     @FXML
     public void sendToOutput() {
-        outputText.setText(editText.getText());
-        editText.setText("");
+        outputTextBit.setText(editTextBit.getText());
+        editTextBit.setText("");
+    }
+
+    @FXML
+    public void correct() {
+        if(errorCorrection.checkCorrection(BitArray.stringToBitArray(outputTextBit.getText()))) {
+            outputText.setText("no i zajebiście");
+        } else {
+            outputText.setText("noooo, coś nie dobrze");
+        }
     }
 
 

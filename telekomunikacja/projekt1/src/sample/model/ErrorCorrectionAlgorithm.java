@@ -28,8 +28,8 @@ public class ErrorCorrectionAlgorithm {
         return finalArray;
     }
 
-    public void checkCorrection(BitArray array) {
-
+    public boolean checkCorrection(BitArray array) {
+        return multiplicateMatrix(array).isZero();
     }
 
     public BitArray correctSingleError(BitArray array) {
@@ -52,7 +52,7 @@ public class ErrorCorrectionAlgorithm {
         BitArray finalArray = new BitArray(8);
 
         for(int i = 0; i < 8; i++) {
-          //  finalArray.setBit( , i);
+          finalArray.setBit(hMatrix[i].AND(array).recursiveXOR(), i);;
         }
 
         return finalArray;
