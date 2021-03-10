@@ -183,4 +183,16 @@ public class BitArray {
         return result;
     }
 
+    public BitArray AND(BitArray array){
+        BitArray result = new BitArray(this.length);
+        for(int i = 0; i < length; i++){
+            if(array.getBit(i) == 1 && this.getBit(i) == 1) {
+                result.setBit(1, i);
+            } else {
+                result.setBit(0, i);
+            }
+        }
+        return result;
+    }
+
 }
