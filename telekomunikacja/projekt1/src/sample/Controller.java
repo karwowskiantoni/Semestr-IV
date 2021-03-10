@@ -57,7 +57,7 @@ public class Controller {
 
     @FXML
     public void correct() {
-        if(errorCorrection.checkCorrection(BitArray.stringToBitArray(outputTextBit.getText()))) {
+        if(errorCorrection.checkCorrection(BitArray.bitStringToBitArray(outputTextBit.getText()))) {
             outputText.setText("no i zajebiście");
         } else {
             outputText.setText("noooo, coś nie dobrze");

@@ -57,6 +57,7 @@ public class BitArray {
     }
 
     static public BitArray bitStringToBitArray(String data){
+        data.replace(" ", "");
         BitArray array = new BitArray(data.length());
         for (int i = 0; i < array.getLength(); i++) {
             if(data.split("")[i].equals("1")){
@@ -72,9 +73,9 @@ public class BitArray {
         String result = "";
 
         for(int i = 0; i < this.getBytes().length*8; i++){
-            if(i%8 == 0){
-                result += " ";
-            }
+//            if(i%8 == 0 && i != 0){
+//                result += " ";
+//            }
             if(this.getBit(i) == 2){
                 result += "2";
             }
@@ -124,19 +125,13 @@ public class BitArray {
         return new BitArray(dataInFourTimesBits);
     }
 
-    public BitArray divide(int left, int right) {
+    public BitArray divide(int left) {
         BitArray leftArray = new BitArray(left);
-        BitArray rightArray = new BitArray(right);
 
         for (int i = 0; i < left; i++) {
             leftArray.setBit(this.getBit(i), i);
         }
 
-        for (int i = 0; i < right; i++) {
-            rightArray.setBit(this.getBit(left+i), i);
-        }
-        length = leftArray.getLength();
-        bytes = rightArray.getBytes();
         return leftArray;
     }
 
