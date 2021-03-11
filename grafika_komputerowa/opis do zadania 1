@@ -1,0 +1,4 @@
+do usunięcia prostokątnego przebarwienia wykorzystałem edytor krzywych kolorów modyfikując krzywą koloru czerwonego oraz zielonego
+do usunięcia miecza i strzałek wykorzystałem narzędzie odkształcenia, klonowania oraz kopiowania z zaokrąglaniem krawędzi
+
+zadanie zostało wykonane w gimpie, który wykorzystuje inne algorytmy zmiany barw, tak więc po podziale na pojedyńcze kanały odbarwienie pozostaje widoczne.
