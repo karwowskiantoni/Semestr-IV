@@ -1,9 +1,5 @@
 package sample;
 
-import javafx.beans.property.adapter.JavaBeanIntegerProperty;
-import javafx.beans.property.adapter.JavaBeanIntegerPropertyBuilder;
-import javafx.beans.property.adapter.JavaBeanStringProperty;
-import javafx.beans.property.adapter.JavaBeanStringPropertyBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
@@ -13,6 +9,9 @@ import sample.model.BitArray;
 import sample.model.ErrorCorrectionAlgorithm;
 
 public class Controller {
+
+    @FXML
+    TabPane background = new TabPane();
 
     @FXML
     TextArea inputText = new TextArea();
@@ -44,23 +43,30 @@ public class Controller {
     }
 
     public void sendToEdit() {
+        editTextBit.setText(errorCorrection.encode(inputText.getText()));
         inputText.setText("");
-        editTextBit.setText(errorCorrection.addParityBits(BitArray.stringToBitArray("a")).bitArrayToBitString());
     }
 
-    @FXML
     public void sendToOutput() {
         outputTextBit.setText(editTextBit.getText());
         editTextBit.setText("");
     }
 
-    @FXML
     public void correct() {
-        if(errorCorrection.checkCorrection(BitArray.bitStringToBitArray(outputTextBit.getText()))) {
-            outputText.setText("no i zajebiście");
+
+    }
+
+    public void checkCorrection() {
+        if(errorCorrection.checkCorrection(outputTextBit.getText())) {
+            background.setStyle("-fx-background-color:#86AF49;");
         } else {
-            outputText.setText("noooo, coś nie dobrze");
+            background.setStyle("-fx-background-color:#F08080;");
         }
+    }
+
+    public void removeParityBits() {
+        outputText.setText(errorCorrection.removeParityBits(outputTextBit.getText()));
+
     }
 
 
