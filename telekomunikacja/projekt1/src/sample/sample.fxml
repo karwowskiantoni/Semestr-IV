@@ -4,10 +4,9 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<TabPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <tabs>
     <Tab text="Wyślij">
       <content>
@@ -15,10 +14,7 @@
                <children>
                   <Button fx:id="inputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToEdit" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
                   <TextArea fx:id="inputText" layoutX="40.0" layoutY="29.0" prefHeight="126.0" prefWidth="520.0" />
-                  <TextArea fx:id="inputTextBit" depthTest="ENABLE" editable="false" layoutX="40.0" layoutY="166.0" prefHeight="126.0" prefWidth="520.0">
-                     <effect>
-                        <ColorAdjust brightness="-0.47" contrast="0.19" hue="1.0" saturation="1.0" />
-                     </effect></TextArea>
+                  <TextArea fx:id="inputTextBit" depthTest="ENABLE" editable="false" layoutX="40.0" layoutY="166.0" prefHeight="126.0" prefWidth="520.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -35,15 +31,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="outputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#correct" prefHeight="52.0" prefWidth="308.0" text="Popraw Błędy" />
-                  <TextArea fx:id="outputText" editable="false" layoutX="40.0" layoutY="31.0" prefHeight="116.0" prefWidth="520.0">
-                     <effect>
-                        <ColorAdjust brightness="-0.51" contrast="0.41" hue="-0.98" saturation="1.0" />
-                     </effect></TextArea>
-                  <TextArea fx:id="outputTextBit" editable="false" layoutX="40.0" layoutY="165.0" prefHeight="124.0" prefWidth="520.0">
-                     <effect>
-                        <ColorAdjust brightness="-0.49" contrast="0.41" hue="-0.98" saturation="1.0" />
-                     </effect></TextArea>
+                  <Button fx:id="outputButton" layoutX="227.0" layoutY="305.0" mnemonicParsing="false" onAction="#correct" prefHeight="52.0" prefWidth="149.0" text="Popraw Błędy" />
+                  <TextArea fx:id="outputText" editable="false" layoutX="40.0" layoutY="31.0" prefHeight="116.0" prefWidth="520.0" />
+                  <TextArea fx:id="outputTextBit" editable="false" layoutX="40.0" layoutY="165.0" prefHeight="124.0" prefWidth="520.0" />
+                  <Button fx:id="checkButton" layoutX="40.0" layoutY="304.0" mnemonicParsing="false" onAction="#checkCorrection" prefHeight="54.0" prefWidth="151.0" text="Sprawdź poprawność" />
+                  <Button fx:id="deleteButton" layoutX="413.0" layoutY="306.0" mnemonicParsing="false" onAction="#removeParityBits" prefHeight="50.0" prefWidth="147.0" text="Usuń bity parzystości" />
                </children>
             </AnchorPane>
         </content>

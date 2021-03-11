@@ -19,7 +19,7 @@ public class ErrorCorrectionAlgorithm {
         BitArray finalArray = new BitArray(16);
         for(int i = 0; i < 8 ; i++) {
             finalArray.setBit(array.getBit(i), i);
-            if(hMatrix[i].divide(8).AND(array).isParity()) {
+            if(hMatrix[i].getBitsFromLeftSide(8).AND(array).isParity()) {
                 finalArray.setBit(0, 8+i);
             } else {
                 finalArray.setBit(1, 8+i);
@@ -28,31 +28,12 @@ public class ErrorCorrectionAlgorithm {
         return finalArray;
     }
 
-    public boolean checkCorrection(BitArray array) {
-        return multiplicateMatrix(array).isZero();
-    }
-
-    public BitArray correctSingleError(BitArray array) {
-        BitArray finalArray = new BitArray(8);
-
-
-
-        return finalArray;
-    }
-
-    public BitArray correctDoubleError(BitArray array) {
-        BitArray finalArray = new BitArray(8);
-
-
-
-        return finalArray;
-    }
-
+    // funkcja zwracająca wektor błędu dla 2 bajtowego bloku (8 bitów danych + 8 bitów parzystości)
     private BitArray multiplicateMatrix(BitArray array) {
         BitArray finalArray = new BitArray(8);
 
         for(int i = 0; i < 8; i++) {
-          finalArray.setBit(hMatrix[i].AND(array).recursiveXOR(), i);;
+          finalArray.setBit(hMatrix[i].AND(array).recursiveXOR(), i);
         }
 
         return finalArray;

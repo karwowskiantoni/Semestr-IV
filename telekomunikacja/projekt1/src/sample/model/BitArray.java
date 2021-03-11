@@ -125,14 +125,30 @@ public class BitArray {
         return new BitArray(dataInFourTimesBits);
     }
 
-    public BitArray divide(int left) {
-        BitArray leftArray = new BitArray(left);
+    public BitArray getBitsFromLeftSide(int index) {
+        BitArray leftArray = new BitArray(index);
 
-        for (int i = 0; i < left; i++) {
+        for (int i = 0; i < index; i++) {
             leftArray.setBit(this.getBit(i), i);
         }
 
         return leftArray;
+    }
+//    0 1 2 3 4 5 6 7
+//    1 1 1 0 1 0 1 0
+//
+//    getBitsFromRightSide(2) -> 2 3 4 5 6 7
+//    rightArray(2)
+//        (length - 2) razy wykonaj rightarray[0] = this[index + i]
+
+    public BitArray getBitsFromRightSide(int index) {
+        BitArray rightArray = new BitArray(length - index);
+
+        for (int i = 0; i < length - index; i++) {
+            rightArray.setBit(this.getBit(index + i), i);
+        }
+
+        return rightArray;
     }
 
     public BitArray XOR(BitArray bitArray) {

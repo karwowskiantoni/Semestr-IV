@@ -6,13 +6,11 @@ import javafx.beans.property.adapter.JavaBeanStringProperty;
 import javafx.beans.property.adapter.JavaBeanStringPropertyBuilder;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.util.StringConverter;
 import sample.model.BitArray;
 import sample.model.ErrorCorrectionAlgorithm;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Controller {
 
