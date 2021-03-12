@@ -33,8 +33,8 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        inputTextBit.textProperty().bindBidirectional(inputText.textProperty(), prepareConverter());
-        outputTextBit.textProperty().bindBidirectional(outputText.textProperty(), prepareConverter());
+        inputTextBit.textProperty().bindBidirectional(inputText.textProperty(), prepareInputConverter());
+        outputTextBit.textProperty().bindBidirectional(outputText.textProperty(), prepareOutputConverter());
 
     }
 
@@ -49,6 +49,8 @@ public class Controller {
     }
 
     public void correct() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         outputTextBit.setText(errorCorrection.correct(outputTextBit.getText()));
     }
 
@@ -71,6 +73,20 @@ public class Controller {
             @Override
             public Object fromString(String string) {
                 return BitArray.bitStringToBitArray(string).bitArrayToString();
+            }
+        };
+    }
+
+    private StringConverter prepareOutputConverter() {
+        return new StringConverter() {
+            @Override
+            public String toString(Object object) {
+                return BitArray.stringToBitArray(object.toString()).bitArrayToBitString();
+            }
+
+            @Override
+            public Object fromString(String string) {
+                return errorCorrection.removeParityBits(string);
             }
         };
     }

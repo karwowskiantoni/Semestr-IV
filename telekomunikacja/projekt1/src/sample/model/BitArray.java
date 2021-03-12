@@ -74,7 +74,7 @@ public class BitArray {
     public String bitArrayToBitString() {
         String result = "";
 
-        for(int i = 0; i < this.getBytes().length*8; i++){
+        for(int i = 0; i < this.length; i++){
             if(i%8 == 0 && i != 0){
                 result += " ";
             }
@@ -148,12 +148,12 @@ public class BitArray {
     }
 
     public BitArray XOR(BitArray bitArray) {
-
+        BitArray finalArray = new BitArray(bitArray.length);
         for(int i = 0; i < this.getBytes().length; i++){
-            bitArray.getBytes()[i] = (byte) ((int)(this.getBytes()[i]) ^ (int)(bitArray.getBytes()[i]));
+            finalArray.getBytes()[i] = (byte) ((int)(this.getBytes()[i]) ^ (int)(bitArray.getBytes()[i]));
         }
 
-        return bitArray;
+        return finalArray;
     }
 
     public boolean isParity() {

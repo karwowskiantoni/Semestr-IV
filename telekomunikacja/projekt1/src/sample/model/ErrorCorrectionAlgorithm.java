@@ -51,16 +51,6 @@ public class ErrorCorrectionAlgorithm {
         return true;
     }
 
-    //usuwa bity parzystości, konwertuje na postać ciągu znaków
-    public String removeParityBits(String bitData) {
-        String data = BitArray.bitStringToBitArray(bitData).bitArrayToString();
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < data.length(); i = i + 2){
-            result.append(data.charAt(i));
-        }
-        return result.toString();
-    }
-
     //poprawia do dwóch błędów w ciągu bitów
     public String correct(String bitData) {
         BitArray array = BitArray.bitStringToBitArray(bitData);
@@ -74,7 +64,15 @@ public class ErrorCorrectionAlgorithm {
         return finalArray.bitArrayToBitString();
     }
 
-
+    //usuwa bity parzystości, konwertuje na postać ciągu znaków
+    public String removeParityBits(String bitData) {
+        bitData = bitData.replace(" ", "");
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < bitData.length(); i = i + 16){
+            result.append(bitData, i, i+8);
+        }
+        return BitArray.bitStringToBitArray(result.toString()).bitArrayToString();
+    }
 
 
 
@@ -123,14 +121,32 @@ public class ErrorCorrectionAlgorithm {
     }
 
     //funkcja poprawia do dwóch błędów w jednym 2 bajtowym bloku kodu
-    private BitArray correctSingleBlock(BitArray block) {
+    private BitArray correctSingleBlock(BitArray block, int blockNumber) {
         BitArray[] transposedHMatrix = transposeMatrix(hMatrix);
-            for(int i = 0; i < transposedHMatrix.length; i++) {
-                if (transposedHMatrix[i].isEqual(singleBlockOutput(block))) {
-                    System.out.println("błędny bit numer " + i);
-                    block.negateSingleBit(i);
-                }
+
+        // poprawa dwóch błędów
+        HashMap<BitArray, Integer[]> allXORedColumns = xorBitArrays(transposedHMatrix);
+        Set<Map.Entry<BitArray, Integer[]>> allXORedColumnsSet= allXORedColumns.entrySet();
+        for(Map.Entry<BitArray, Integer[]> entry: allXORedColumnsSet) {
+            if(entry.getKey().isEqual(singleBlockOutput(block))) {
+                Integer[] coordinates = entry.getValue();
+                block.negateSingleBit(coordinates[0]);
+                block.negateSingleBit(coordinates[1]);
+                System.out.print("błędne bity numer " + coordinates[0]);
+                System.out.print(" oraz " + coordinates[1]);
+                System.out.println(" w bloku numer " + blockNumber);
+                return block;
             }
+        }
+
+        // poprawa jednego błędu
+        for(int i = 0; i < transposedHMatrix.length; i++) {
+            if (transposedHMatrix[i].isEqual(singleBlockOutput(block))) {
+                block.negateSingleBit(i);
+                System.out.println("błędny bit numer " + i + " w bloku numer " + blockNumber);
+                return block;
+            }
+        }
         return block;
     }
 
