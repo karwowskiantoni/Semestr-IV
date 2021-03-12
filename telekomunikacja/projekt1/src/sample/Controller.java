@@ -60,11 +60,8 @@ public class Controller {
         }
     }
 
-    public void removeParityBits() {
-        outputText.setText(errorCorrection.removeParityBits(outputTextBit.getText()));
-    }
 
-    private StringConverter prepareConverter() {
+    private StringConverter prepareInputConverter() {
         return new StringConverter() {
             @Override
             public String toString(Object object) {

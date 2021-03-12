@@ -1,5 +1,10 @@
 package sample.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class ErrorCorrectionAlgorithm {
 
     BitArray[] hMatrix = new BitArray[8];
@@ -61,10 +66,8 @@ public class ErrorCorrectionAlgorithm {
         BitArray array = BitArray.bitStringToBitArray(bitData);
         BitArray finalArray = new BitArray(0);
         int arrayFirstSize = array.length/16;
-        BitArray.xorBitArrayItself(array);
         for(int i = 0; i < arrayFirstSize; i++) {
-            System.out.println("blok numer " + i);
-            finalArray = finalArray.connect(correctSingleBlock(array.getBitsFromLeftSide(16)));
+            finalArray = finalArray.connect(correctSingleBlock(array.getBitsFromLeftSide(16), i));
             array = array.getBitsFromRightSide(16);
         }
 
@@ -131,4 +134,13 @@ public class ErrorCorrectionAlgorithm {
         return block;
     }
 
+    public HashMap<BitArray, Integer[]> xorBitArrays(BitArray[] data) {
+        HashMap<BitArray, Integer[]> xoredFinalArray = new HashMap<>();
+        for (int baseBitArrayElement = 0; baseBitArrayElement < data.length - 1; baseBitArrayElement++) {
+            for (int xoringBitArrayElement = baseBitArrayElement + 1; xoringBitArrayElement < data.length; xoringBitArrayElement++) {
+                xoredFinalArray.put(data[baseBitArrayElement].XOR(data[xoringBitArrayElement]), new Integer[]{baseBitArrayElement, xoringBitArrayElement});
+            }
+        }
+        return xoredFinalArray;
+    }
 }

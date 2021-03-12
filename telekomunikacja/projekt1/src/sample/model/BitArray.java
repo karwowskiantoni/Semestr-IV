@@ -241,34 +241,4 @@ public class BitArray {
             this.setBit(0, index);
         }
     }
-
-    public static BitArray xorBitArrayItself(BitArray data){
-        ArrayList<Integer> buffer = new ArrayList<>();
-        int bitCounter = 0;
-        int finalBitCounter = 0;
-
-        for(int operativeByteNumber = 0; operativeByteNumber < data.length; operativeByteNumber = operativeByteNumber + 8){
-
-            for(int xoringBit = operativeByteNumber + 8; xoringBit < data.length; xoringBit++){
-
-                if(data.getBit(operativeByteNumber + bitCounter) == data.getBit(xoringBit)){
-                    buffer.add(0);
-                } else {
-                    buffer.add(1);
-                }
-                finalBitCounter++;
-                bitCounter++;
-                if(bitCounter%8 == 0){
-                    bitCounter = 0;
-                }
-            }
-        }
-        BitArray finalXorResult = new BitArray(buffer.size());
-        for(int i = 0; i < buffer.size(); i++){
-            finalXorResult.setBit(buffer.get(i), i);
-        }
-        System.out.println(finalXorResult.bitArrayToBitString());
-        return finalXorResult;
-    }
-
 }
