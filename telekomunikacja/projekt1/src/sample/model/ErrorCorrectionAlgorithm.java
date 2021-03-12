@@ -61,6 +61,7 @@ public class ErrorCorrectionAlgorithm {
         BitArray array = BitArray.bitStringToBitArray(bitData);
         BitArray finalArray = new BitArray(0);
         int arrayFirstSize = array.length/16;
+        BitArray.xorBitArrayItself(array);
         for(int i = 0; i < arrayFirstSize; i++) {
             System.out.println("blok numer " + i);
             finalArray = finalArray.connect(correctSingleBlock(array.getBitsFromLeftSide(16)));
@@ -69,6 +70,8 @@ public class ErrorCorrectionAlgorithm {
 
         return finalArray.bitArrayToBitString();
     }
+
+
 
 
 
