@@ -12,7 +12,6 @@ public class Controller {
 
     @FXML
     TabPane background = new TabPane();
-
     @FXML
     TextArea inputText = new TextArea();
     @FXML
@@ -23,15 +22,12 @@ public class Controller {
     TextArea editTextBit = new TextArea();
     @FXML
     TextArea outputTextBit = new TextArea();
-
-
     @FXML
     Button inputButton = new Button();
     @FXML
     Button editButton = new Button();
     @FXML
     Button outputButton = new Button();
-
 
     ErrorCorrectionAlgorithm errorCorrection = new ErrorCorrectionAlgorithm();
 
@@ -53,7 +49,7 @@ public class Controller {
     }
 
     public void correct() {
-
+        outputTextBit.setText(errorCorrection.correct(outputTextBit.getText()));
     }
 
     public void checkCorrection() {
@@ -66,10 +62,7 @@ public class Controller {
 
     public void removeParityBits() {
         outputText.setText(errorCorrection.removeParityBits(outputTextBit.getText()));
-
     }
-
-
 
     private StringConverter prepareConverter() {
         return new StringConverter() {

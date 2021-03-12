@@ -134,12 +134,6 @@ public class BitArray {
 
         return leftArray;
     }
-//    0 1 2 3 4 5 6 7
-//    1 1 1 0 1 0 1 0
-//
-//    getBitsFromRightSide(2) -> 2 3 4 5 6 7
-//    rightArray(2)
-//        (length - 2) razy wykonaj rightarray[0] = this[index + i]
 
     public BitArray getBitsFromRightSide(int index) {
         BitArray rightArray = new BitArray(length - index);
@@ -224,6 +218,26 @@ public class BitArray {
             }
         }
         return true;
+    }
+
+    public boolean isEqual(BitArray array) {
+        if(array.length != this.length) {
+            return false;
+        }
+        for(int i = 0; i < this.length; i++) {
+            if(array.getBit(i) != this.getBit(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void negateSingleBit(int index) {
+        if(this.getBit(index) == 0) {
+            this.setBit(1, index);
+        }else {
+            this.setBit(0, index);
+        }
     }
 
 }
