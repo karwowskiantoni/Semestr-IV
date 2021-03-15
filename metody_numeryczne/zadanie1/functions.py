@@ -1,7 +1,9 @@
 # wartość funkcji w punkcie obliczana schematem Hornera
-def value_of_function(x, coefficients):
-    # todo Michał
-    return 0
+def horner_method(x, coefficients):
+    value = coefficients[0]
+    for i in range(1, len(coefficients)):
+        value = value * x + coefficients[i]
+    return value
 
 
 def points(function, begin, end, number):
@@ -21,4 +23,4 @@ def maximum_in_range(function, begin, end, accuracy):
 # todo implementacja przykładowych funkcji do wyboru
 # 2*x^3 + 4*x^2 + 2
 def first_option(x):
-    return value_of_function(x, [2, 4, 0, 2])
+    return horner_method(x, [2, 4, 0, 2])
