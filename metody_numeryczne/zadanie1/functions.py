@@ -7,17 +7,20 @@ def horner_method(x, coefficients):
 
 
 def points(function, begin, end, number):
-    # todo
-    return function()
+    X = [0]*number
+    Y = [0]*number
+    step = (end-begin)/(number-1)
+    current_point = begin
+    for i in range(number):
+        X[i] = current_point
+        Y[i] = function(current_point)
+        current_point += step
+    return [X, Y]
 
 
 def maximum_in_range(function, begin, end, accuracy):
     # todo
     return 0
-
-
-
-
 
 
 # todo implementacja przykładowych funkcji do wyboru
