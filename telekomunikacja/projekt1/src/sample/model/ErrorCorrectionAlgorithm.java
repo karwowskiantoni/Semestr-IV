@@ -12,16 +12,15 @@ public class ErrorCorrectionAlgorithm {
     public ErrorCorrectionAlgorithm() {
 
         //implementacja macierzy dodająca 8 bitów parzystości według wzoru
-        hMatrix[0] = BitArray.bitStringToBitArray("0111111010000000");
-        hMatrix[1] = BitArray.bitStringToBitArray("0011111101000000");
-        hMatrix[2] = BitArray.bitStringToBitArray("1001111100100000");
-        hMatrix[3] = BitArray.bitStringToBitArray("1100111100010000");
-        hMatrix[4] = BitArray.bitStringToBitArray("1110011100001000");
-        hMatrix[5] = BitArray.bitStringToBitArray("1111001100000100");
-        hMatrix[6] = BitArray.bitStringToBitArray("1111100100000010");
-        hMatrix[7] = BitArray.bitStringToBitArray("1111110000000001");
+        hMatrix[0] = BitArray.bitStringToBitArray("00111111 10000000");
+        hMatrix[1] = BitArray.bitStringToBitArray("10011111 01000000");
+        hMatrix[2] = BitArray.bitStringToBitArray("11001111 00100000");
+        hMatrix[3] = BitArray.bitStringToBitArray("11100111 00010000");
+        hMatrix[4] = BitArray.bitStringToBitArray("11110011 00001000");
+        hMatrix[5] = BitArray.bitStringToBitArray("11111001 00000100");
+        hMatrix[6] = BitArray.bitStringToBitArray("11111100 00000010");
+        hMatrix[7] = BitArray.bitStringToBitArray("01111110 00000001");
     }
-
 
 
     //konwertuje na postać ciągu bitów i dodaje bity parzystości
@@ -150,6 +149,7 @@ public class ErrorCorrectionAlgorithm {
         return block;
     }
 
+    // zwraca wszystkie kombinacje xorów tablicy ciągów bitów
     public HashMap<BitArray, Integer[]> xorBitArrays(BitArray[] data) {
         HashMap<BitArray, Integer[]> xoredFinalArray = new HashMap<>();
         for (int baseBitArrayElement = 0; baseBitArrayElement < data.length - 1; baseBitArrayElement++) {
