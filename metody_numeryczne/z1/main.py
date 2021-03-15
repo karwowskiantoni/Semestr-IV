@@ -1,6 +1,10 @@
-def print_hi(name):
-    print(f'Hi, {name}')
+import matplotlib.pyplot as plt
+from functions import *
 
 if __name__ == '__main__':
-    print_hi('przecież tu nikogo nie ma, co wy pierdolicie!?')
-
+    # todo
+    # 1) interfejs konsolowy do wyboru funkcji z listy
+    # 2) rysowanie wykresu
+    points = points()
+    plt.plot(points[0], points[1])
+    plt.show()
