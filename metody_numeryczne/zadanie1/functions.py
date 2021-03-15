@@ -1,4 +1,3 @@
-
 # wartość funkcji w punkcie obliczana schematem Hornera
 def value_of_function(x, coefficients):
     # todo Michał

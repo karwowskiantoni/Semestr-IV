@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+import matplotlib as pl
 from functions import *
 
 if __name__ == '__main__':
