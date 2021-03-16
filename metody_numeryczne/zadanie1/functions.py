@@ -1,4 +1,5 @@
-# wartość funkcji w punkcie obliczana schematem Hornera
+# zwraca wartość wielomianu w punkcie 'x' obliczoną schematem
+# Hornera na podstawie współczynników wielomianu 'coefficients'
 def horner_method(x, coefficients):
     value = coefficients[0]
     for i in range(1, len(coefficients)):
@@ -30,6 +31,7 @@ def unimodal_division(function, begin_x, end_x, step):
     return [divisions_with_minimum, divisions_with_maximum]
 
 
+# zwraca 'number' punktów funkcji 'function' z przedziału <'begin'; 'end'>
 def points(function, begin, end, number):
     X = [0]*number
     Y = [0]*number
@@ -43,7 +45,7 @@ def points(function, begin, end, number):
 
 
 def maximum_in_range(function, begin, end, accuracy):
-    # todo
+    # todo po co to komu
     return 0
 
 
