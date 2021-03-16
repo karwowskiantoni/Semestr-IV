@@ -1,10 +1,32 @@
 import matplotlib.pyplot as plt
+import math
 from functions import *
 
+# todo implementacja przykładowych funkcji do wyboru
+
+def first_option(x):
+    # 2*x^3 + 4*x^2 + 2
+    return horner_method(x, [2, 4, 0, 2])
+
+
+def second_option(x):
+    # sin(x) + 5x^2
+    return math.sin(x)*math.sin(x)*math.sin(x) + horner_method(x, [0.001, 0])
+
+
 if __name__ == '__main__':
-    # todo
-    # 1) interfejs konsolowy do wyboru funkcji z listy
-    # 2) rysowanie wykresu
-    points = points(first_option, -2, 2, 10000)
-    plt.plot(points[0], points[1])
+    # todo 1) interfejs konsolowy do wyboru funkcji z listy
+    # todo 2) rysowanie wykresu
+
+    wybrana_funkcja = second_option
+    punkty = points(wybrana_funkcja, -100, 100, 10000)
+    ekstrema = unimodal_division(wybrana_funkcja, -100, 100, 0.001)
+
+    plt.scatter(ekstrema[0][1], second_option(ekstrema[0][1]))
+    plt.plot(punkty[0], punkty[1])
     plt.show()
+
+
+
+
+
