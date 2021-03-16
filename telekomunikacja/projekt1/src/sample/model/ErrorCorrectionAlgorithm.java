@@ -12,14 +12,14 @@ public class ErrorCorrectionAlgorithm {
     public ErrorCorrectionAlgorithm() {
 
         //implementacja macierzy dodająca 8 bitów parzystości według wzoru
-        hMatrix[0] = BitArray.bitStringToBitArray("00111111 10000000");
-        hMatrix[1] = BitArray.bitStringToBitArray("10011111 01000000");
-        hMatrix[2] = BitArray.bitStringToBitArray("11001111 00100000");
-        hMatrix[3] = BitArray.bitStringToBitArray("11100111 00010000");
-        hMatrix[4] = BitArray.bitStringToBitArray("11110011 00001000");
-        hMatrix[5] = BitArray.bitStringToBitArray("11111001 00000100");
-        hMatrix[6] = BitArray.bitStringToBitArray("11111100 00000010");
-        hMatrix[7] = BitArray.bitStringToBitArray("01111110 00000001");
+        hMatrix[0] = BitArray.bitStringToBitArray("01011111 10000000");
+        hMatrix[1] = BitArray.bitStringToBitArray("10101111 01000000");
+        hMatrix[2] = BitArray.bitStringToBitArray("11010111 00100000");
+        hMatrix[3] = BitArray.bitStringToBitArray("11101011 00010000");
+        hMatrix[4] = BitArray.bitStringToBitArray("11110101 00001000");
+        hMatrix[5] = BitArray.bitStringToBitArray("11111010 00000100");
+        hMatrix[6] = BitArray.bitStringToBitArray("01111101 00000010");
+        hMatrix[7] = BitArray.bitStringToBitArray("10111110 00000001");
     }
 
 
