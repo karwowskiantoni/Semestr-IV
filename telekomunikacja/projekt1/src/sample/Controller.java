@@ -4,9 +4,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import sample.model.BitArray;
 import sample.model.ErrorCorrectionAlgorithm;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Controller {
 
@@ -38,9 +46,13 @@ public class Controller {
 
     }
 
-    public void sendToEdit() {
+    public void sendToEdit() throws FileNotFoundException, IOException {
         editTextBit.setText(errorCorrection.encode(inputText.getText()));
         inputText.setText("");
+
+        try (FileOutputStream stream = new FileOutputStream("msgWithParityBits")) {
+            stream.write(BitArray.bitStringToBitArray(editTextBit.getText()).getBytes());
+        }
     }
 
     public void sendToOutput() {
@@ -59,6 +71,19 @@ public class Controller {
             background.setStyle("-fx-background-color:#86AF49;");
         } else {
             background.setStyle("-fx-background-color:#F08080;");
+        }
+    }
+
+    public void chooseFile() throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Wybierz plik");
+        File selectedDirectory = fileChooser.showOpenDialog(pathField.getScene().getWindow());
+        pathField.setText(selectedDirectory.getAbsolutePath());
+
+        try {
+            bytes = Files.readAllBytes(Paths.get(pathField.getText()));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
