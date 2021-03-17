@@ -11,7 +11,7 @@ def first_option(x):
 
 def second_option(x):
     # sin(x) + 5x^2
-    return horner_method(math.sin(x), [3, 0, 0]) + horner_method(x, [0, 0.001, 0])
+    return horner_method(math.sin(x), [1, 0, 0, 0]) + horner_method(x, [0, 0.001, 0])
 
 
 if __name__ == '__main__':
