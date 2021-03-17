@@ -73,15 +73,7 @@ public class ErrorCorrectionAlgorithm {
         return BitArray.bitStringToBitArray(result.toString()).bitArrayToString();
     }
 
-
-
-
-
-
-
-
-
-
+    //-------------------------------------------------------------------------------------------------------
 
     //funkcja dodająca 8 bitów parzystości do 1 bajtowego bloku danych, wyjściowy blok ma 2 bajty
     private BitArray addParityBits(BitArray array) {

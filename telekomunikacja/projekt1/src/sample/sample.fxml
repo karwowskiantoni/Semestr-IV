@@ -15,6 +15,7 @@
                   <Button fx:id="inputButton" layoutX="146.0" layoutY="301.0" mnemonicParsing="false" onAction="#sendToEdit" prefHeight="52.0" prefWidth="308.0" text="Wyślij" />
                   <TextArea fx:id="inputText" layoutX="40.0" layoutY="29.0" prefHeight="126.0" prefWidth="520.0" wrapText="true" />
                   <TextArea fx:id="inputTextBit" depthTest="ENABLE" editable="false" layoutX="40.0" layoutY="166.0" prefHeight="126.0" prefWidth="520.0" wrapText="true" />
+                  <Button fx:id="addFileButtonOne" layoutX="491.0" layoutY="310.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="81.0" text="Załącz plik" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -31,10 +32,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="outputButton" layoutX="361.0" layoutY="305.0" mnemonicParsing="false" onAction="#correct" prefHeight="52.0" prefWidth="149.0" text="Popraw Błędy" />
+                  <Button fx:id="outputButton" layoutX="283.0" layoutY="305.0" mnemonicParsing="false" onAction="#correct" prefHeight="52.0" prefWidth="149.0" text="Popraw Błędy" />
                   <TextArea fx:id="outputText" editable="false" layoutX="40.0" layoutY="31.0" prefHeight="116.0" prefWidth="520.0" wrapText="true" />
                   <TextArea fx:id="outputTextBit" editable="false" layoutX="40.0" layoutY="165.0" prefHeight="124.0" prefWidth="520.0" wrapText="true" />
                   <Button fx:id="checkButton" layoutX="93.0" layoutY="304.0" mnemonicParsing="false" onAction="#checkCorrection" prefHeight="54.0" prefWidth="151.0" text="Sprawdź poprawność" />
+                  <Button fx:id="addFileButtonTwo" layoutX="477.0" layoutY="315.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="83.0" text="Załącz plik" />
                </children>
             </AnchorPane>
         </content>
