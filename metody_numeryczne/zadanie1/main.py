@@ -11,7 +11,7 @@ def first_option(x):
 
 def second_option(x):
     # sin(x) + 5x^2
-    return math.sin(x)*math.sin(x)*math.sin(x) + horner_method(x, [0.001, 0])
+    return horner_method(math.sin(x), [3, 0, 0]) + horner_method(x, [0, 0.001, 0])
 
 
 if __name__ == '__main__':
@@ -22,11 +22,6 @@ if __name__ == '__main__':
     punkty = points(wybrana_funkcja, -100, 100, 10000)
     ekstrema = unimodal_division(wybrana_funkcja, -100, 100, 0.001)
 
-    plt.scatter(ekstrema[0][1], second_option(ekstrema[0][1]))
+    plt.scatter(ekstrema[1][0], second_option(ekstrema[1][0]))
     plt.plot(punkty[0], punkty[1])
     plt.show()
-
-
-
-
-

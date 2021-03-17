@@ -9,7 +9,7 @@ def horner_method(x, coefficients):
 
 # zwraca przedziały na których funkcja 'function' może posiadać minimum
 # i maksimum lokalne z przedziału <'begin', 'end'> z dokładnością 'step'
-def unimodal_division(function, begin_x, end_x, step):
+def unimodal_division(function, begin_x, end_x, step): # 200 kroków
     current_point = begin_x + step
 
     divisions_with_maximum = []
@@ -18,11 +18,13 @@ def unimodal_division(function, begin_x, end_x, step):
     iterations = int((end_x-begin_x)/step) - 2
     for i in range(iterations):
 
-        if function(current_point) < function(current_point - step) and function(current_point) < function(current_point + step):
+        if function(current_point) < function(current_point - step)\
+                and function(current_point) < function(current_point + step):
             divisions_with_minimum.append(current_point)
             print("minimum")
 
-        if function(current_point) > function(current_point - step) and function(current_point) > function(current_point + step):
+        if function(current_point) > function(current_point - step)\
+                and function(current_point) > function(current_point + step):
             divisions_with_maximum.append(current_point)
             print("maksimum")
 
