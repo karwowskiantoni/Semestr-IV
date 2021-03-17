@@ -53,9 +53,29 @@ def calculate_points(function, division, number_of_points):
     return [X, Y]
 
 
-def maximum_in_range(function, begin, end, accuracy):
-    # todo po co to komu
-    return 0
+def maximum_in_range_by_dychotomy_method(function, division, accuracy, iterations_number):
+    proportion = 0.6
+    current_division = division
+
+    for i in range(iterations_number):
+        left_x = current_division.begin_x * proportion + current_division.end_x * (1 - proportion)
+        right_x = current_division.end_x * proportion + current_division.begin_x * (1 - proportion)
+        value_of_left_x = function(left_x)
+        value_of_right_x = function(right_x)
+
+        if abs(right_x - left_x) < accuracy:
+            return calculate_middle_of_the_division(current_division)
+
+        elif value_of_left_x > value_of_right_x:
+            current_division = Division(current_division.begin_x, right_x)
+
+        elif value_of_left_x < value_of_right_x:
+            current_division = Division(left_x, current_division.end_x)
+
+        else:
+            current_division = Division(left_x, right_x)
+    return calculate_middle_of_the_division(current_division)
+
 
 def maximum_in_range_by_golden_division_method(function, division, accuracy, iterations_number):
     # todo

@@ -1,6 +1,13 @@
 import matplotlib.pyplot as plt
 import math
+import sys
 from functions import *
+
+
+def draw_division(function, division):
+    plt.scatter(division.begin_x, function(division.begin_x))
+    plt.scatter(division.end_x, function(division.end_x))
+
 
 # todo implementacja przykładowych funkcji do wyboru
 
@@ -10,8 +17,8 @@ def first_option(x):
 
 
 def second_option(x):
-    # sin(x) + 5x^2
-    return horner_method(math.sin(x), [1, 0, 0, 0]) + horner_method(x, [0, 0.001, 0])
+    # sin(x)^3 + x
+    return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
 
 
 if __name__ == '__main__':
@@ -42,3 +49,5 @@ if __name__ == '__main__':
 
     plt.plot(punkty[0], punkty[1])
     plt.show()
+
+
