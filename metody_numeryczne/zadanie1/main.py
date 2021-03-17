@@ -37,16 +37,16 @@ if __name__ == '__main__':
     else:
         print("Do widzenia")
         sys.exit()
+
     przedzialik = Division(-5, 5)
-    punkty = calculate_points(wybrana_funkcja, przedzialik, 10000)
-    przedzialy_z_ekstremami = calculate_unimodal_divisions(wybrana_funkcja, przedzialik, 30)
-    przedzialy_z_minimami = przedzialy_z_ekstremami[0]
-    przedzialy_z_maksimami = przedzialy_z_ekstremami[1]
+    przedzialy_z_maksimami = calculate_unimodal_divisions(wybrana_funkcja, przedzialik, 30)
 
     for przedzial in przedzialy_z_maksimami:
+        draw_division(wybrana_funkcja, przedzial)
         x = maximum_in_range_by_dychotomy_method(wybrana_funkcja, przedzial, 0, 10)
         plt.scatter(x, wybrana_funkcja(x))
 
+    punkty = calculate_points(wybrana_funkcja, przedzialik, 10000)
     plt.plot(punkty[0], punkty[1])
     plt.show()
 
