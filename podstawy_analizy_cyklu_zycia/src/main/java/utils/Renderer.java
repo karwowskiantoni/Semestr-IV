@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 
 public class Renderer {
     public static void RenderujTekstCiagly(String tekst) {
+        clearConsole();
         System.out.println("*****==========================================================*****");
         System.out.println("********************************************************************");
         System.out.println("*****==========================================================*****");
@@ -28,6 +29,7 @@ public class Renderer {
 
 
     public static void RenderujTekstZeZnakamiKoncaLinii(String tekst) {
+        clearConsole();
         System.out.println("*****==========================================================*****");
         System.out.println("********************************************************************");
         System.out.println("*****==========================================================*****");
@@ -78,6 +80,12 @@ public class Renderer {
         for(int i = 0; i < wiersze.size(); i++) {
         }
         return wiersze;
+    }
+
+    public static void clearConsole()
+    {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }

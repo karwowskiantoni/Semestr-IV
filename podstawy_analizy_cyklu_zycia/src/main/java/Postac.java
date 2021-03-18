@@ -12,7 +12,7 @@ public class Postac {
 
     public Postac(int iloscPunktowZycia, int regeneracjaPunktowZycia, int wartoscAtaku,
                   int szybkoscAtaku, int wartoscPancerza, int procentowaSzansaNaTrafienie,
-                  int procentowaSzansaNaUnik, String opisPostaci, Wzmocnienie[] przedmioty, Wzmocnienie[] cechy) {
+                  int procentowaSzansaNaUnik, String opisPostaci, Wzmocnienie[] cechy) {
         this.iloscPunktowZycia = iloscPunktowZycia;
         this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
         this.wartoscAtaku = wartoscAtaku;
@@ -21,7 +21,6 @@ public class Postac {
         this.procentowaSzansaNaTrafienie = procentowaSzansaNaTrafienie;
         this.procentowaSzansaNaUnik = procentowaSzansaNaUnik;
         this.opisPostaci = opisPostaci;
-        this.przedmioty = przedmioty;
         this.cechy = cechy;
     }
 
