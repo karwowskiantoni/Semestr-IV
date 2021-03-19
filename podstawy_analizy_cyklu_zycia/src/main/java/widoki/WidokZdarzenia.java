@@ -1,9 +1,17 @@
-public class Zdarzenie {
+package widoki;
+
+import model.Postac;
+import model.Wzmocnienie;
+import utils.Renderer;
+
+public class WidokZdarzenia {
     public int id;
     public String Opis;
     public int[] nastepneID;
+    Renderer renderer;
 
-    public Zdarzenie(int id, String opis, int[] nastepneID, String[] wybory) {
+
+    public WidokZdarzenia(int id, String opis, int[] nastepneID, String[] wybory) {
         this.id = id;
         Opis = opis;
         this.nastepneID = nastepneID;

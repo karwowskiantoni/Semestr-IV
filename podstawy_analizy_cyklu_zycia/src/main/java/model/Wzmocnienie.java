@@ -1,3 +1,7 @@
+package model;
+
+import model.Postac;
+
 public class Wzmocnienie {
     public String typWzmocnienia;
     public int iloscPunktowZycia;

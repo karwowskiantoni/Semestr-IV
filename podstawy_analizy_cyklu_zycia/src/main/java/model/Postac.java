@@ -1,3 +1,5 @@
+package model;
+
 public class Postac {
     public int iloscPunktowZycia;
     public int regeneracjaPunktowZycia;
