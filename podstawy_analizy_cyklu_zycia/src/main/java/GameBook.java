@@ -62,6 +62,11 @@ public class GameBook {
                 br.readLine();
             }
 
+            // wyjście z gry
+            else if (polecenie[0].equals("wyjście")) {
+                System.exit(0);
+            }
+
             // błędne polecenie
             else {
                 Renderer.RenderujTekst(aktualneZdarzenie.Opis, 30, 100, 90);
@@ -93,6 +98,7 @@ public class GameBook {
                     "pomoc - wyświetla tę pomoc" + System.lineSeparator() +
                     "wybieram x - wybiera x w ciągu fabularnym" + System.lineSeparator() +
                     "bohater - wyświetla informacje o bohaterze" + System.lineSeparator() +
+                    "wyjście - wychodzi z gry" + System.lineSeparator() +
                     "NACIŚNIJ ENTER ABY POWRÓCIĆ DO GRY";
 
     static String tekstBledu =
