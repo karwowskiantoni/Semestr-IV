@@ -34,7 +34,7 @@ public class Interpreter {
                 if(argument == 1 || argument == 2) {
                     skurwysynek.RenderujTekst(tekstKontynuacji(polecenie));
                     br.readLine();
-                    return ParserZdarzen.stworzZdarzenie(Integer.toString(aktualneZdarzenie.nastepneID[argument -1]));
+                    return ParserWidokow.stworzZdarzenie(Integer.toString(aktualneZdarzenie.nastepneID[argument -1]));
                 } else {
                     skurwysynek.RenderujTekst("NIE MA TAKIEGO WYBORU");
                     br.readLine();
