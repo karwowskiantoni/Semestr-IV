@@ -3,7 +3,7 @@ package model;
 import model.Postac;
 
 public class Wzmocnienie {
-    public String typWzmocnienia;
+    public String nazwa;
     public int iloscPunktowZycia;
     public int regeneracjaPunktowZycia;
     public int wartoscAtaku;
@@ -12,10 +12,10 @@ public class Wzmocnienie {
     public int procentowaSzansaNaTrafienie;
     public int procentowaSzansaNaUnik;
 
-    public Wzmocnienie(String typWzmocnienia, int iloscPunktowZycia, int regeneracjaPunktowZycia,
+    public Wzmocnienie(String nazwa, int iloscPunktowZycia, int regeneracjaPunktowZycia,
                        int wartoscAtaku, int szybkoscAtaku, int wartoscPancerza,
                        int procentowaSzansaNaTrafienie, int procentowaSzansaNaUnik) {
-        this.typWzmocnienia = typWzmocnienia;
+        this.nazwa = nazwa;
         this.iloscPunktowZycia = iloscPunktowZycia;
         this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
         this.wartoscAtaku = wartoscAtaku;
@@ -24,7 +24,6 @@ public class Wzmocnienie {
         this.procentowaSzansaNaTrafienie = procentowaSzansaNaTrafienie;
         this.procentowaSzansaNaUnik = procentowaSzansaNaUnik;
     }
-
 
 
     public void wzmocnij(Postac bohater){
@@ -36,5 +35,16 @@ public class Wzmocnienie {
         bohater.wartoscPancerza += wartoscPancerza;
         bohater.procentowaSzansaNaTrafienie += procentowaSzansaNaTrafienie;
         bohater.procentowaSzansaNaUnik += procentowaSzansaNaUnik;
+    }
+
+    public void zdejmijPrzedmiot(Postac bohater){
+        bohater.iloscPunktowZycia -= iloscPunktowZycia;
+        bohater.regeneracjaPunktowZycia -= regeneracjaPunktowZycia;
+        bohater.wartoscAtaku -= wartoscAtaku;
+        bohater.szybkoscAtaku -= szybkoscAtaku;
+        bohater.wartoscAtaku -= wartoscAtaku;
+        bohater.wartoscPancerza -= wartoscPancerza;
+        bohater.procentowaSzansaNaTrafienie -= procentowaSzansaNaTrafienie;
+        bohater.procentowaSzansaNaUnik -= procentowaSzansaNaUnik;
     }
 }
