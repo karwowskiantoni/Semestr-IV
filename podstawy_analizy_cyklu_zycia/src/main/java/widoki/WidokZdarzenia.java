@@ -5,12 +5,14 @@ import model.Wzmocnienie;
 import utils.Renderer;
 
 public class WidokZdarzenia {
+    public int id;
     public String Opis;
     public int[] nastepneID;
     Renderer renderer;
 
 
-    public WidokZdarzenia(String opis, int[] nastepneID) {
+    public WidokZdarzenia(int id, String opis, int[] nastepneID, String[] wybory) {
+        this.id = id;
         Opis = opis;
         this.nastepneID = nastepneID;
     }

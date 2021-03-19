@@ -1,7 +1,7 @@
 import model.Postac;
 import model.Wzmocnienie;
 import utils.Interpreter;
-import utils.ParserWidokow;
+import utils.ParserZdarzen;
 import utils.Renderer;
 import widoki.WidokZdarzenia;
 
@@ -19,7 +19,7 @@ public class GameBook {
 
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
 
-        WidokZdarzenia aktualnyWidok = ParserWidokow.stworzZdarzenie("0");
+        WidokZdarzenia aktualneZdarzenie = ParserZdarzen.stworzZdarzenie("0");
         Renderer skurwysynek = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
         Postac bohater = new Postac(50,
                 10,
@@ -34,8 +34,8 @@ public class GameBook {
 
 
         while (true) {
-            skurwysynek.RenderujTekst(aktualnyWidok.Opis);
-            aktualnyWidok = Interpreter.wykonajPolecenie(aktualnyWidok, skurwysynek, bohater);
+            skurwysynek.RenderujTekst(aktualneZdarzenie.Opis);
+            aktualneZdarzenie = Interpreter.wykonajPolecenie(aktualneZdarzenie, skurwysynek, bohater);
 
         }
     }
