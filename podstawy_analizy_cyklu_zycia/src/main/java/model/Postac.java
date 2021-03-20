@@ -1,5 +1,7 @@
 package model;
 
+import widoki.Zdarzenie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,6 +19,7 @@ public class Postac {
     public String nazwaPostaci;
     public List<Wzmocnienie> przedmioty;
     public List<Wzmocnienie> cechy;
+    public Zdarzenie zapis = null;
 
     public Postac(int iloscPunktowZycia, int regeneracjaPunktowZycia, int wartoscAtaku,
                   int szybkoscAtaku, int wartoscPancerza, int procentowaSzansaNaTrafienie,
@@ -31,6 +34,10 @@ public class Postac {
         this.nazwaPostaci = nazwaPostaci;
         this.cechy =  new ArrayList<>();
         this.przedmioty = new ArrayList<>();
+    }
+
+    public Postac(){
+
     }
 
     public String walka(Postac wrog) throws IOException {
@@ -270,6 +277,92 @@ public class Postac {
 
     }
 
+    public int getIloscPunktowZycia() {
+        return iloscPunktowZycia;
+    }
 
+    public void setIloscPunktowZycia(int iloscPunktowZycia) {
+        this.iloscPunktowZycia = iloscPunktowZycia;
+    }
+
+    public int getRegeneracjaPunktowZycia() {
+        return regeneracjaPunktowZycia;
+    }
+
+    public void setRegeneracjaPunktowZycia(int regeneracjaPunktowZycia) {
+        this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
+    }
+
+    public int getWartoscAtaku() {
+        return wartoscAtaku;
+    }
+
+    public void setWartoscAtaku(int wartoscAtaku) {
+        this.wartoscAtaku = wartoscAtaku;
+    }
+
+    public int getSzybkoscAtaku() {
+        return szybkoscAtaku;
+    }
+
+    public void setSzybkoscAtaku(int szybkoscAtaku) {
+        this.szybkoscAtaku = szybkoscAtaku;
+    }
+
+    public int getWartoscPancerza() {
+        return wartoscPancerza;
+    }
+
+    public void setWartoscPancerza(int wartoscPancerza) {
+        this.wartoscPancerza = wartoscPancerza;
+    }
+
+    public int getProcentowaSzansaNaTrafienie() {
+        return procentowaSzansaNaTrafienie;
+    }
+
+    public void setProcentowaSzansaNaTrafienie(int procentowaSzansaNaTrafienie) {
+        this.procentowaSzansaNaTrafienie = procentowaSzansaNaTrafienie;
+    }
+
+    public int getProcentowaSzansaNaUnik() {
+        return procentowaSzansaNaUnik;
+    }
+
+    public void setProcentowaSzansaNaUnik(int procentowaSzansaNaUnik) {
+        this.procentowaSzansaNaUnik = procentowaSzansaNaUnik;
+    }
+
+    public String getNazwaPostaci() {
+        return nazwaPostaci;
+    }
+
+    public void setNazwaPostaci(String nazwaPostaci) {
+        this.nazwaPostaci = nazwaPostaci;
+    }
+
+    public List<Wzmocnienie> getPrzedmioty() {
+        return przedmioty;
+    }
+
+    public void setPrzedmioty(List<Wzmocnienie> przedmioty) {
+        this.przedmioty = przedmioty;
+    }
+
+    public List<Wzmocnienie> getCechy() {
+        return cechy;
+    }
+
+    public void setCechy(List<Wzmocnienie> cechy) {
+        this.cechy = cechy;
+    }
+
+    public Zdarzenie getZapis() {
+        return zapis;
+    }
+
+    public void setZapis(Zdarzenie zapis) {
+        this.zapis = zapis;
+    }
 }
 
