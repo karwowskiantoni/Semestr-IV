@@ -53,7 +53,7 @@ public class ZdarzenieWalki extends Zdarzenie{
 
         switch (polecenie) {
 
-            case "zakładam":
+            case "wyposaż":
                 String argument = wejscie[1];
                 Wzmocnienie wybrane = bohater.getPrzedmioty().stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argument)).findFirst().orElse(null);
                 if(zalozonePrzedmioty.size() > 2) {
@@ -69,7 +69,7 @@ public class ZdarzenieWalki extends Zdarzenie{
                 break;
 
 
-            case "zdejmuję":
+            case "zdejmij":
                 String argumentZdejmowania = wejscie[1];
                 Wzmocnienie wybranyDoZdjecia = zalozonePrzedmioty.stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentZdejmowania)).findFirst().orElse(null);
                 if(wybranyDoZdjecia != null){
