@@ -121,6 +121,7 @@ public class Postac {
         info.append("==================================================================").append(System.lineSeparator());
         info.append("                       ***").append(naglowek).append("***                       ").append(System.lineSeparator());
         info.append("Imię:                ").append(nazwaPostaci).append(System.lineSeparator());
+        info.append("Regeneracja życia:   ").append(regeneracjaPunktowZycia).append(System.lineSeparator());
         info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
         info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
         info.append("Wartość ataku:       ").append(wartoscAtaku).append(System.lineSeparator());
