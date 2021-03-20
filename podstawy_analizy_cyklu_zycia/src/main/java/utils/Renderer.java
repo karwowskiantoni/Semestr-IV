@@ -79,6 +79,7 @@ public class Renderer {
             System.out.println("BŁĄD, NIE UDAŁO SIĘ WCZYTAĆ TEKSTU");
             System.exit(1);
         }
+
     }
 
     private static void renderujWierszZMarginesem(String tekst, int szerokosc) {

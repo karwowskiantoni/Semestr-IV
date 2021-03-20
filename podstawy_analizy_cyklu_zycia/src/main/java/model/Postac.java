@@ -32,31 +32,6 @@ public class Postac {
         int inicjatywaWroga = wrog.szybkoscAtaku;
         int licznikTur = 1;
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        System.out.println("Walczysz z " + wrog.nazwaPostaci + System.lineSeparator());
-        System.out.println("Jego statystyki to " + wrog.wypiszInformacjeOPostaci(wrog.nazwaPostaci) + System.lineSeparator());
-
-//        List<Wzmocnienie> smietnik = new ArrayList<>();
-
-//        if(przedmioty.size() != 0){
-//            while(true){
-//                System.out.println(("Czy chcesz skorzystać z przedmiotów w sakwie? Wpisz 't' jeśli tak, 'n' jeśli nie."));
-//                String odpowiedz = br.readLine();
-//                if (odpowiedz.equals("t")){
-//                    System.out.println("Podaj nazwe przedmiotu, w który chcesz się wyposażyć");
-//                    String nazwa = br.readLine();
-//                    smietnik.add(zalozPrzedmiot(nazwa));
-//                } else {
-//                    System.out.println("Stwierdasz, że masz pięści jak kamienie i nimi będziesz łotra okładał!");
-//                    break;
-//                }
-//            }
-//        } else {
-//            System.out.println("Sakwa pusta jak niejedna makówka, bohater decyduje się zlać wroga gołymi pięściami");
-//        }
-
-
         while (true) {
             logWalki.append(System.lineSeparator());
             logWalki.append("Zaczęła się tura nr ").append(licznikTur);
@@ -102,27 +77,50 @@ public class Postac {
         }
     }
 
-    public String wypiszInformacjeOPostaci(String naglowek) {
+    public String wypiszInformacjeOBohaterze(String naglowek){
+        StringBuilder tekst = new StringBuilder();
+        tekst.append(wypiszInformacjeOStatystykach(naglowek)).append(wypiszInformacjeOCechach()).append(wypiszInformacjeOPrzedmiotach());
+        return tekst.toString();
+    }
+
+    public String wypiszInformacjeOPrzeciwniku(String naglowek){
+        StringBuilder tekst = new StringBuilder();
+        tekst.append(wypiszInformacjeOStatystykach(naglowek));
+        return tekst.toString();
+    }
+
+    public String wypiszInformacjeOStatystykach(String naglowek) {
         StringBuilder info = new StringBuilder();
         info.append("==================================================================").append(System.lineSeparator());
         info.append("                       ***").append(naglowek).append("***                       ").append(System.lineSeparator());
-        info.append("Imię:                ").append(nazwaPostaci).append(System.lineSeparator());
+        info.append("Nazwa: ").append(nazwaPostaci).append(System.lineSeparator());
         info.append("Regeneracja życia:   ").append(regeneracjaPunktowZycia).append(System.lineSeparator());
         info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
         info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
         info.append("Wartość ataku:       ").append(wartoscAtaku).append(System.lineSeparator());
+        info.append("Szybkość ataku:     ").append(szybkoscAtaku).append(System.lineSeparator());
         info.append("Szansa na trafienie: ").append(procentowaSzansaNaTrafienie).append("%").append(System.lineSeparator());
-        info.append("Szybkość ataku:      ").append(szybkoscAtaku).append(System.lineSeparator());
+        info.append("Szansa na unik: ").append(procentowaSzansaNaUnik).append("%").append(System.lineSeparator());
+        return info.toString();
+    }
+
+    public String wypiszInformacjeOCechach(){
+        StringBuilder info = new StringBuilder();
         info.append("==================================================================").append(System.lineSeparator());
         info.append("                           ***CECHY***                            ").append(System.lineSeparator());
         info.append(zbiorCech()).append(System.lineSeparator());
+        return info.toString();
+    }
+
+    public String wypiszInformacjeOPrzedmiotach(){
+        StringBuilder info = new StringBuilder();
         info.append("==================================================================").append(System.lineSeparator());
         info.append("                   ***PRZEDMIOTY W SAKWIE***                      ").append(System.lineSeparator());
         info.append(listaPrzedmiotow()).append(System.lineSeparator());
         info.append("==================================================================").append(System.lineSeparator());
-
         return info.toString();
     }
+
 
     public void zdobadzPrzedmiot(Wzmocnienie przedmiot){
         przedmioty.add(przedmiot);
@@ -209,7 +207,7 @@ public class Postac {
         StringBuilder zbior = new StringBuilder();
         int licznik = 0;
         for(Wzmocnienie cecha: cechy){
-            zbior.append(cecha.nazwa);
+            zbior.append(cecha.getNazwa());
             licznik++;
             if(cechy.size() == licznik){
                 zbior.append(".");
