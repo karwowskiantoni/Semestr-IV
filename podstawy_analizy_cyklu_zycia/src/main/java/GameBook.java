@@ -5,21 +5,22 @@ import utils.Renderer;
 import model.widoki.Zdarzenie;
 import utils.ZapisOdczytException;
 
+import java.io.Console;
 import java.io.IOException;
 
 public class GameBook {
 
     public static void main(String args[]) throws IOException {
-        gra(30, 90, 80);
+        gra(40, 90, 80);
         //wyszukiwarkaZdarzen();
     }
 
 
 
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
-
+        Parser parser = new Parser();
         Postac bohater = new Postac();
-        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("prolog");
+        Zdarzenie aktualneZdarzenie = parser.stworzZdarzenie("menu", false);
 
         bohater.setNazwaPostaci("zbyszek");
         bohater.setIloscPunktowZycia(50);
@@ -31,17 +32,17 @@ public class GameBook {
         bohater.setProcentowaSzansaNaUnik(10);
 
         Wzmocnienie mieczyk = new Wzmocnienie();
-        mieczyk.setNazwa("zbyt krótki miecz");
+        mieczyk.setNazwa("zbyt krotki miecz");
         mieczyk.setWartoscAtaku(10);
         bohater.zdobadzPrzedmiot(mieczyk);
 
         Wzmocnienie pancerzyk = new Wzmocnienie();
-        pancerzyk.setNazwa("wełniane kalesony");
+        pancerzyk.setNazwa("welniane kalesony");
         pancerzyk.setWartoscPancerza(3);
         bohater.zdobadzPrzedmiot(pancerzyk);
 
         Wzmocnienie plaszczyk = new Wzmocnienie();
-        plaszczyk.setNazwa("płaszcz zwinnego skurwysyna");
+        plaszczyk.setNazwa("plaszcz zwinnego skurwysyna");
         plaszczyk.setProcentowaSzansaNaUnik(50);
         bohater.zdobadzPrzedmiot(plaszczyk);
 
@@ -52,12 +53,12 @@ public class GameBook {
                 aktualneZdarzenie = aktualneZdarzenie.wykonajZdarzenie(renderer, bohater);
             } catch(ZapisOdczytException exception) {
                 if(exception.getMessage().equals("zapisz")) {
-                    Parser.zapiszZdarzenie(aktualneZdarzenie);
-                    Parser.zapiszPostac(bohater);
+                    parser.zapiszZdarzenie(aktualneZdarzenie);
+                    parser.zapiszPostac(bohater);
                 }
                 else if(exception.getMessage().equals("wczytaj")) {
-                    aktualneZdarzenie = Parser.stworzZdarzenie("zapis_zdarzenia");
-                    bohater = Parser.stworzPostac("zapis_postaci");
+                    aktualneZdarzenie = parser.stworzZdarzenie("zapis_zdarzenia", true);
+                    bohater = parser.stworzPostac("zapis_postaci", true);
                 }
             }
         }

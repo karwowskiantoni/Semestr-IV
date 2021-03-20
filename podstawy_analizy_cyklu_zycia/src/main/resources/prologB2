@@ -16,10 +16,10 @@ zdarzenie walki&{
 		"nazwaPostaci":"Tajemniczy sługus z łukiem",
 
 		"przedmioty":[{
-			"nazwa":"Prosty łuk",
+			"nazwa":"Prosty luk",
 			"wartoscAtaku": +15,
 			"szybkoscAtaku": +3},
-		{"nazwa": "Ciężki miecz chłopa z wychodka",
+		{"nazwa": "Ciezki miecz chlopa z wychodka",
 		"wartoscAtaku": +20,
 		"szybkoscAtaku": -3}]
 

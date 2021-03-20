@@ -33,7 +33,7 @@ public class ZdarzenieWalki extends Zdarzenie{
     //przeciwnik to przeciwnik
     @Override
     public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException, ZapisOdczytException {
-
+        Parser parser = new Parser();
         String tekst = przeciwnik.wypiszInformacjeOStatystykach("PRZECIWNIK NA TYM POZIOMIE") +
                 bohater.wypiszInformacjeOStatystykach("TWOJE AKTUALNE STATYSTYKI") +
                 System.lineSeparator().repeat(4) +
@@ -53,7 +53,7 @@ public class ZdarzenieWalki extends Zdarzenie{
 
         switch (polecenie) {
 
-            case "wyposaż":
+            case "wyposaz":
                 String argument = wejscie[1];
                 Wzmocnienie wybrane = bohater.getPrzedmioty().stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argument)).findFirst().orElse(null);
                 if(zalozonePrzedmioty.size() > 2) {
@@ -88,26 +88,26 @@ public class ZdarzenieWalki extends Zdarzenie{
                     for (Wzmocnienie przedmiot: zalozonePrzedmioty) {
                         przedmiot.zdejmijPrzedmiot(bohater);
                     }
-                    return Parser.stworzZdarzenie(getNastepne()[1]);
+                    return parser.stworzZdarzenie(getNastepne()[1],false);
                 } else {
-                    return Parser.stworzZdarzenie(getNastepne()[0]);
+                    return parser.stworzZdarzenie(getNastepne()[0], false);
                 }
 
 
 
             case "pomoc":
-                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("pomoc_walki"));
+                renderer.renderujOknoInformacyjne(parser.odczytajzPliku("pomoc_walki", false));
                 break;
 
             case "bohater":
                 renderer.renderujOknoInformacyjne(bohater.wypiszInformacjeOBohaterze("KARTA BOHATERA"));
                 break;
 
-            case  "wyjście":
+            case  "wyjscie":
                 System.exit(0);
 
             default:
-                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("błąd"));
+                renderer.renderujOknoInformacyjne(parser.odczytajzPliku("błąd", false));
         }
         return this;
 

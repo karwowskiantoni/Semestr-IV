@@ -6,14 +6,17 @@ import model.widoki.Zdarzenie;
 import model.widoki.ZdarzenieWalki;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 public class Parser {
 
-    public static Zdarzenie stworzZdarzenie(String nazwaPliku){
+    public Zdarzenie stworzZdarzenie(String nazwaPliku, boolean czyLokalnie){
 
-        String plik = odczytajzPliku(nazwaPliku);
+        String plik = odczytajzPliku(nazwaPliku, czyLokalnie);
         String typZdarzenia = plik.split("&")[0];
-        String dane = plik.split("&")[1].replace(System.lineSeparator(), "");
+        String dane = plik.split("&")[1];
 
         Gson gson = new Gson();
 
@@ -29,13 +32,13 @@ public class Parser {
         return zdarzenie;
     }
 
-    public static Postac stworzPostac(String nazwaPliku) {
-        String plik = odczytajzPliku(nazwaPliku);
+    public Postac stworzPostac(String nazwaPliku, boolean czyLokalnie) {
+        String plik = odczytajzPliku(nazwaPliku, czyLokalnie);
         Gson gson = new Gson();
         return gson.fromJson(plik, Postac.class);
     }
 
-    public static void zapiszPostac(Postac postac) throws IOException{
+    public void zapiszPostac(Postac postac) throws IOException{
         Gson gson = new Gson();
         String json = gson.toJson(postac);
         BufferedWriter writer = new BufferedWriter(new FileWriter("zapis_postaci"));
@@ -43,7 +46,7 @@ public class Parser {
         writer.close();
     }
 
-    public static void zapiszZdarzenie(Zdarzenie zdarzenie) throws IOException{
+    public void zapiszZdarzenie(Zdarzenie zdarzenie) throws IOException{
         Gson gson = new Gson();
         String json = gson.toJson(zdarzenie);
         BufferedWriter writer = new BufferedWriter(new FileWriter("zapis_zdarzenia"));
@@ -57,26 +60,31 @@ public class Parser {
     }
 
 
-    public static String odczytajzPliku(String nazwa) {
-        StringBuilder dane = new StringBuilder();
-
-        File plik = new File(nazwa);
-        Scanner skaner = null;
-        try {
-            skaner = new Scanner(plik);
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-            System.out.println("NIE ZNALEZIONO PLIKU: " + nazwa);
-            System.exit(1);
-        }
-        while (skaner.hasNextLine()) {
-            String aktualnyWiersz = skaner.nextLine();
-            if (!aktualnyWiersz.equals("")) {
-                dane.append(aktualnyWiersz).append(System.lineSeparator());
+    public String odczytajzPliku(String nazwa, boolean czyLokalnie) {
+        String text = "";
+        if(czyLokalnie) {
+            try {
+                File plik = new File(nazwa);
+                Scanner myReader = new Scanner(plik);
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    text += data;
+                }
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("NIE UDAŁO SIĘ WCZYTAĆ PLIKU: " + nazwa);
+                e.printStackTrace();
             }
 
+
+        } else {
+            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(nazwa);
+            text = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n"));
         }
-        skaner.close();
-        return dane.toString();
+
+
+
+        return text.replace("\n", "").replace(System.lineSeparator(), "").replace("~", System.lineSeparator() + "." + System.lineSeparator());
+
     }
 }

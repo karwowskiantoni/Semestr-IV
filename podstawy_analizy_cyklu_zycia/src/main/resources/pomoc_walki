@@ -1,17 +1,9 @@
 drogi czytelniku, większość zasad i reguł którymi rządzi się walka w naszej rozgrywce będziesz musiał odkryć sam
-.
-.
-chcąc jednak oszczędzić czytelnikowi bólu, zawodu i łez pragniemy jedynie zwrócić uwagę iż bohaterowie w naszej historii okładają się z siłą tak niesamowitą iż wszelkie przedmioty użyte podczas walki ulegają niemal całkowitej dezintegracji, tak więc używaj ich mądrze
-.
-.
-DOSTĘPNE KOMENDY
-.
-pomoc - wyświetla tę pomoc
-.
-wyposaż x - wyposaża bohatera w przedmiot x
-.
-zdejmij x - zdejmuje przedmiot x z bohatera
-.
-bohater - wyświetla informacje o bohaterze
-.
-wyjście - wychodzi z gry
+~chcąc jednak oszczędzić czytelnikowi bólu, zawodu i łez pragniemy jedynie zwrócić uwagę iż bohaterowie w naszej historii okładają się z siłą tak niesamowitą iż wszelkie przedmioty użyte podczas walki ulegają niemal całkowitej dezintegracji, tak więc używaj ich mądrze
+~DOSTĘPNE KOMENDY
+~pomoc - wyświetla tę pomoc
+~wyposaż x - wyposaża bohatera w przedmiot x
+~zdejmij x - zdejmuje przedmiot x z bohatera
+~bohater - wyświetla informacje o bohaterze
+~walcz - rozpoczyna walke z przeciwnikiem
+~wyjdz - wychodzi z gry

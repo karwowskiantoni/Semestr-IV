@@ -43,7 +43,7 @@ public class Zdarzenie {
     }
 
     public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException, ZapisOdczytException {
-
+        Parser parser = new Parser();
         renderer.renderujTekst(opis);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("WPROWADŹ POLECENIE: ");
@@ -58,22 +58,22 @@ public class Zdarzenie {
             case "opcja":
                 int argument = Integer.parseInt(wejscie[1]);
                 if(nastepne.length >= argument) {
-                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + Parser.odczytajzPliku("dalej"));
-                    return Parser.stworzZdarzenie(this.nastepne[argument -1]);
+                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + parser.odczytajzPliku("dalej", false));
+                    return parser.stworzZdarzenie(this.nastepne[argument -1], false);
                 } else {
                     renderer.renderujOknoInformacyjne("Nie ma takiego wyboru");
                 }
                 break;
 
             case "pomoc":
-                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("pomoc"));
+                renderer.renderujOknoInformacyjne(parser.odczytajzPliku("pomoc", false));
                 break;
 
             case "bohater":
                 renderer.renderujOknoInformacyjne(bohater.wypiszInformacjeOBohaterze("KARTA BOHATERA"));
                 break;
 
-            case  "wyjdź":
+            case  "wyjdz":
                 System.exit(0);
 
             case "wczytaj":
@@ -85,7 +85,7 @@ public class Zdarzenie {
                 throw new ZapisOdczytException("zapisz");
 
             default:
-                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("błąd"));
+                renderer.renderujOknoInformacyjne(parser.odczytajzPliku("błąd", false));
         }
         return this;
     }
