@@ -2,8 +2,14 @@ KOMENDY DOSTĘPNE W GRZE
 .
 pomoc - wyświetla tę pomoc
 .
-wybieram x - wybiera x w ciągu fabularnym
+opcja x - wybiera opcję x
 .
 bohater - wyświetla informacje o bohaterze
+.
+zapisz - zapisuje grę 
+(UWAGA!!! każdy zapis usuwa wszelkie inne zapisy. wybieraj mądrze)
+.
+wczytaj - wczytuje ostatni zapis 
+(UWAGA!!! nie można cofnąć, wszelkie postępy zostaną utracone. wybieraj mądrze)
 .
 wyjście - wychodzi z gry
