@@ -10,13 +10,13 @@ zdarzenie&{
 
 ~Sprawa ta jawi się być conajmniej nieoczywistą. Nie uprzedzając jednak przyszłych i niedoszłych wypadków, bohater nasz postanawia naturalnie pod przysięgą przyjąć za jedyny cel swego żywota odnalezienie baby swojej prawie-żony. Kwestię tę, mamy nadzieję, podejmie nasz czytelnik pomagając bohaterowi w decyzji - w którą stronę szukać baby.
 
-~opcja 1 - idź w prawo
+~opcja 1 - wyjdź ze stodoły
 
-~opcja 2 - idź w lewo",
+~opcja 2 - zbadaj stodołę",
 
 
 "nastepne":
-["2", "999"]
+["prologA1", "prologB1"]
 
 
 }

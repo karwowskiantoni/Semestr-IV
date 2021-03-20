@@ -1,0 +1,29 @@
+zdarzenie walki&{
+
+	"opis": "WALCZYSZ Z TAJEMNICZYM SŁUGUSEM Z ŁUKIEM",
+
+	"nastepne":["prologB2F", "prologB3"],
+
+	"przeciwnik":{
+
+		"iloscPunktowZycia":10,
+		"regeneracjaPunktowZycia":0,
+		"wartoscAtaku":55,
+		"szybkoscAtaku":5,
+		"wartoscPancerza":3,
+		"procentowaSzansaNaTrafienie":70,
+		"procentowaSzansaNaUnik":20,
+		"nazwaPostaci":"Tajemniczy sługus z łukiem",
+
+		"przedmioty":[{
+			"nazwa":"Prosty łuk",
+			"wartoscAtaku": +15,
+			"szybkoscAtaku": +3},
+		{"nazwa": "Ciężki miecz chłopa z wychodka",
+		"wartoscAtaku": +20,
+		"szybkoscAtaku": -3}]
+
+	}
+
+
+}

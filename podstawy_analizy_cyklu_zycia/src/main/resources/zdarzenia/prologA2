@@ -3,22 +3,22 @@ zdarzenie walki&{
 	"opis": "WALCZYSZ Z OPEMJEŁOPEM",
 
 
-	"nastepne":["3", "999"],
+	"nastepne":["prologA2F", "prologA2Z"],
 
 	"przeciwnik":{
 
-		"iloscPunktowZycia":20,
+		"iloscPunktowZycia":100,
 		"regeneracjaPunktowZycia":0,
 		"wartoscAtaku":20,
 		"szybkoscAtaku":3,
-		"wartoscPancerza":10,
+		"wartoscPancerza":20,
 		"procentowaSzansaNaTrafienie":100,
 		"procentowaSzansaNaUnik":0,
 		"nazwaPostaci":"Ogr OpJełop",
 
 		"przedmioty":[{
-			"nazwa":"maczuga ogra",
-			"wartoscAtaku":10,
+			"nazwa":"Maczuga ogra",
+			"wartoscAtaku":30,
 			"szybkoscAtaku": -3
 		}]
 

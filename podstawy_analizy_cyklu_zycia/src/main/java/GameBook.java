@@ -19,15 +19,15 @@ public class GameBook {
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
 
         Postac bohater = new Postac();
-        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("0");
+        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("menu");
 
         bohater.setNazwaPostaci("zbyszek");
         bohater.setIloscPunktowZycia(50);
-        bohater.setRegeneracjaPunktowZycia(8);
+        bohater.setRegeneracjaPunktowZycia(0);
         bohater.setWartoscAtaku(10);
         bohater.setSzybkoscAtaku(5);
         bohater.setWartoscPancerza(3);
-        bohater.setProcentowaSzansaNaTrafienie(100);
+        bohater.setProcentowaSzansaNaTrafienie(70);
         bohater.setProcentowaSzansaNaUnik(10);
 
         Wzmocnienie mieczyk = new Wzmocnienie();
@@ -36,14 +36,14 @@ public class GameBook {
         bohater.zdobadzPrzedmiot(mieczyk);
 
         Wzmocnienie pancerzyk = new Wzmocnienie();
-        pancerzyk.setNazwa("chujowy pancerz");
+        pancerzyk.setNazwa("wełniane kalesony");
         pancerzyk.setWartoscPancerza(3);
         bohater.zdobadzPrzedmiot(pancerzyk);
 
-        Wzmocnienie płaszczyk = new Wzmocnienie();
-        płaszczyk.setNazwa("płaszcz zwinnego skurwysyna");
-        płaszczyk.setProcentowaSzansaNaUnik(50);
-        bohater.zdobadzPrzedmiot(płaszczyk);
+        Wzmocnienie plaszczyk = new Wzmocnienie();
+        plaszczyk.setNazwa("płaszcz zwinnego skurwysyna");
+        plaszczyk.setProcentowaSzansaNaUnik(50);
+        bohater.zdobadzPrzedmiot(plaszczyk);
 
         Renderer renderer = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
 
