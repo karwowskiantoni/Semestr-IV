@@ -236,19 +236,12 @@ public class Postac {
 
     private String listaPrzedmiotow(){
         StringBuilder lista = new StringBuilder();
-        int licznik = 0;
         if(przedmioty.size() == 0){
             lista.append("Brak przedmiotów w sakwie. Trzeba ograbić więcej przeciwników!");
             return lista.toString();
         }
-        for(Wzmocnienie przedmiot: przedmioty){
-            lista.append(przedmiot.nazwa);
-            licznik++;
-            if(przedmioty.size() == licznik){
-                lista.append(".");
-            } else {
-                lista.append(", ").append(System.lineSeparator());
-            }
+        for(Wzmocnienie przedmiot: przedmioty) {
+            lista.append(przedmiot.opis()).append(System.lineSeparator());
         }
         return lista.toString();
     }
