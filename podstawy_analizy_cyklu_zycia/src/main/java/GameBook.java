@@ -1,17 +1,14 @@
 import model.Postac;
-import model.Wzmocnienie;
-import utils.Interpreter;
 import utils.ParserZdarzen;
 import utils.Renderer;
-import widoki.WidokZdarzenia;
+import widoki.Zdarzenie;
 
 import java.io.IOException;
 
 public class GameBook {
 
     public static void main(String args[]) throws IOException {
-        gra(33, 90, 80);
-        gra(20, 140, 120);
+        gra(30, 90, 80);
         //wyszukiwarkaZdarzen();
     }
 
@@ -19,8 +16,6 @@ public class GameBook {
 
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
 
-        WidokZdarzenia aktualneZdarzenie = ParserZdarzen.stworzZdarzenie("0");
-        Renderer skurwysynek = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
         Postac bohater = new Postac(50,
                 10,
                 8,
@@ -28,15 +23,14 @@ public class GameBook {
                 0,
                 100,
                 0,
-                "Zbyszek",
-                new Wzmocnienie[0]);
+                "Zbyszek");
 
+        Zdarzenie aktualneZdarzenie = ParserZdarzen.stworzZdarzenie("0");
+        Renderer renderer = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
 
 
         while (true) {
-            skurwysynek.RenderujTekst(aktualneZdarzenie.Opis);
-            aktualneZdarzenie = Interpreter.wykonajPolecenie(aktualneZdarzenie, skurwysynek, bohater);
-
+            aktualneZdarzenie = aktualneZdarzenie.wykonajZdarzenie(renderer, bohater);
         }
     }
 }

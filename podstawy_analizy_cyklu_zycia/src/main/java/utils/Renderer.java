@@ -1,5 +1,8 @@
 package utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +20,7 @@ public class Renderer {
         this.szerokoscTekstu = szerokoscTekstu;
     }
 
-    public void RenderujTekst(String tekst) {
+    public void renderujTekst(String tekst) {
 
         wyczyscKonsole();
         List<String> wiersze_bez_marginesu = Arrays.asList(tekst.split(System.lineSeparator()));
@@ -45,6 +48,20 @@ public class Renderer {
         renderujMarginesPionowy(wiersze_bez_marginesu.size(), wysokoscOkna, szerokoscOkna); // dolny margines
 
         renderujWierszZMarginesem(powtorzTekst("* ", szerokoscOkna / 2), szerokoscOkna); //
+    }
+
+    public void wyswietlOknoInformacyjne(String informacja) {
+        try {
+            informacja += "." + System.lineSeparator() + "." + System.lineSeparator() + "WCIŚNIJ ENTER ABY KONTYNUOWAĆ";
+            renderujTekst(informacja);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            br.readLine();
+
+        } catch (IOException e) {
+            System.out.println("BŁĄD, NIE UDAŁO SIĘ WCZYTAĆ TEKSTU");
+            System.exit(1);
+        }
     }
 
     private static void renderujWierszZMarginesem(String tekst, int szerokosc) {
