@@ -49,7 +49,7 @@ public class Postac {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Walczysz z " + wrog.nazwaPostaci + System.lineSeparator());
-        System.out.println("Jego statystyki to " + wrog.wypiszInformacjeOPostaci() + System.lineSeparator());
+        System.out.println("Jego statystyki to " + wrog.wypiszInformacjeOPostaci(wrog.nazwaPostaci) + System.lineSeparator());
 
 //        List<Wzmocnienie> smietnik = new ArrayList<>();
 
@@ -116,31 +116,10 @@ public class Postac {
         }
     }
 
-    public String wypiszInformacjeOPostaci() {
+    public String wypiszInformacjeOPostaci(String naglowek) {
         StringBuilder info = new StringBuilder();
         info.append("==================================================================").append(System.lineSeparator());
-        info.append("                       ***KARTA BOHATERA***                       ").append(System.lineSeparator());
-        info.append("Imię:                ").append(nazwaPostaci).append(System.lineSeparator());
-        info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
-        info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
-        info.append("Wartość ataku:       ").append(wartoscAtaku).append(System.lineSeparator());
-        info.append("Szansa na trafienie: ").append(procentowaSzansaNaTrafienie).append("%").append(System.lineSeparator());
-        info.append("Szybkość ataku:      ").append(szybkoscAtaku).append(System.lineSeparator());
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                           ***CECHY***                            ").append(System.lineSeparator());
-        info.append(zbiorCech()).append(System.lineSeparator());
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                   ***PRZEDMIOTY W SAKWIE***                      ").append(System.lineSeparator());
-        info.append(listaPrzedmiotow()).append(System.lineSeparator());
-        info.append("==================================================================").append(System.lineSeparator());
-
-        return info.toString();
-    }
-
-    private String wypiszInformacjeOWrogu() {
-        StringBuilder info = new StringBuilder();
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                            ***WRÓG***                            ").append(System.lineSeparator());
+        info.append("                       ***").append(naglowek).append("***                       ").append(System.lineSeparator());
         info.append("Imię:                ").append(nazwaPostaci).append(System.lineSeparator());
         info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
         info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
