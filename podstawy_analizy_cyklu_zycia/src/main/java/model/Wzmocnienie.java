@@ -72,7 +72,7 @@ public class Wzmocnienie {
         if(procentowaSzansaNaUnik != 0){
             lista.append("szansa na unik +").append(procentowaSzansaNaUnik).append("%, ");
         }
-        return lista.toString().substring(0, lista.length() - 1);
+        return lista.toString().substring(0, lista.length() - 2);
     }
 
     public String getNazwa() {
