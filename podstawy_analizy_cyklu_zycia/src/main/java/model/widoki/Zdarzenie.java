@@ -1,14 +1,16 @@
 package model.widoki;
 
 import model.Postac;
-import utils.ParserZdarzen;
+import utils.Parser;
 import utils.Renderer;
+import utils.ZapisOdczytException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Zdarzenie {
+    private String nazwa = "";
     private String opis = "";
     private String[] nastepne = null;
 
@@ -28,11 +30,19 @@ public class Zdarzenie {
         return nastepne;
     }
 
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public void setNazwa(String nazwa) {
+        this.nazwa = nazwa;
+    }
+
     public Zdarzenie() {
 
     }
 
-    public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException {
+    public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException, ZapisOdczytException {
 
         renderer.renderujTekst(opis);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -48,15 +58,15 @@ public class Zdarzenie {
             case "wybieram":
                 int argument = Integer.parseInt(wejscie[1]);
                 if(nastepne.length >= argument) {
-                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + ParserZdarzen.odczytajzPliku("dalej"));
-                    return ParserZdarzen.stworzZdarzenie(this.nastepne[argument -1]);
+                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + Parser.odczytajzPliku("dalej"));
+                    return Parser.stworzZdarzenie(this.nastepne[argument -1]);
                 } else {
                     renderer.renderujOknoInformacyjne("Nie ma takiego wyboru");
                 }
                 break;
 
             case "pomoc":
-                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("pomoc"));
+                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("pomoc"));
                 break;
 
             case "bohater":
@@ -67,19 +77,15 @@ public class Zdarzenie {
                 System.exit(0);
 
             case "wczytaj":
-                if(bohater.getZapis() != null) {
-                    renderer.renderujOknoInformacyjne("WCZYTANO");
-                    return bohater.getZapis();
-                }
-                break;
+                renderer.renderujOknoInformacyjne("WCZYTANO");
+                throw new ZapisOdczytException("wczytaj");
 
             case "zapisz":
                 renderer.renderujOknoInformacyjne("ZAPISANO");
-                bohater.setZapis(this);
-                break;
+                throw new ZapisOdczytException("zapisz");
 
             default:
-                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("błąd"));
+                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("błąd"));
         }
         return this;
     }

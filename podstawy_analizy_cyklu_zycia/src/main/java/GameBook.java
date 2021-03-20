@@ -1,12 +1,11 @@
 import model.Postac;
 import model.Wzmocnienie;
-import utils.ParserZdarzen;
+import utils.Parser;
 import utils.Renderer;
 import model.widoki.Zdarzenie;
+import utils.ZapisOdczytException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameBook {
 
@@ -20,6 +19,7 @@ public class GameBook {
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
 
         Postac bohater = new Postac();
+        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("0");
 
         bohater.setNazwaPostaci("zbyszek");
         bohater.setIloscPunktowZycia(50);
@@ -45,11 +45,21 @@ public class GameBook {
         płaszczyk.setProcentowaSzansaNaUnik(50);
         bohater.zdobadzPrzedmiot(płaszczyk);
 
-        Zdarzenie aktualneZdarzenie = ParserZdarzen.stworzZdarzenie("0");
         Renderer renderer = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
 
         while (true) {
-            aktualneZdarzenie = aktualneZdarzenie.wykonajZdarzenie(renderer, bohater);
+            try {
+                aktualneZdarzenie = aktualneZdarzenie.wykonajZdarzenie(renderer, bohater);
+            } catch(ZapisOdczytException exception) {
+                if(exception.getMessage().equals("zapisz")) {
+                    Parser.zapiszZdarzenie(aktualneZdarzenie);
+                    Parser.zapiszPostac(bohater);
+                }
+                else if(exception.getMessage().equals("wczytaj")) {
+                    aktualneZdarzenie = Parser.stworzZdarzenie("zapis_zdarzenia");
+                    bohater = Parser.stworzPostac("zapis_postaci");
+                }
+            }
         }
     }
 }

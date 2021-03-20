@@ -21,7 +21,6 @@ public class Postac {
     private String nazwaPostaci = "nikt";
     private List<Wzmocnienie> przedmioty = new ArrayList<>();
     private List<Wzmocnienie> cechy = new ArrayList<>();
-    private Zdarzenie zapis = null;
 
     public Postac(){
 
@@ -233,10 +232,6 @@ public class Postac {
         return lista.toString();
     }
 
-    private void zuzywaniePrzedmiotow(List<Wzmocnienie> smietnik){
-
-    }
-
     public int getIloscPunktowZycia() {
         return iloscPunktowZycia;
     }
@@ -315,14 +310,6 @@ public class Postac {
 
     public void setCechy(List<Wzmocnienie> cechy) {
         this.cechy = cechy;
-    }
-
-    public Zdarzenie getZapis() {
-        return zapis;
-    }
-
-    public void setZapis(Zdarzenie zapis) {
-        this.zapis = zapis;
     }
 }
 

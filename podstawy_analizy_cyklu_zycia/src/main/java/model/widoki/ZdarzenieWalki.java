@@ -2,16 +2,15 @@ package model.widoki;
 
 import model.Postac;
 import model.Wzmocnienie;
-import utils.ParserZdarzen;
+import utils.Parser;
 import utils.Renderer;
+import utils.ZapisOdczytException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class ZdarzenieWalki extends Zdarzenie{
     private Postac przeciwnik;
@@ -33,7 +32,7 @@ public class ZdarzenieWalki extends Zdarzenie{
     //bohater to bohater
     //przeciwnik to przeciwnik
     @Override
-    public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException {
+    public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException, ZapisOdczytException {
 
         String tekst = przeciwnik.wypiszInformacjeOStatystykach("PRZECIWNIK NA TYM POZIOMIE") +
                 bohater.wypiszInformacjeOStatystykach("TWOJE AKTUALNE STATYSTYKI") +
@@ -89,15 +88,15 @@ public class ZdarzenieWalki extends Zdarzenie{
                     for (Wzmocnienie przedmiot: zalozonePrzedmioty) {
                         przedmiot.zdejmijPrzedmiot(bohater);
                     }
-                    return ParserZdarzen.stworzZdarzenie(getNastepne()[1]);
+                    return Parser.stworzZdarzenie(getNastepne()[1]);
                 } else {
-                    return ParserZdarzen.stworzZdarzenie(getNastepne()[0]);
+                    return Parser.stworzZdarzenie(getNastepne()[0]);
                 }
 
 
 
             case "pomoc":
-                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("pomoc_walki"));
+                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("pomoc_walki"));
                 break;
 
             case "bohater":
@@ -108,7 +107,7 @@ public class ZdarzenieWalki extends Zdarzenie{
                 System.exit(0);
 
             default:
-                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("błąd"));
+                renderer.renderujOknoInformacyjne(Parser.odczytajzPliku("błąd"));
         }
         return this;
 
