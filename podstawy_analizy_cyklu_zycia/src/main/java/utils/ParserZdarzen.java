@@ -15,7 +15,7 @@ public class ParserZdarzen {
         Zdarzenie zdarzenie = null;
         try {
             zdarzenie = mapper.readValue(dane.replace(System.lineSeparator(), ""), Zdarzenie.class);
-            zdarzenie.setOpis(zdarzenie.getOpis().replace("~", "\n.\n"));
+            zdarzenie.setOpis(zdarzenie.getOpis().replace("~", System.lineSeparator() + "." + System.lineSeparator()));
         } catch (JsonProcessingException e) {
             System.out.println("BŁĘDNY FORMAT PLIKU: "+ nazwaPliku);
             System.out.println(dane);
