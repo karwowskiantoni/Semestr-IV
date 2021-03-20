@@ -7,6 +7,7 @@ import utils.Renderer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Zdarzenie {
     private String opis;
@@ -52,7 +53,7 @@ public class Zdarzenie {
 
             case "wybieram":
                 int argument = Integer.parseInt(wejscie[1]);
-                if(argument == 1 || argument == 2) {
+                if(nastepne.length >= argument) {
                     renderer.wyswietlOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + ParserZdarzen.odczytajzPliku("dalej"));
                     return ParserZdarzen.stworzZdarzenie(this.nastepne[argument -1]);
                 } else {

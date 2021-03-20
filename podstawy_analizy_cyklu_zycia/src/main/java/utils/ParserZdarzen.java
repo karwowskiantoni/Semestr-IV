@@ -14,9 +14,11 @@ public class ParserZdarzen {
         ObjectMapper mapper = new ObjectMapper();
         Zdarzenie zdarzenie = null;
         try {
-            zdarzenie = mapper.readValue(dane, Zdarzenie.class);
+            zdarzenie = mapper.readValue(dane.replace(System.lineSeparator(), ""), Zdarzenie.class);
+            zdarzenie.setOpis(zdarzenie.getOpis().replace("~", "\n.\n"));
         } catch (JsonProcessingException e) {
             System.out.println("BŁĘDNY FORMAT PLIKU: "+ nazwaPliku);
+            System.out.println(dane);
             System.exit(1);
         }
             return zdarzenie;
@@ -39,8 +41,9 @@ public class ParserZdarzen {
         while (skaner.hasNextLine()) {
             String aktualnyWiersz = skaner.nextLine();
             if (!aktualnyWiersz.equals("")) {
-                dane.append(aktualnyWiersz); //.append(System.lineSeparator())
+                dane.append(aktualnyWiersz).append(System.lineSeparator());
             }
+
         }
         skaner.close();
         return dane.toString();

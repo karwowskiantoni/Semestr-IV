@@ -1,16 +1,21 @@
-~typ:zdarzenie
 
-~Opis:ETAP 2
-.
-Gdy tylko bohater nasz obrócił głowę swą szlachetną i bohaterską w kierunku przeciwnym do kierunku serca swego, całą jego uwagę przyciągnął pewien fakt, sprawiając przy tym że cała baba jego prawie-żona zupełnie wyleciała mu z głowy. Fakt ten miał dwa metry wzrostu, był koloru #169C88, trzymał w ręce niesamowitych rozmiarów maczugę i spoglądał na naszego bohatera dwoma parami oczu prosto ze swoich dwóch łysych czerepów.
-.
-Należy dodać na marginesie iż z obu tychże czerepów wydobywał się odór tak niesamowity że nasz bohater, który dodatkowo był również cnotliwy i przyzwoity, na pewno nie znalazłby na tenże odór odpowiedniego epitetu. Bohater nasz został do tego stopnia zaabsorbowany stojącym niepokojąco blisko dwugłowym ogrem iż nie zdążył zadać sobie nawet pytania, dlaczego myśląc o babie swojej prawie-żonie przez czas długi, sprawa ta dwumetrowa, zielona, stojąca po lewej jego stronie wydała się mu zupełnie nieistotna, a nawet zupełnie pomijalna.
-.
-tym razem jednak ogr nie okazuje wystarczająco dużo przyzwoitości aby rycerzowi naszemu dać czas do namysłu i wymachując agresywnie pałą swą ogromną rusza do ataku na bohatera.
-.
-.
-1 - potwierdź
 
-~Nastepne zdarzenie:3
+{
 
-~Nastepne zdarzenie:3
+
+"opis": "ETAP 2
+
+~Gdy tylko bohater nasz obrócił głowę swą szlachetną i bohaterską w kierunku przeciwnym do kierunku serca swego, całą jego uwagę przyciągnął pewien fakt, sprawiając przy tym że cała baba jego prawie-żona zupełnie wyleciała mu z głowy. Fakt ten miał dwa metry wzrostu, był koloru #169C88, trzymał w ręce niesamowitych rozmiarów maczugę i spoglądał na naszego bohatera dwoma parami oczu prosto ze swoich dwóch łysych czerepów.
+
+~Należy dodać na marginesie iż z obu tychże czerepów wydobywał się odór tak niesamowity że nasz bohater, który dodatkowo był również cnotliwy i przyzwoity, na pewno nie znalazłby na tenże odór odpowiedniego epitetu. Bohater nasz został do tego stopnia zaabsorbowany stojącym niepokojąco blisko dwugłowym ogrem iż nie zdążył zadać sobie nawet pytania, dlaczego myśląc o babie swojej prawie-żonie przez czas długi, sprawa ta dwumetrowa, zielona, stojąca po lewej jego stronie wydała się mu zupełnie nieistotna, a nawet zupełnie pomijalna.
+
+~tym razem jednak ogr nie okazuje wystarczająco dużo przyzwoitości aby rycerzowi naszemu dać czas do namysłu i wymachując agresywnie pałą swą ogromną rusza do ataku na bohatera.
+
+~opcja 1 - potwierdzam",
+
+
+"nastepne":
+["1"]
+
+
+}
