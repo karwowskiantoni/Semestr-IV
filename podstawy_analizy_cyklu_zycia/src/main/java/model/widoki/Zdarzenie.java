@@ -55,7 +55,7 @@ public class Zdarzenie {
 
         switch (polecenie) {
 
-            case "wybieram":
+            case "opcja":
                 int argument = Integer.parseInt(wejscie[1]);
                 if(nastepne.length >= argument) {
                     renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + Parser.odczytajzPliku("dalej"));
@@ -73,7 +73,7 @@ public class Zdarzenie {
                 renderer.renderujOknoInformacyjne(bohater.wypiszInformacjeOBohaterze("KARTA BOHATERA"));
                 break;
 
-            case  "wyjście":
+            case  "wyjdź":
                 System.exit(0);
 
             case "wczytaj":
