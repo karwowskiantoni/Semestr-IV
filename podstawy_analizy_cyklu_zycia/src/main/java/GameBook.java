@@ -19,7 +19,7 @@ public class GameBook {
     private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
 
         Postac bohater = new Postac();
-        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("menu");
+        Zdarzenie aktualneZdarzenie = Parser.stworzZdarzenie("prolog");
 
         bohater.setNazwaPostaci("zbyszek");
         bohater.setIloscPunktowZycia(50);

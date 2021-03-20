@@ -38,7 +38,7 @@ public class Parser {
     public static void zapiszPostac(Postac postac) throws IOException{
         Gson gson = new Gson();
         String json = gson.toJson(postac);
-        BufferedWriter writer = new BufferedWriter(new FileWriter("zdarzenia\\zapis_postaci"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("zapis_postaci"));
         writer.write(json);
         writer.close();
     }
@@ -46,7 +46,7 @@ public class Parser {
     public static void zapiszZdarzenie(Zdarzenie zdarzenie) throws IOException{
         Gson gson = new Gson();
         String json = gson.toJson(zdarzenie);
-        BufferedWriter writer = new BufferedWriter(new FileWriter("zdarzenia\\zapis_zdarzenia"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("zapis_zdarzenia"));
         if(zdarzenie.getClass() == Zdarzenie.class) {
             json = "zdarzenie&" + json;
         } else if(zdarzenie.getClass() == ZdarzenieWalki.class) {
@@ -60,11 +60,12 @@ public class Parser {
     public static String odczytajzPliku(String nazwa) {
         StringBuilder dane = new StringBuilder();
 
-        File plik = new File("zdarzenia\\" + nazwa);
+        File plik = new File(nazwa);
         Scanner skaner = null;
         try {
             skaner = new Scanner(plik);
         } catch (FileNotFoundException e) {
+            System.out.println(e);
             System.out.println("NIE ZNALEZIONO PLIKU: " + nazwa);
             System.exit(1);
         }
