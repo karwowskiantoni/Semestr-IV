@@ -1,6 +1,4 @@
-
-
-{
+zdarzenie&{
 
 
 "opis": "ETAP 2
@@ -15,7 +13,7 @@
 
 
 "nastepne":
-["1"]
+["walka"]
 
 
 }

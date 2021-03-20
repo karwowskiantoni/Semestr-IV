@@ -1,10 +1,13 @@
-~typ:zdarzenie
+zdarzenie&{
 
-~Opis:DALSZA CZĘŚĆ HISTORII JUŻ WKRÓTCE
-.
-.
-1 - powrót do początku
 
-~Nastepne zdarzenie:0
+"opis": "DALSZA CZĘŚĆ HISTORII JUŻ WKRÓTCE
 
-~Nastepne zdarzenie:0
+~opcja 1 - powrót do początku",
+
+
+"nastepne":
+["0"]
+
+
+}

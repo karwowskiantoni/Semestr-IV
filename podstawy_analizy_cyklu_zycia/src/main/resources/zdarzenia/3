@@ -1,16 +1,18 @@
-~typ:zdarzenie walki
+zdarzenie&{
 
-~Opis:ETAP 3
-.
-Ogr OpJełop spuściwszy bohaterowi naszemu wpierdziel niemiłosierny wyrzucił ze swej stodoły sflaczałe ciało herosa z takim pędem i siłą że bohater nasz niezwykle cnotliwy już nigdy nie będzie w stanie przyswoić płynącej z tej smutnej historii lekcji - "w stogu siana audiencji udzielanie przyciągnąć może tęgie lanie"
-.
-PRZEGRAŁEŚ
-.
-ZAPRASZAMY DO PONOWNEJ ROZGRYWKI
-.
-.
-1 - zakończ
 
-~Nastepne zdarzenie:4
+"opis": "ETAP 3
 
-~Nastepne zdarzenie:4
+~Ogr OpJełop spuściwszy bohaterowi naszemu wpierdziel niemiłosierny wyrzucił ze swej stodoły sflaczałe ciało herosa z takim pędem i siłą że bohater nasz niezwykle cnotliwy już nigdy nie będzie w stanie przyswoić płynącej z tej smutnej historii lekcji - 'w stogu siana audiencji udzielanie przyciągnąć może tęgie lanie'
+
+~PRZEGRAŁEŚ
+
+~ZAPRASZAMY DO PONOWNEJ ROZGRYWKI
+
+~opcja 1 - zakończ",
+
+
+"nastepne":["0"]
+
+
+}

@@ -1,6 +1,6 @@
 package model;
 
-import widoki.Zdarzenie;
+import model.widoki.Zdarzenie;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,32 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Postac {
-    public int iloscPunktowZycia;
-    public int regeneracjaPunktowZycia;
-    public int wartoscAtaku;
-    public int szybkoscAtaku;
-    public int wartoscPancerza;
-    public int procentowaSzansaNaTrafienie;
-    public int procentowaSzansaNaUnik;
-    public String nazwaPostaci;
-    public List<Wzmocnienie> przedmioty;
-    public List<Wzmocnienie> cechy;
-    public Zdarzenie zapis = null;
 
-    public Postac(int iloscPunktowZycia, int regeneracjaPunktowZycia, int wartoscAtaku,
-                  int szybkoscAtaku, int wartoscPancerza, int procentowaSzansaNaTrafienie,
-                  int procentowaSzansaNaUnik, String nazwaPostaci) {
-        this.iloscPunktowZycia = iloscPunktowZycia;
-        this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
-        this.wartoscAtaku = wartoscAtaku;
-        this.szybkoscAtaku = szybkoscAtaku;
-        this.wartoscPancerza = wartoscPancerza;
-        this.procentowaSzansaNaTrafienie = procentowaSzansaNaTrafienie;
-        this.procentowaSzansaNaUnik = procentowaSzansaNaUnik;
-        this.nazwaPostaci = nazwaPostaci;
-        this.cechy =  new ArrayList<>();
-        this.przedmioty = new ArrayList<>();
-    }
+
+    private int iloscPunktowZycia = 0;
+    private int regeneracjaPunktowZycia = 0;
+    private int wartoscAtaku = 0;
+    private int szybkoscAtaku = 0;
+    private int wartoscPancerza = 0;
+    private int procentowaSzansaNaTrafienie = 0;
+    private int procentowaSzansaNaUnik = 0;
+    private String nazwaPostaci = "nikt";
+    private List<Wzmocnienie> przedmioty = new ArrayList<>();
+    private List<Wzmocnienie> cechy = new ArrayList<>();
+    private Zdarzenie zapis = null;
 
     public Postac(){
 
@@ -150,12 +137,12 @@ public class Postac {
 
     public Wzmocnienie zalozPrzedmiot(String nazwa){
         for (Wzmocnienie przedmiot: przedmioty){
-            if(przedmiot.nazwa.equals(nazwa)){
+            if(przedmiot.getNazwa().equals(nazwa)){
                 przedmiot.wzmocnij(this);
                 return przedmiot;
             }
         }
-        return new Wzmocnienie("brak",0,0,0,0,0,0,0);
+        return new Wzmocnienie();
     }
 
     private boolean czyTrafil(Postac wrog) {

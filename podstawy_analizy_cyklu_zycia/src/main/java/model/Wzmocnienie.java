@@ -3,49 +3,36 @@ package model;
 import model.Postac;
 
 public class Wzmocnienie {
-    public String nazwa;
-    public int iloscPunktowZycia;
-    public int regeneracjaPunktowZycia;
-    public int wartoscAtaku;
-    public int szybkoscAtaku;
-    public int wartoscPancerza;
-    public int procentowaSzansaNaTrafienie;
-    public int procentowaSzansaNaUnik;
-
-    public Wzmocnienie(String nazwa, int iloscPunktowZycia, int regeneracjaPunktowZycia,
-                       int wartoscAtaku, int szybkoscAtaku, int wartoscPancerza,
-                       int procentowaSzansaNaTrafienie, int procentowaSzansaNaUnik) {
-        this.nazwa = nazwa;
-        this.iloscPunktowZycia = iloscPunktowZycia;
-        this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
-        this.wartoscAtaku = wartoscAtaku;
-        this.szybkoscAtaku = szybkoscAtaku;
-        this.wartoscPancerza = wartoscPancerza;
-        this.procentowaSzansaNaTrafienie = procentowaSzansaNaTrafienie;
-        this.procentowaSzansaNaUnik = procentowaSzansaNaUnik;
-    }
+    private String nazwa = "nic";
+    private int iloscPunktowZycia = 0;
+    private int regeneracjaPunktowZycia = 0;
+    private int wartoscAtaku = 0;
+    private int szybkoscAtaku = 0;
+    private int wartoscPancerza = 0;
+    private int procentowaSzansaNaTrafienie = 0;
+    private int procentowaSzansaNaUnik = 0;
 
     public Wzmocnienie() {
     }
 
     public void wzmocnij(Postac bohater){
-        bohater.iloscPunktowZycia += iloscPunktowZycia;
-        bohater.regeneracjaPunktowZycia += regeneracjaPunktowZycia;
-        bohater.wartoscAtaku += wartoscAtaku;
-        bohater.szybkoscAtaku += szybkoscAtaku;
-        bohater.wartoscPancerza += wartoscPancerza;
-        bohater.procentowaSzansaNaTrafienie += procentowaSzansaNaTrafienie;
-        bohater.procentowaSzansaNaUnik += procentowaSzansaNaUnik;
+        bohater.setIloscPunktowZycia(iloscPunktowZycia + bohater.getIloscPunktowZycia());
+        bohater.setRegeneracjaPunktowZycia(regeneracjaPunktowZycia + bohater.getIloscPunktowZycia());
+        bohater.setWartoscAtaku(wartoscAtaku + bohater.getWartoscAtaku());
+        bohater.setSzybkoscAtaku(szybkoscAtaku + bohater.getSzybkoscAtaku());
+        bohater.setWartoscPancerza(wartoscPancerza + bohater.getWartoscPancerza());
+        bohater.setProcentowaSzansaNaTrafienie(procentowaSzansaNaTrafienie + bohater.getProcentowaSzansaNaTrafienie());
+        bohater.setProcentowaSzansaNaUnik(procentowaSzansaNaUnik + bohater.getProcentowaSzansaNaUnik());
     }
 
     public void zdejmijPrzedmiot(Postac bohater){
-        bohater.iloscPunktowZycia -= iloscPunktowZycia;
-        bohater.regeneracjaPunktowZycia -= regeneracjaPunktowZycia;
-        bohater.wartoscAtaku -= wartoscAtaku;
-        bohater.szybkoscAtaku -= szybkoscAtaku;
-        bohater.wartoscPancerza -= wartoscPancerza;
-        bohater.procentowaSzansaNaTrafienie -= procentowaSzansaNaTrafienie;
-        bohater.procentowaSzansaNaUnik -= procentowaSzansaNaUnik;
+        bohater.setIloscPunktowZycia(bohater.getIloscPunktowZycia() - iloscPunktowZycia);
+        bohater.setRegeneracjaPunktowZycia(bohater.getIloscPunktowZycia() - regeneracjaPunktowZycia);
+        bohater.setWartoscAtaku(bohater.getWartoscAtaku() - wartoscAtaku);
+        bohater.setSzybkoscAtaku(bohater.getSzybkoscAtaku() - szybkoscAtaku);
+        bohater.setWartoscPancerza(bohater.getWartoscPancerza() - wartoscPancerza);
+        bohater.setProcentowaSzansaNaTrafienie(bohater.getProcentowaSzansaNaTrafienie() - procentowaSzansaNaTrafienie);
+        bohater.setProcentowaSzansaNaUnik(bohater.getProcentowaSzansaNaUnik() - procentowaSzansaNaUnik);
     }
 
     public String opis(){

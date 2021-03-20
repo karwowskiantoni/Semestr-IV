@@ -1,5 +1,7 @@
 package utils;
 
+import model.Wzmocnienie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,6 +20,21 @@ public class Renderer {
         this.wysokoscOkna = wysokoscOkna;
         this.szerokoscOkna = szerokoscOkna;
         this.szerokoscTekstu = szerokoscTekstu;
+    }
+
+    public String wypiszWzmocnienia(String tytul, List<Wzmocnienie> wzmocnienia, String tekstJesliPuste) {
+        StringBuilder lista = new StringBuilder();
+        lista.append("-------------").append(tytul).append("-------------").append(System.lineSeparator());
+
+        if(wzmocnienia.size() == 0){
+            lista.append(tekstJesliPuste);
+            return lista.toString();
+        }
+        for(Wzmocnienie przedmiot: wzmocnienia) {
+            lista.append(przedmiot.opis()).append(System.lineSeparator());
+        }
+        return lista.toString();
+
     }
 
     public void renderujTekst(String tekst) {
@@ -50,7 +67,7 @@ public class Renderer {
         renderujWierszZMarginesem(powtorzTekst("* ", szerokoscOkna / 2), szerokoscOkna); //
     }
 
-    public void wyswietlOknoInformacyjne(String informacja) {
+    public void renderujOknoInformacyjne(String informacja) {
         try {
             informacja += "." + System.lineSeparator() + "." + System.lineSeparator() + "WCIŚNIJ ENTER ABY KONTYNUOWAĆ";
             renderujTekst(informacja);

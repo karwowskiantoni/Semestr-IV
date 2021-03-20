@@ -2,7 +2,8 @@ package utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import widoki.Zdarzenie;
+import model.widoki.Zdarzenie;
+import model.widoki.ZdarzenieWalki;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,18 +11,31 @@ import java.util.Scanner;
 public class ParserZdarzen {
 
     public static Zdarzenie stworzZdarzenie(String nazwaPliku){
-        String dane = odczytajzPliku(nazwaPliku);
+
+        String plik = odczytajzPliku(nazwaPliku);
+        String typZdarzenia = plik.split("&")[0];
+        String dane = plik.split("&")[1].replace(System.lineSeparator(), "");
+
         ObjectMapper mapper = new ObjectMapper();
         Zdarzenie zdarzenie = null;
         try {
-            zdarzenie = mapper.readValue(dane.replace(System.lineSeparator(), ""), Zdarzenie.class);
-            zdarzenie.setOpis(zdarzenie.getOpis().replace("~", System.lineSeparator() + "." + System.lineSeparator()));
+
+            if(typZdarzenia.equals("zdarzenie")) {
+                zdarzenie = mapper.readValue(dane, Zdarzenie.class);
+            } else if(typZdarzenia.equals("zdarzenie walki")) {
+                zdarzenie = mapper.readValue(dane, ZdarzenieWalki.class);
+            }
+
+
         } catch (JsonProcessingException e) {
             System.out.println("BŁĘDNY FORMAT PLIKU: "+ nazwaPliku);
+            System.out.println(e);
             System.out.println(dane);
             System.exit(1);
         }
-            return zdarzenie;
+
+        zdarzenie.setOpis(zdarzenie.getOpis().replace("~", System.lineSeparator() + "." + System.lineSeparator()));
+        return zdarzenie;
     }
 
 

@@ -1,4 +1,4 @@
-package widoki;
+package model.widoki;
 
 import model.Postac;
 import utils.ParserZdarzen;
@@ -7,11 +7,10 @@ import utils.Renderer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Zdarzenie {
-    private String opis;
-    private String[] nastepne;
+    private String opis = "";
+    private String[] nastepne = null;
 
     public void setOpis(String opis) {
         this.opis = opis;
@@ -33,11 +32,6 @@ public class Zdarzenie {
 
     }
 
-    public Zdarzenie(String opis, String[] nastepne) {
-        this.opis = opis;
-        this.nastepne = nastepne;
-    }
-
     public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException {
 
         renderer.renderujTekst(opis);
@@ -54,32 +48,39 @@ public class Zdarzenie {
             case "wybieram":
                 int argument = Integer.parseInt(wejscie[1]);
                 if(nastepne.length >= argument) {
-                    renderer.wyswietlOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + ParserZdarzen.odczytajzPliku("dalej"));
+                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + ParserZdarzen.odczytajzPliku("dalej"));
                     return ParserZdarzen.stworzZdarzenie(this.nastepne[argument -1]);
                 } else {
-                    renderer.wyswietlOknoInformacyjne("Nie ma takiego wyboru");
+                    renderer.renderujOknoInformacyjne("Nie ma takiego wyboru");
                 }
                 break;
 
             case "pomoc":
-                renderer.wyswietlOknoInformacyjne(ParserZdarzen.odczytajzPliku("pomoc"));
+                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("pomoc"));
                 break;
 
             case "bohater":
-                renderer.wyswietlOknoInformacyjne(bohater.nazwaPostaci);
+                renderer.renderujOknoInformacyjne(bohater.wypiszInformacjeOBohaterze("KARTA BOHATERA"));
                 break;
 
             case  "wyjście":
                 System.exit(0);
 
+            case "wczytaj":
+                if(bohater.getZapis() != null) {
+                    renderer.renderujOknoInformacyjne("WCZYTANO");
+                    return bohater.getZapis();
+                }
+                break;
+
+            case "zapisz":
+                renderer.renderujOknoInformacyjne("ZAPISANO");
+                bohater.setZapis(this);
+                break;
+
             default:
-                renderer.wyswietlOknoInformacyjne(ParserZdarzen.odczytajzPliku("błąd"));
+                renderer.renderujOknoInformacyjne(ParserZdarzen.odczytajzPliku("błąd"));
         }
         return this;
-    }
-
-    public boolean zmienPunktyZycia(Postac bohater) {
-        bohater.iloscPunktowZycia -= bohater.regeneracjaPunktowZycia;
-        return bohater.iloscPunktowZycia >= 0;
     }
 }
