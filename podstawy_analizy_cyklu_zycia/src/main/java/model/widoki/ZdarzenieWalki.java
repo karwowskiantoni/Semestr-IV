@@ -57,11 +57,11 @@ public class ZdarzenieWalki extends Zdarzenie{
                 String argumentWyposazania = wejscie[1];
                 Wzmocnienie przedmiotDoZalozenia = bohater.getPrzedmioty().stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentWyposazania)).findFirst().orElse(null);
                 if(zalozonePrzedmioty.size() > 2) {
-                    renderer.renderujOknoInformacyjne("Bohater ugiąłwszy się pod ilością przedmiotów stwierdza iż nie jest w stanie udźwignąć już ani grama więcej");
+                    renderer.renderujOknoInformacyjne("W krzyżu głośne łupnięcie bohaterowi naszemu uświadomiło, że chyba mu już ich wystarczy");
                 }
                 else if(przedmiotDoZalozenia != null) {
                     przedmiotDoZalozenia.wzmocnij(bohater);
-                    bohater.getPrzedmioty().remove(przedmiotDoZalozenia);
+                    bohater.usunPrzedmiot(przedmiotDoZalozenia);
                     zalozonePrzedmioty.add(przedmiotDoZalozenia);
                 } else {
                     renderer.renderujOknoInformacyjne("Bohater fantazji swej nadużywając przywdziać chciał wytwór swej imaginacji");
@@ -73,9 +73,9 @@ public class ZdarzenieWalki extends Zdarzenie{
                 String argumentZdejmowania = wejscie[1];
                 Wzmocnienie przedmiotDoZdjecia = zalozonePrzedmioty.stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentZdejmowania)).findFirst().orElse(null);
                 if(przedmiotDoZdjecia != null){
-                    przedmiotDoZdjecia.zdejmijPrzedmiot(bohater);
+                    przedmiotDoZdjecia.anulujWzmocnienie(bohater);
                     zalozonePrzedmioty.remove(przedmiotDoZdjecia);
-                    bohater.getPrzedmioty().add(przedmiotDoZdjecia);
+                    bohater.zdobadzPrzedmiot(przedmiotDoZdjecia);
                 } else {
                     renderer.renderujOknoInformacyjne("Bohaterowi na wzrok padło chcąc zdjąć rzecz, której przywdziać wpierw nie raczył");
                 }
@@ -86,7 +86,7 @@ public class ZdarzenieWalki extends Zdarzenie{
                 if(bohater.getIloscPunktowZycia() > 0) {
                     bohater.getPrzedmioty().addAll(przeciwnik.getPrzedmioty());
                     for (Wzmocnienie przedmiot: zalozonePrzedmioty) {
-                        przedmiot.zdejmijPrzedmiot(bohater);
+                        przedmiot.anulujWzmocnienie(bohater);
                     }
                     return parser.stworzZdarzenie(getNastepne()[1],false);
                 } else {

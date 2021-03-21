@@ -118,6 +118,10 @@ public class Postac {
         przedmioty.add(przedmiot);
     }
 
+    public void usunPrzedmiot(Wzmocnienie przedmiot){
+        przedmioty.remove(przedmiot);
+    }
+
     public void zdobadzCeche(Wzmocnienie cecha){
         cechy.add(cecha);
         cecha.wzmocnij(this);

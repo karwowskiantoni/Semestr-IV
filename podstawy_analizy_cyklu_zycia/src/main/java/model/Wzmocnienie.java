@@ -23,7 +23,7 @@ public class Wzmocnienie {
         bohater.setProcentowaSzansaNaUnik(procentowaSzansaNaUnik + bohater.getProcentowaSzansaNaUnik());
     }
 
-    public void zdejmijPrzedmiot(Postac bohater){
+    public void anulujWzmocnienie(Postac bohater){
         bohater.setIloscPunktowZycia(bohater.getIloscPunktowZycia() - iloscPunktowZycia);
         bohater.setWartoscAtaku(bohater.getWartoscAtaku() - wartoscAtaku);
         bohater.setSzybkoscAtaku(bohater.getSzybkoscAtaku() - szybkoscAtaku);
