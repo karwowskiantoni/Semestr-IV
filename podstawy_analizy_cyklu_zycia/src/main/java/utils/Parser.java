@@ -27,8 +27,6 @@ public class Parser {
         } else if(typZdarzenia.equals("zdarzenie walki")) {
             zdarzenie = gson.fromJson(dane, ZdarzenieWalki.class);
         }
-
-        zdarzenie.setOpis(zdarzenie.getOpis().replace("~", System.lineSeparator() + "." + System.lineSeparator()));
         return zdarzenie;
     }
 
@@ -84,7 +82,10 @@ public class Parser {
 
 
 
-        return text.replace("\n", "").replace(System.lineSeparator(), "").replace("~", System.lineSeparator() + "." + System.lineSeparator());
+        return text
+                .replace("\n", "")
+                .replace(System.lineSeparator(), "")
+                .replace("~", System.lineSeparator() + "." + System.lineSeparator());
 
     }
 }
