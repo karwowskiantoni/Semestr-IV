@@ -9,26 +9,12 @@ import java.io.Console;
 import java.io.IOException;
 
 public class GameBook {
+    static Parser parser = new Parser();
+    static Renderer renderer = new Renderer(40, 90, 80);
+    static Postac bohater = new Postac();
+    static Zdarzenie aktualneZdarzenie = parser.stworzZdarzenie("menu", false);
 
     public static void main(String args[]) throws IOException {
-        gra(40, 90, 80);
-        //wyszukiwarkaZdarzen();
-    }
-
-
-
-    private static void gra(int wysokoscOkna, int szerokoscOkna, int szerokoscTekstu) throws IOException{
-        Parser parser = new Parser();
-        Postac bohater = new Postac();
-        Zdarzenie aktualneZdarzenie = parser.stworzZdarzenie("menu", false);
-
-        bohater.setNazwaPostaci("zbyszek");
-        bohater.setIloscPunktowZycia(50);
-        bohater.setWartoscAtaku(10);
-        bohater.setSzybkoscAtaku(5);
-        bohater.setWartoscPancerza(3);
-        bohater.setProcentowaSzansaNaTrafienie(100);
-        bohater.setProcentowaSzansaNaUnik(10);
 
         Wzmocnienie mieczyk = new Wzmocnienie();
         mieczyk.setNazwa("zbyt krotki miecz");
@@ -45,7 +31,6 @@ public class GameBook {
         plaszczyk.setProcentowaSzansaNaUnik(50);
         bohater.zdobadzPrzedmiot(plaszczyk);
 
-        Renderer renderer = new Renderer(wysokoscOkna, szerokoscOkna, szerokoscTekstu);
 
         while (true) {
             try {
@@ -62,5 +47,7 @@ public class GameBook {
             }
         }
     }
+
+
 }
 
