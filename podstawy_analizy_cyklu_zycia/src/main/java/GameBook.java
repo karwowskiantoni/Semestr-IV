@@ -24,7 +24,6 @@ public class GameBook {
 
         bohater.setNazwaPostaci("zbyszek");
         bohater.setIloscPunktowZycia(50);
-        bohater.setRegeneracjaPunktowZycia(0);
         bohater.setWartoscAtaku(10);
         bohater.setSzybkoscAtaku(5);
         bohater.setWartoscPancerza(3);

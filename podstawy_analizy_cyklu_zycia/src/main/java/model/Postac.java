@@ -9,10 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Postac {
-
-
     private int iloscPunktowZycia = 0;
-    private int regeneracjaPunktowZycia = 0;
     private int wartoscAtaku = 0;
     private int szybkoscAtaku = 0;
     private int wartoscPancerza = 0;
@@ -94,7 +91,6 @@ public class Postac {
         info.append("==================================================================").append(System.lineSeparator());
         info.append("                       ***").append(naglowek).append("***                       ").append(System.lineSeparator());
         info.append("Nazwa: ").append(nazwaPostaci).append(System.lineSeparator());
-        info.append("Regeneracja życia:   ").append(regeneracjaPunktowZycia).append(System.lineSeparator());
         info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
         info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
         info.append("Wartość ataku:       ").append(wartoscAtaku).append(System.lineSeparator());
@@ -236,14 +232,6 @@ public class Postac {
 
     public void setIloscPunktowZycia(int iloscPunktowZycia) {
         this.iloscPunktowZycia = iloscPunktowZycia;
-    }
-
-    public int getRegeneracjaPunktowZycia() {
-        return regeneracjaPunktowZycia;
-    }
-
-    public void setRegeneracjaPunktowZycia(int regeneracjaPunktowZycia) {
-        this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
     }
 
     public int getWartoscAtaku() {

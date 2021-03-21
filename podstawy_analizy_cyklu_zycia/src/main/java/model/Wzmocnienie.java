@@ -5,7 +5,6 @@ import model.Postac;
 public class Wzmocnienie {
     private String nazwa = "nic";
     private int iloscPunktowZycia = 0;
-    private int regeneracjaPunktowZycia = 0;
     private int wartoscAtaku = 0;
     private int szybkoscAtaku = 0;
     private int wartoscPancerza = 0;
@@ -17,7 +16,6 @@ public class Wzmocnienie {
 
     public void wzmocnij(Postac bohater){
         bohater.setIloscPunktowZycia(iloscPunktowZycia + bohater.getIloscPunktowZycia());
-        bohater.setRegeneracjaPunktowZycia(regeneracjaPunktowZycia + bohater.getIloscPunktowZycia());
         bohater.setWartoscAtaku(wartoscAtaku + bohater.getWartoscAtaku());
         bohater.setSzybkoscAtaku(szybkoscAtaku + bohater.getSzybkoscAtaku());
         bohater.setWartoscPancerza(wartoscPancerza + bohater.getWartoscPancerza());
@@ -27,7 +25,6 @@ public class Wzmocnienie {
 
     public void zdejmijPrzedmiot(Postac bohater){
         bohater.setIloscPunktowZycia(bohater.getIloscPunktowZycia() - iloscPunktowZycia);
-        bohater.setRegeneracjaPunktowZycia(bohater.getIloscPunktowZycia() - regeneracjaPunktowZycia);
         bohater.setWartoscAtaku(bohater.getWartoscAtaku() - wartoscAtaku);
         bohater.setSzybkoscAtaku(bohater.getSzybkoscAtaku() - szybkoscAtaku);
         bohater.setWartoscPancerza(bohater.getWartoscPancerza() - wartoscPancerza);
@@ -40,9 +37,6 @@ public class Wzmocnienie {
         lista.append(nazwa).append(": ");
         if(iloscPunktowZycia != 0){
             lista.append("życie +").append(iloscPunktowZycia).append(", ");
-        }
-        if(regeneracjaPunktowZycia != 0){
-            lista.append("regeneracja +").append(regeneracjaPunktowZycia).append(", ");
         }
         if(wartoscAtaku != 0){
             lista.append("obrażenia +").append(wartoscAtaku).append(", ");
@@ -76,14 +70,6 @@ public class Wzmocnienie {
 
     public void setIloscPunktowZycia(int iloscPunktowZycia) {
         this.iloscPunktowZycia = iloscPunktowZycia;
-    }
-
-    public int getRegeneracjaPunktowZycia() {
-        return regeneracjaPunktowZycia;
-    }
-
-    public void setRegeneracjaPunktowZycia(int regeneracjaPunktowZycia) {
-        this.regeneracjaPunktowZycia = regeneracjaPunktowZycia;
     }
 
     public int getWartoscAtaku() {
