@@ -54,15 +54,15 @@ public class ZdarzenieWalki extends Zdarzenie{
         switch (polecenie) {
 
             case "wyposaz":
-                String argument = wejscie[1];
-                Wzmocnienie wybrane = bohater.getPrzedmioty().stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argument)).findFirst().orElse(null);
+                String argumentWyposazania = wejscie[1];
+                Wzmocnienie przedmiotDoZalozenia = bohater.getPrzedmioty().stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentWyposazania)).findFirst().orElse(null);
                 if(zalozonePrzedmioty.size() > 2) {
                     renderer.renderujOknoInformacyjne("Bohater ugiąłwszy się pod ilością przedmiotów stwierdza iż nie jest w stanie udźwignąć już ani grama więcej");
                 }
-                else if(wybrane != null) {
-                    bohater.zalozPrzedmiot(wybrane.getNazwa());
-                    bohater.getPrzedmioty().remove(wybrane);
-                    zalozonePrzedmioty.add(wybrane);
+                else if(przedmiotDoZalozenia != null) {
+                    przedmiotDoZalozenia.wzmocnij(bohater);
+                    bohater.getPrzedmioty().remove(przedmiotDoZalozenia);
+                    zalozonePrzedmioty.add(przedmiotDoZalozenia);
                 } else {
                     renderer.renderujOknoInformacyjne("Bohater fantazji swej nadużywając przywdziać chciał wytwór swej imaginacji");
                 }
@@ -71,11 +71,11 @@ public class ZdarzenieWalki extends Zdarzenie{
 
             case "zdejmij":
                 String argumentZdejmowania = wejscie[1];
-                Wzmocnienie wybranyDoZdjecia = zalozonePrzedmioty.stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentZdejmowania)).findFirst().orElse(null);
-                if(wybranyDoZdjecia != null){
-                    wybranyDoZdjecia.zdejmijPrzedmiot(bohater);
-                    zalozonePrzedmioty.remove(wybranyDoZdjecia);
-                    bohater.getPrzedmioty().add(wybranyDoZdjecia);
+                Wzmocnienie przedmiotDoZdjecia = zalozonePrzedmioty.stream().filter(wzmocnienie -> wzmocnienie.getNazwa().equals(argumentZdejmowania)).findFirst().orElse(null);
+                if(przedmiotDoZdjecia != null){
+                    przedmiotDoZdjecia.zdejmijPrzedmiot(bohater);
+                    zalozonePrzedmioty.remove(przedmiotDoZdjecia);
+                    bohater.getPrzedmioty().add(przedmiotDoZdjecia);
                 } else {
                     renderer.renderujOknoInformacyjne("Bohaterowi na wzrok padło chcąc zdjąć rzecz, której przywdziać wpierw nie raczył");
                 }

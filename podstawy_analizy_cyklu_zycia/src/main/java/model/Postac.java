@@ -1,21 +1,17 @@
 package model;
 
-import model.widoki.Zdarzenie;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Postac {
+    private String nazwaPostaci = "nikt";
     private int iloscPunktowZycia = 0;
     private int wartoscAtaku = 0;
     private int szybkoscAtaku = 0;
     private int wartoscPancerza = 0;
     private int procentowaSzansaNaTrafienie = 0;
     private int procentowaSzansaNaUnik = 0;
-    private String nazwaPostaci = "nikt";
     private List<Wzmocnienie> przedmioty = new ArrayList<>();
     private List<Wzmocnienie> cechy = new ArrayList<>();
 
@@ -125,17 +121,6 @@ public class Postac {
     public void zdobadzCeche(Wzmocnienie cecha){
         cechy.add(cecha);
         cecha.wzmocnij(this);
-    }
-
-
-    public Wzmocnienie zalozPrzedmiot(String nazwa){
-        for (Wzmocnienie przedmiot: przedmioty){
-            if(przedmiot.getNazwa().equals(nazwa)){
-                przedmiot.wzmocnij(this);
-                return przedmiot;
-            }
-        }
-        return new Wzmocnienie();
     }
 
     private boolean czyTrafil(Postac wrog) {
