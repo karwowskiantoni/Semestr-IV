@@ -58,7 +58,7 @@ public class Zdarzenie {
             case "opcja":
                 int argument = Integer.parseInt(wejscie[1]);
                 if(nastepne.length >= argument) {
-                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + parser.odczytajzPliku("dalej", false));
+//                    renderer.renderujOknoInformacyjne( "WYBRANO " + argument + System.lineSeparator() + parser.odczytajzPliku("dalej", false));
                     return parser.stworzZdarzenie(this.nastepne[argument -1], false);
                 } else {
                     renderer.renderujOknoInformacyjne("Nie ma takiego wyboru");

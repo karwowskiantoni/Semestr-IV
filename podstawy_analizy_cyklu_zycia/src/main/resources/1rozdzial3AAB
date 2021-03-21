@@ -1,0 +1,12 @@
+zdarzenie&{
+
+"opis":"
+- To wielki czarodziej Najmanito - powiedział karczmarz trzęsąc się przy tym tak niemiłosiernie, iż trudno było skupić wzrok na jakiejkolwiek części ciała tego niewiarygodnie wręcz tłustego, niskiego człowieczka. 
+- Posiada tajemną wiedzę magiczną - rzekł grubasek - wykorzystuje swe czary aby nakłonić innych do złości i agresji, a następnie miażdży ich swą potegą zabierając cały ich dobytek i stając się jeszcze potężniejszym. Czasem wykorzystuje pradawne zaklęcie zwane aurą idiotyzmu, która sprawia, iż każdemu jawi się jako nieszkodliwy dureń. Nie radzę Ci z nim zadzierać.
+
+~opcja 1 - idź do awanturujących się w rogu karczmy ludzi
+",
+
+"nastepne":[1rozdzial3AAA]
+
+}

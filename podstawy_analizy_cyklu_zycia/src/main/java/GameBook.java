@@ -28,7 +28,7 @@ public class GameBook {
         bohater.setWartoscAtaku(10);
         bohater.setSzybkoscAtaku(5);
         bohater.setWartoscPancerza(3);
-        bohater.setProcentowaSzansaNaTrafienie(70);
+        bohater.setProcentowaSzansaNaTrafienie(100);
         bohater.setProcentowaSzansaNaUnik(10);
 
         Wzmocnienie mieczyk = new Wzmocnienie();

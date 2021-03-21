@@ -17,7 +17,7 @@ zdarzenie walki&{
 		"nazwaPostaci":"Tajemniczy drab z kibla",
 
 		"przedmioty":[{
-			"nazwa":"Helm smierdzacy gnojem",
+			"nazwa":"helm smierdzacy gnojem",
 			"wartoscPancerza":15,
 			"szybkoscAtaku": -2
 		}]

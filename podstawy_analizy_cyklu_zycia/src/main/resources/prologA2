@@ -17,7 +17,7 @@ zdarzenie walki&{
 		"nazwaPostaci":"Ogr OpJełop",
 
 		"przedmioty":[{
-			"nazwa":"Maczuga ogra",
+			"nazwa":"maczuga ogra",
 			"wartoscAtaku":30,
 			"szybkoscAtaku": -3
 		}]

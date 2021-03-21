@@ -103,7 +103,7 @@ public class ZdarzenieWalki extends Zdarzenie{
                 renderer.renderujOknoInformacyjne(bohater.wypiszInformacjeOBohaterze("KARTA BOHATERA"));
                 break;
 
-            case  "wyjscie":
+            case  "wyjdz":
                 System.exit(0);
 
             default:
