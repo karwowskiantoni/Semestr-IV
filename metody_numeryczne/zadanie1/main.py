@@ -9,8 +9,6 @@ def draw_division(function, division):
     plt.scatter(division.end_x, function(division.end_x))
 
 
-# todo implementacja przykładowych funkcji do wyboru
-
 def first_option(x):
     # 2*x^3 + 4*x^2 + 2
     return calculate_by_horner_method(x, [2, 4, 0, 2])
@@ -19,6 +17,7 @@ def first_option(x):
 def second_option(x):
     # sin(x)^3 + x
     return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
+
 
 def third_option(x):
     # 3^x + 10x
@@ -59,15 +58,51 @@ if __name__ == '__main__':
         print("Polecenie było niejasne, do widzenia")
         sys.exit()
 
-    przedzialik = Division(-5, 5)
-    przedzialy_z_maksimami = calculate_unimodal_divisions(wybrana_funkcja, przedzialik, 30)
+    print("Wprowadź początek badanego przedziału: ")
+    begin = float(input())
+    print("Wprowadź koniec badanego przedziału: ")
+    end = float(input())
+    division = Division(begin, end)
+    print("wprowadź liczbę przedziałów : ")
+    step = int(input())
 
-    for przedzial in przedzialy_z_maksimami:
-        draw_division(wybrana_funkcja, przedzial)
-        x = maximum_in_range_by_dychotomy_method(wybrana_funkcja, przedzial, 0.01, 10000000000000)
-        plt.scatter(x, wybrana_funkcja(x))
+    print("Którą metodą chcesz znaleźć maksimum funkcji")
+    print("1) Metoda dychotomii")
+    print("2) Metoda złotego podziału")
 
-    punkty = calculate_points(wybrana_funkcja, przedzialik, 10000)
+    method = input()
+    if method != '1' and method != '2':
+        print("Polecenie było niejasne, do widzenia")
+        sys.exit()
+
+    print("Wprowadź kryterium stopu: ")
+    print("1) Liczba iteracji")
+    print("2) Dokładność")
+    condition = input()
+
+    if condition == '1':
+        print("Wprowadź liczbę iteracji: ")
+        iteration_number = int(input())
+        accuracy = 0
+    elif condition == '2':
+        print("Wprowadź dokładność: ")
+        accuracy = float(input())
+        iteration_number = 9999999999999
+    else:
+        print("Polecenie było niejasne, do widzenia")
+        sys.exit()
+
+    divisions_with_maximums = calculate_unimodal_divisions(chosen_function, division, step)
+
+    if method == '1':
+        x = maximum_in_range_by_dychotomy_method(chosen_function, divisions_with_maximums[0], accuracy, iteration_number)
+
+    elif method == '2':
+        x = maximum_in_range_by_golden_division_method(chosen_function, divisions_with_maximums[0], accuracy, iteration_number)
+
+    plt.scatter(x, chosen_function(x))
+
+    punkty = calculate_points(chosen_function, division, 10000)
     plt.plot(punkty[0], punkty[1])
     plt.show()
 

@@ -52,7 +52,6 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
         value_of_right_x = function(right_x)
 
         if current_division.calculate_length() < accuracy:
-            current_division.show()
             return current_division.calculate_middle_of_the_division()
 
         elif value_of_left_x > value_of_right_x:
@@ -63,7 +62,6 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
 
         else:
             current_division = Division(left_x, right_x)
-
 
     return current_division.calculate_middle_of_the_division()
 
@@ -83,9 +81,17 @@ def maximum_in_range_by_golden_division_method(function, division, accuracy, ite
 
         elif value_of_left_x > value_of_right_x:
             current_division = Division(current_division.begin_x, right_x)
+            right_x = left_x
+            value_of_right_x = value_of_left_x
+            left_x = (current_division.end_x - current_division.begin_x) * (-theta) + current_division.end_x
+            value_of_left_x = function(left_x)
 
         elif value_of_left_x < value_of_right_x:
             current_division = Division(left_x, current_division.end_x)
+            left_x = right_x
+            value_of_left_x = value_of_right_x
+            right_x = (current_division.end_x - current_division.begin_x) * theta + current_division.begin_x
+            value_of_right_x = function(right_x)
 
         else:
             current_division = Division(left_x, right_x)
@@ -100,7 +106,6 @@ class Division:
 
     def show(self):
         print("przedział < " + str(self.begin_x) + "; " + str(self.end_x) + " >")
-
 
     def calculate_length(self):
         return abs(self.end_x - self.begin_x)
