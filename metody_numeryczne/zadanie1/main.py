@@ -20,22 +20,43 @@ def second_option(x):
     # sin(x)^3 + x
     return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
 
+def third_option(x):
+    # 3^x + 10x
+    return -pow(3, x) + calculate_by_horner_method(x, [10, 0])
+
+
+def fourth_option(x):
+    # sin^2(x) + 5cos(x)
+    return calculate_by_horner_method(math.sin(x), [1, 0, 0]) + calculate_by_horner_method(math.cos(x), [5, 0])
+
+
+def fifth_option(x):
+    # 7^sin(x)
+    return pow(7, math.sin(x))
+
 
 if __name__ == '__main__':
-    # todo 1) interfejs konsolowy do wyboru funkcji z listy
-    # todo 2) rysowanie wykresu
-
     print("1) 2*x^3 + 4*x^2 + 2")
     print("2) sin(x)^3 + x")
-    print("wprowadź numer funkcji, przy blednym numerze sie pozegnamy: ")
-    co_powiedzial_idiota = input()
-    wybrana_funkcja = 0
-    if co_powiedzial_idiota == '1':
-        wybrana_funkcja = first_option
-    elif co_powiedzial_idiota == '2':
-        wybrana_funkcja = second_option
+    print("3)  3^x + 10x")
+    print("4)  sin^2(x) + 5cos(x))")
+    print("5)  7^sin(x))")
+
+    print("Wprowadź numer funkcji, przy blednym numerze sie pozegnamy: ")
+    answer = input()
+    chosen_function = 0
+    if answer == '1':
+        chosen_function = first_option
+    elif answer == '2':
+        chosen_function = second_option
+    elif answer == '3':
+        chosen_function = third_option
+    elif answer == '4':
+        chosen_function = fourth_option
+    elif answer == '5':
+        chosen_function = fifth_option
     else:
-        print("Do widzenia")
+        print("Polecenie było niejasne, do widzenia")
         sys.exit()
 
     przedzialik = Division(-5, 5)
