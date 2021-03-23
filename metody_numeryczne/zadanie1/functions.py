@@ -43,7 +43,8 @@ def calculate_points(function, division, number_of_points):
 
 
 def maximum_in_range_by_dychotomy_method(function, division, accuracy, iterations_number):
-    proportion = 0.6
+    timer = time.time()
+    proportion = 0.5001
     current_division = division
 
     for i in range(iterations_number):
@@ -53,6 +54,13 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
         value_of_right_x = function(right_x)
 
         if current_division.calculate_length() < accuracy:
+            current_division.show()
+            print("długość przedziału :" + str(current_division.calculate_length()))
+            print("liczba iteracji: " + str(i))
+            print("zadana dokładność: " + str(accuracy))
+            print("wartość x: " + str(current_division.calculate_middle_of_the_division()))
+            print("wartość f(x): " + str(function(current_division.calculate_middle_of_the_division())))
+            print("czas wykonania: " + str(time.time()-timer))
             return current_division.calculate_middle_of_the_division()
 
         elif value_of_left_x > value_of_right_x:
@@ -64,6 +72,13 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
         else:
             current_division = Division(left_x, right_x)
 
+    current_division.show()
+    print("długość przedziału :" + str(current_division.calculate_length()))
+    print("zadana liczba iteracji: " + str(iterations_number))
+    print("dokładność: " + str(current_division.calculate_length()))
+    print("wartość x: " + str(current_division.calculate_middle_of_the_division()))
+    print("wartość f(x): " + str(function(current_division.calculate_middle_of_the_division())))
+    print("czas wykonania: " + str(time.time()-timer))
     return current_division.calculate_middle_of_the_division()
 
 
@@ -79,6 +94,13 @@ def maximum_in_range_by_golden_division_method(function, division, accuracy, ite
     for i in range(iterations_number):
 
         if current_division.calculate_length() < accuracy:
+            current_division.show()
+            print("długość przedziału :" + str(current_division.calculate_length()))
+            print("liczba iteracji: " + str(i))
+            print("zadana dokładność: " + str(accuracy))
+            print("wartość x: " + str(current_division.calculate_middle_of_the_division()))
+            print("wartość f(x): " + str(function(current_division.calculate_middle_of_the_division())))
+            print("czas wykonania: " + str(time.time()-timer))
             return current_division.calculate_middle_of_the_division()
 
         elif value_of_left_x > value_of_right_x:
@@ -98,6 +120,13 @@ def maximum_in_range_by_golden_division_method(function, division, accuracy, ite
         else:
             current_division = Division(left_x, right_x)
 
+    current_division.show()
+    print("długość przedziału :" + str(current_division.calculate_length()))
+    print("zadana liczba iteracji: " + str(iterations_number))
+    print("dokładność: " + str(current_division.calculate_length()))
+    print("wartość x: " + str(current_division.calculate_middle_of_the_division()))
+    print("wartość f(x): " + str(function(current_division.calculate_middle_of_the_division())))
+    print("czas wykonania: " + str(time.time()-timer))
     return current_division.calculate_middle_of_the_division()
 
 

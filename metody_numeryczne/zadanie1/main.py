@@ -18,14 +18,15 @@ def second_option(x):
     # sin(x)^3 + x
     return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
 
+
 def third_option(x):
     # 3^x + 10x
     return -pow(3, x) + calculate_by_horner_method(x, [10, 0])
 
 
 def fourth_option(x):
-    # sin^2(x) + 5cos(x)
-    return calculate_by_horner_method(math.sin(x), [1, 0, 0]) + calculate_by_horner_method(math.cos(x), [5, 0])
+    # (sin(x)+2)^2 + 5cos(x)
+    return calculate_by_horner_method(math.sin(x)+2, [1, 0, 0]) + calculate_by_horner_method(math.cos(x), [5, 0])
 
 
 def fifth_option(x):
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     print("1) 2*x^3 + 4*x^2 + 2")
     print("2) sin(x)^3 + x")
     print("3)  3^x + 10x")
-    print("4)  sin^2(x) + 5cos(x))")
+    print("4)  (sin(x) + 2)^2 + 5cos(x))")
     print("5)  7^sin(x))")
 
     print("Wprowadź numer funkcji, przy blednym numerze sie pozegnamy: ")
@@ -101,7 +102,7 @@ if __name__ == '__main__':
 
     plt.scatter(x, chosen_function(x))
 
-    punkty = calculate_points(chosen_function, division, 10000)
+    punkty = calculate_points(chosen_function, divisions_with_maximums[0], 10000)
     plt.plot(punkty[0], punkty[1])
     plt.show()
 
