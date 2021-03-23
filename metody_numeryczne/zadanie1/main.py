@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     for przedzial in przedzialy_z_maksimami:
         draw_division(wybrana_funkcja, przedzial)
-        x = maximum_in_range_by_dychotomy_method(wybrana_funkcja, przedzial, 0, 10)
+        x = maximum_in_range_by_dychotomy_method(wybrana_funkcja, przedzial, 0.01, 10000000000000)
         plt.scatter(x, wybrana_funkcja(x))
 
     punkty = calculate_points(wybrana_funkcja, przedzialik, 10000)

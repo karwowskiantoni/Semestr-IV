@@ -7,10 +7,6 @@ def calculate_by_horner_method(x, coefficients):
     return value
 
 
-def calculate_middle_of_the_division(division):
-    return division.begin_x + abs(division.end_x - division.begin_x)/2
-
-
 # zwraca 'number_of_divisions' przedziałów na których funkcja 'function' może
 # posiadać maksimum lokalne z przedziału 'division'
 def calculate_unimodal_divisions(function, division, number_of_divisions):
@@ -55,8 +51,9 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
         value_of_left_x = function(left_x)
         value_of_right_x = function(right_x)
 
-        if abs(right_x - left_x) < accuracy:
-            return calculate_middle_of_the_division(current_division)
+        if current_division.calculate_length() < accuracy:
+            current_division.show()
+            return current_division.calculate_middle_of_the_division()
 
         elif value_of_left_x > value_of_right_x:
             current_division = Division(current_division.begin_x, right_x)
@@ -66,17 +63,50 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
 
         else:
             current_division = Division(left_x, right_x)
-    return calculate_middle_of_the_division(current_division)
+
+
+    return current_division.calculate_middle_of_the_division()
 
 
 def maximum_in_range_by_golden_division_method(function, division, accuracy, iterations_number):
-    # todo
-    return 0
+    theta = 0.61803
+    current_division = division
+    left_x = (current_division.end_x - current_division.begin_x) * (-theta) + current_division.end_x
+    right_x = (current_division.end_x - current_division.begin_x) * theta + current_division.begin_x
+    value_of_left_x = function(left_x)
+    value_of_right_x = function(right_x)
+
+    for i in range(iterations_number):
+
+        if current_division.calculate_length() < accuracy:
+            return current_division.calculate_middle_of_the_division()
+
+        elif value_of_left_x > value_of_right_x:
+            current_division = Division(current_division.begin_x, right_x)
+
+        elif value_of_left_x < value_of_right_x:
+            current_division = Division(left_x, current_division.end_x)
+
+        else:
+            current_division = Division(left_x, right_x)
+
+    return current_division.calculate_middle_of_the_division()
 
 
 class Division:
+
     begin_x = 0
     end_x = 0
+
+    def show(self):
+        print("przedział < " + str(self.begin_x) + "; " + str(self.end_x) + " >")
+
+
+    def calculate_length(self):
+        return abs(self.end_x - self.begin_x)
+
+    def calculate_middle_of_the_division(self):
+        return self.begin_x + self.calculate_length() / 2
 
     def __init__(self, begin_x, end_x):
         self.begin_x = begin_x
