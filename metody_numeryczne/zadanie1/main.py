@@ -18,7 +18,6 @@ def second_option(x):
     # sin(x)^3 + x
     return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
 
-
 def third_option(x):
     # 3^x + 10x
     return -pow(3, x) + calculate_by_horner_method(x, [10, 0])

@@ -1,3 +1,4 @@
+import time
 # zwraca wartość wielomianu w punkcie 'x' obliczoną schematem
 # Hornera na podstawie współczynników wielomianu 'coefficients'
 def calculate_by_horner_method(x, coefficients):
@@ -67,6 +68,7 @@ def maximum_in_range_by_dychotomy_method(function, division, accuracy, iteration
 
 
 def maximum_in_range_by_golden_division_method(function, division, accuracy, iterations_number):
+    timer = time.time()
     theta = 0.61803
     current_division = division
     left_x = (current_division.end_x - current_division.begin_x) * (-theta) + current_division.end_x
