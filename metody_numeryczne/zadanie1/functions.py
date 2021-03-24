@@ -44,7 +44,7 @@ def calculate_points(function, division, number_of_points):
 
 def maximum_in_range_by_dychotomy_method(function, division, accuracy, iterations_number):
     timer = time.time()
-    proportion = 0.5001
+    proportion = 0.85
     current_division = division
 
     for i in range(iterations_number):

@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     plt.scatter(x, chosen_function(x))
 
-    punkty = calculate_points(chosen_function, divisions_with_maximums[0], 10000)
+    punkty = calculate_points(chosen_function, division, 10000)
     plt.plot(punkty[0], punkty[1])
     plt.show()
 
