@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 
 public class Controller {
 
+    public Button addFileButtonOne;
     @FXML
     TabPane background = new TabPane();
     @FXML
@@ -54,7 +55,7 @@ public class Controller {
 
     }
 
-    public void sendToEdit() throws FileNotFoundException, IOException {
+    public void sendToEdit() throws IOException {
         editTextBit.setText(errorCorrection.encode(inputText.getText()));
         inputText.setText("");
 
@@ -69,16 +70,17 @@ public class Controller {
     }
 
     public void correct() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
         outputTextBit.setText(errorCorrection.correct(outputTextBit.getText()));
     }
 
-    public void checkCorrection() {
+    public void checkCorrection() throws IOException {
         if(errorCorrection.checkCorrection(outputTextBit.getText())) {
             background.setStyle("-fx-background-color:#86AF49;");
         } else {
             background.setStyle("-fx-background-color:#F08080;");
+        }
+        try (FileOutputStream stream = new FileOutputStream("msgCorrected")) {
+            stream.write(BitArray.stringToBitArray(outputText.getText()).getBytes());
         }
     }
 
@@ -90,6 +92,8 @@ public class Controller {
 
         try {
             bytes = Files.readAllBytes(Paths.get(pathField.getText()));
+            BitArray array = new BitArray(bytes);
+            inputTextBit.setText(array.bitArrayToBitString());
         } catch (IOException e) {
             e.printStackTrace();
         }
