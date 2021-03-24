@@ -1,5 +1,9 @@
 package sample.model;
 
+// Biblioteka stworzona przez Antoniego Karwowskiego przy współpracy z Michałem Geblem
+// Umożliwia szybkie i obiektowe działanie na danych (bity, bajty itd.)
+// Nie jest to część związana z zadaniem, więc nie opisujemy metody działania. Sam efekt funkcji można wywnioskować po nazwie.
+
 public class BitArray {
     byte[] bytes;
     int length;

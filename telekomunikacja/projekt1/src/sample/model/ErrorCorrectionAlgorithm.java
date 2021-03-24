@@ -1,17 +1,32 @@
 package sample.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+//Twórcy: Antoni Karwowski 229908, Michał Gebel 229879
+//Główna klasa zawierająca całą implementację logiki zadania.
+//Aplikacja powstawała współbieżnie za pomocą pluginu "Code with me" do IDE Intelij firmy JetBrains
+//W związku z tym cały kod powstał przy udziale dwóch osób jednocześnie
+//Przełożyo się to na lepsze zrozumienie zagadnienia i wyeliminowało przypadek, gdzie druga osoba nie wie co dzieje
+//się w danej części programu, nad którym nie pracowała.
+//Aplikacja ta odczytuje dane, które mogą zostać wpisane, lub załączone w pliku.
+//Następnie zostają dodane bity parzystości, a w oknie edycji można edytować bity danych, aby wprowadzić do nich błąd
+//Za pomocą przycisku możemy sprawdzić poprawność wiadomości, którą przepuściliśmy przez tunel edycji
+//Jeśli aplikacja świeci się na zielono, to znaczy, że wiadomość jest poprawna, jeśli na czerwono to zawiera błędy
+//Przycisk poprawy błędów znajduje i usuwa błędy, a nastepnie pozbywa się zbędnych bitów parzystości
+//Można zapisać dany plik lub dane
+
 public class ErrorCorrectionAlgorithm {
 
+    //Deklaracja macierzy dodającej 8 bitów parzystości
     BitArray[] hMatrix = new BitArray[8];
 
     public ErrorCorrectionAlgorithm() {
 
-        //implementacja macierzy dodająca 8 bitów parzystości według wzoru
+        //implementacja macierzy dodająca 8 bitów parzystości według wzoru. Została opracowana przy pomocy alogrytmu, który
+        //został opracowany w oparciu o wymagania macierzy opisane w zadaniu
+
         hMatrix[0] = BitArray.bitStringToBitArray("01011111 10000000");
         hMatrix[1] = BitArray.bitStringToBitArray("10101111 01000000");
         hMatrix[2] = BitArray.bitStringToBitArray("11010111 00100000");
@@ -23,7 +38,7 @@ public class ErrorCorrectionAlgorithm {
     }
 
 
-    //konwertuje na postać ciągu bitów i dodaje bity parzystości
+    //metoda konwertuje dane na postać ciągu bitów i dodaje bity parzystości
     public String encode(String data) {
         BitArray finalData = new BitArray(0);
         for(int i = 0; i < data.length(); i++) {
@@ -32,7 +47,7 @@ public class ErrorCorrectionAlgorithm {
         return finalData.bitArrayToBitString();
     }
 
-    //sprawdza poprawność ciągu bitów na podstawie macierzy
+    //metoda sprawdza poprawność ciągu bitów na podstawie macierzy
     public boolean checkCorrection(String bitData) {
         BitArray array = BitArray.bitStringToBitArray(bitData);
         if (array.length % 16 != 0) {
@@ -50,7 +65,7 @@ public class ErrorCorrectionAlgorithm {
         return true;
     }
 
-    //poprawia do dwóch błędów w ciągu bitów
+    //metoda poprawia do dwóch błędów w ciągu bitów
     public String correct(String bitData) {
         BitArray array = BitArray.bitStringToBitArray(bitData);
         BitArray finalArray = new BitArray(0);
@@ -63,7 +78,7 @@ public class ErrorCorrectionAlgorithm {
         return finalArray.bitArrayToBitString();
     }
 
-    //usuwa bity parzystości, konwertuje na postać ciągu znaków
+    //metoda usuwa z danych bity parzystości, konwertuje na postać ciągu znaków
     public String removeParityBits(String bitData) {
         bitData = bitData.replace(" ", "");
         StringBuilder result = new StringBuilder();
@@ -75,7 +90,7 @@ public class ErrorCorrectionAlgorithm {
 
     //-------------------------------------------------------------------------------------------------------
 
-    //funkcja dodająca 8 bitów parzystości do 1 bajtowego bloku danych, wyjściowy blok ma 2 bajty
+    //funkcja dodająca 8 bitów parzystości dzięki macierzy zahardcodowanej na początku do 1 bajtowego bloku danych, wyjściowy blok ma 2 bajty
     private BitArray addParityBits(BitArray array) {
         BitArray finalArray = new BitArray(16);
         for(int i = 0; i < 8 ; i++) {
@@ -141,7 +156,7 @@ public class ErrorCorrectionAlgorithm {
         return block;
     }
 
-    // zwraca wszystkie kombinacje xorów tablicy ciągów bitów
+    // metoda zwraca wszystkie kombinacje xorów tablicy ciągów bitów
     public HashMap<BitArray, Integer[]> xorBitArrays(BitArray[] data) {
         HashMap<BitArray, Integer[]> xoredFinalArray = new HashMap<>();
         for (int baseBitArrayElement = 0; baseBitArrayElement < data.length - 1; baseBitArrayElement++) {

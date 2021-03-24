@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//Klasa w której znajduje się metoda main, dzięki której uruchamiamy aplikację
+
 public class Main extends Application {
 
     @Override

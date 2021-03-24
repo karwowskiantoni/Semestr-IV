@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import math
 import sys
 from functions import *
-
+# Twórcy: Antoni Karwowski, Michał Gebel
 
 def draw_division(function, division):
     plt.scatter(division.begin_x, function(division.begin_x))

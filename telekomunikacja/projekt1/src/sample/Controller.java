@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import sample.model.BitArray;
@@ -15,6 +16,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+//Klasa odpowiadająca za widok aplikacji, łącząca metody z logiki z odpowiednimi przyciskami
 
 public class Controller {
 
@@ -36,7 +39,12 @@ public class Controller {
     Button editButton = new Button();
     @FXML
     Button outputButton = new Button();
+    @FXML
+    TextField pathField = new TextField();
+    @FXML
+    TextField pathField2 = new TextField();
 
+    byte[] bytes;
     ErrorCorrectionAlgorithm errorCorrection = new ErrorCorrectionAlgorithm();
 
     @FXML
@@ -85,6 +93,27 @@ public class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void chooseFile2() throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Wybierz plik");
+        File selectedDirectory = fileChooser.showOpenDialog(pathField2.getScene().getWindow());
+        pathField2.setText(selectedDirectory.getAbsolutePath());
+
+        try {
+            bytes = Files.readAllBytes(Paths.get(pathField2.getText()));
+            BitArray array = new BitArray(bytes);
+            outputTextBit.setText(array.bitArrayToBitString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveFile(){
+        BitArray bitArray = BitArray.bitStringToBitArray("010011011000110111");
+        BitArray bitArray1 = new BitArray(new byte[]{bitArray.getByte(2)});
+        System.out.println("haha taka zmyłka");
     }
 
 
