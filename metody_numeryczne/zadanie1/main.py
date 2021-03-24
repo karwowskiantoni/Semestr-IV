@@ -20,7 +20,7 @@ def second_option(x):
 
 
 def third_option(x):
-    # 3^x + 10x
+    # -3^x + 10x
     return -pow(3, x) + calculate_by_horner_method(x, [10, 0])
 
 
@@ -37,7 +37,7 @@ def fifth_option(x):
 if __name__ == '__main__':
     print("1) 2*x^3 + 4*x^2 + 2")
     print("2) sin(x)^3 + x")
-    print("3)  3^x + 10x")
+    print("3)  -3^x + 10x")
     print("4)  (sin(x) + 2)^2 + 5cos(x))")
     print("5)  7^sin(x))")
 
