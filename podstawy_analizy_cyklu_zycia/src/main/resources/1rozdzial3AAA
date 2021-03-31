@@ -1,9 +1,11 @@
 zdarzenie&{
 
 "opis":"
-ARENA NAJMANITO
+TODO ARENA NAJMANITO
+
+~opcja 1 - zakończ tę bójkę nim jeszcze dobrze się rozpoczęła
 ",
 
-"nastepne":[]
+"nastepne":[2rozdzial]
 
 }
