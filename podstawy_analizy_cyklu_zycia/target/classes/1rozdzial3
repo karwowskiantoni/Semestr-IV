@@ -1,0 +1,21 @@
+zdarzenie&{
+
+"opis":"
+Kończąc już wszelkie przemyślenia bohater z zadowoleniem podsumował wszystkie swe idee. wciąż nie mając imienia, począł definiować siebie poprzez pryzmat trzech niewątpliwych zalet - miłości do królewny, niezwykłej siły w walce oraz do zdolności poszanowania równouprawnienia wszelkich istot żywych.
+
+~Dodatkowo warto przypomnieć również dwa cele, które w swym życiu postawił sobie bohater - odnalezienie swej królewny oraz samozdefiniowanie własnej osoby.
+
+~Wróćmy jednak do położenia naszego bohatera. rozejrzał się z całkowitym już spokojem wokół siebie i dostrzegł że jest późny letni wieczór, oraz że znajduje się na gościńcu przy samotnej stodole, otoczonej ze wszystkich stron polami oraz łąkami. W oddali gościniec prowadził do lasu, w drugą zaś stronę wił się lekko przez pola jeszcze kilka kilometrów i ostatecznie znikał wśród zabudowań niewielkiego miasteczka. W połowie drogi między stodołą a miastem znajdowała się niewielka karczma, zachęcająco świecąc oknami i niosącą się po polach skoczną muzyką.
+
+~sam bohater, spojrzał na siebie i dostrzegł iż jest ubrany zupełnie przyzwoicie, bogato wręcz, jednak jego strój był zupełnie brudny, wymięty i poplamiony po śnie na stogu siana i potyczce z kilkoma przeciwnikami w stodole. przy sobie nie miał nic poza bronią wyniesioną z potyczek i tajemniczym medalionem na szyi, na którym widniał znak - prawdopodobnie dzięki nie mu będzie w stanie dowiedzieć się czegoś o swej przeszłości. O ile oczywiście swą przeszłością będzie jakkolwiek zainteresowany.
+
+~tak czy inaczej bohater nasz postanawia nie stać dłużej w miejscu.
+
+
+~opcja 1 - idź w kierunku miasta
+~opcja 2 - idź w kierunku lasu
+",
+
+"nastepne":[1rozdzial3A, 1rozdzial3B]
+
+}

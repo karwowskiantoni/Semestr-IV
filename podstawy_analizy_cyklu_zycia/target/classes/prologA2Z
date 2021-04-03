@@ -1,0 +1,9 @@
+zdarzenie&{
+
+"opis": "Ucieczka naszego bohatera ze stodoły kończy prolog naszej historii. 
+~Gratulacje
+~opcja 1 - przejdź do I rozdziału",
+
+"nastepne":[1rozdzial1]
+
+}

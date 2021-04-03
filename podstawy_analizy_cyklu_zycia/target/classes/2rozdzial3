@@ -1,0 +1,21 @@
+zdarzenie&{
+
+"opis":"
+
+W tym momencie należy podkreślić, że bohater nasz ze względu na swą niezwykle bohaterską naturę nie chował się w krzaku ze strachu, bowiem uczucie to było bohaterowi obce. Chował się tylko i wyłącznie dlatego, iż podjął tę decyzję wykorzystując swój niezwykle racjonalny umysł i zupełnie trzeźwo rozpatrując wszelkie za i przeciw, a następnie podejmując najkorzystniejszą w tej sytuacji decyzję. Fakt iż podczas wskakiwania do krzaku kilka bohaterskich części ciała wpadło w dziwny stan nieopanowanego dygotania należy oczywiście zrzucić na cały zestaw chorób neurologicznych, które nasz bohater nosił ze sobą nieustannie.
+
+~Znajdując się już w ukryciu rycerz przyglądął się ścieżce i coraz to jaśniejszym odblaskom światła rozjaśniającym już nawet szczyty kilkunastometrowych drzew. Dodatkowo drganie światła, przywodzące na myśl ogień na silnym wietrze, potęgowało niemal mistyczną atmosferę unoszącą się w powietrzu. W pewnym momencie coś wyłoniło się zza zakrętu, a bohater niemal całkowicie przestał rozróżniać kształty, dostrzegając jedynie światłość. 
+
+~W samym centrum tejże światłości można było dostrzec zarys postaci, jednak to nie ona była źródem tegoż nieziemskiego światła. Najmocniej świeciły dwa gigantyczne płomienne skrzydła, rozżarzone do białości. Właściwie dało się cokolwiek dostrzec tylko w momencie, kiedy skrzydła wystrzeliwujące z pleców kroczącej drogą istoty przenikały przez gałęzie pobliskich drzew, rozrzucając nieco cienia we wszystkich kierunkach. Skrzydła były tak ogromne, że w pewnym momencie mogłoby się wydawać iż oślepiające światło pada ze zewsząd, jest niemal wszechobecne.
+
+~W pewnym momencie jednak postać skręciła ze ścieżki w las, w kierunku przeciwnym do krykówki bohatera. Światło, przebijające teraz przez liście stawało się coraz bardziej możliwe do zniesienia. 
+
+
+~opcja 1 - idź za świetlistą istotą
+~opcja 2 - pobiegnij ścieżką w kierunku z którego przybyła istota.
+~opcja 3 - siedź dalej w krzakach
+",
+
+"nastepne":[2rozdzial3B, 2rozdzial4, 2rozdzial3B]
+
+}
