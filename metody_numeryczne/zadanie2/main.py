@@ -1,3 +1,5 @@
+import functions as f
+
 if __name__ == '__main__':
     x = [[3, 3, 1], [2, 5, 7], [1, 7, 1]]
     y = [12, 33, 8]
