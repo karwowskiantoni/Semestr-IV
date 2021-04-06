@@ -1,8 +1,0 @@
-model/widoki/Zdarzenie.class
-GameBook.class
-model/Postac.class
-utils/ZapisOdczytException.class
-model/widoki/ZdarzenieWalki.class
-utils/Renderer.class
-model/Wzmocnienie.class
-utils/Parser.class
