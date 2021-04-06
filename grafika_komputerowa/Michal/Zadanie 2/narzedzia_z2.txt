@@ -1,0 +1,9 @@
+W tym zadaniu bazowano na gotowej mapie z serwisu OpenStreet.
+Rozgrupowano wszystkie obiekty na mapie.
+Wyekstrachowano podobne obiekty, które na to pozwalały do odpowiednich warstw za pomocą narzędzia "zaznacz".
+Drogi zostały wykonane za pomocą wypełnienia linii.
+Tory kolejowe robione były całkowicie ręcznie.
+Dodatkowe obiekty powstały głównie ze stworzonych wielokątów.
+Do dokończenia został użyty pędzel, gumka, wypełniacz punktowy.
+Nazwy ulic dodano za pomocą tekstu.
+
