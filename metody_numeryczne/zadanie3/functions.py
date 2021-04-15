@@ -24,40 +24,4 @@ def calculate_points(function, division, number_of_points):
     return [X, Y]
 
 
-def j(x_array, k, should_print):
-    result = 1
-    for i in range(len(x_array)):
-        if k != i:
-            if should_print: print("    (" + str(x_array[k]) + " - " + str(x_array[i]) + ")")
-            result *= x_array[k] - x_array[i]
-    return result
 
-
-def calculate_coefficients_by_lagrange_interpolation(x_array, y_array):
-    length = len(x_array)
-    coefficients = [float(0)]*length
-    for k in range(length):
-        print(str(y_array[k]) + " / " + str(j(x_array, k, False)))
-        coefficients[k] = y_array[k] / j(x_array, k, True)
-    print(coefficients)
-
-    return 0
-
-
-class Division:
-
-    begin_x = 0
-    end_x = 0
-
-    def show(self):
-        print("przedział < " + str(self.begin_x) + "; " + str(self.end_x) + " >")
-
-    def calculate_length(self):
-        return abs(self.end_x - self.begin_x)
-
-    def calculate_middle_of_the_division(self):
-        return self.begin_x + self.calculate_length() / 2
-
-    def __init__(self, begin_x, end_x):
-        self.begin_x = begin_x
-        self.end_x = end_x
