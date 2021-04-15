@@ -1,6 +1,3 @@
-import time
-import math
-
 # zwraca wartość wielomianu w punkcie 'x' obliczoną schematem
 # Hornera na podstawie współczynników wielomianu 'coefficients'
 def calculate_by_horner_method(x, coefficients):
@@ -22,6 +19,5 @@ def calculate_points(function, division, number_of_points):
         Y[i] = function(current_x)
         current_x += step
     return [X, Y]
-
 
 

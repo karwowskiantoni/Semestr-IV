@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-import math
-import sys
+from Division import *
+from LagrangeInterpolationAlgorithm import *
 from functions import *
 # Twórcy: Antoni Karwowski, Michał Gebel
 
@@ -64,6 +64,18 @@ if __name__ == '__main__':
     # punkty = calculate_points(chosen_function, division, 10000)   # rysuje wykres
     # plt.plot(punkty[0], punkty[1])
     # plt.show()
+    algorithm = LagrangeInterpolationAlgorithm()
+    wezly = calculate_points(fifth_option, Division(-5, 5), 7)
 
-    calculate_coefficients_by_lagrange_interpolation([0, 0.5, 1], [2, 3, 0])
+    algorithm.calculate_coefficients(wezly[0], wezly[1])
+
+    for i in range(len(wezly[0])):
+        plt.scatter(wezly[0][i], wezly[1][i])
+
+    punkty_funkcji_wejsciowej = calculate_points(fifth_option, Division(-5, 5), 10000)
+    punkty_funkcji_wyjsciowej = calculate_points(algorithm.calculate_value, Division(-5, 5), 10000)
+    plt.plot(punkty_funkcji_wejsciowej[0], punkty_funkcji_wejsciowej[1])
+    plt.plot(punkty_funkcji_wyjsciowej[0], punkty_funkcji_wyjsciowej[1])
+
+    plt.show()
 
