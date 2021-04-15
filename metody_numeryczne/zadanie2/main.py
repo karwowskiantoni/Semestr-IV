@@ -24,6 +24,20 @@ if __name__ == '__main__':
         functions.gauss_jordan_solver(utils.parse_matrix("matrices/ninth_matrix"))
     elif answer == '10':
         functions.gauss_jordan_solver(utils.parse_matrix("matrices/tenth_matrix"))
+    elif answer == '11':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/55"))
+    elif answer == '12':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/66"))
+    elif answer == '13':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/77"))
+    elif answer == '14':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/88"))
+    elif answer == '15':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/99"))
+    elif answer == '16':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/100100"))
+    elif answer == '17':
+        functions.gauss_jordan_solver(utils.parse_matrix("matrices/10001000"))
     else:
         print("nie ma takiego numeru")
         quit(0)
