@@ -41,7 +41,6 @@ public class PrimaryController {
     final int ACK = 6;
     final int EOT = 4;
     final int CAN = 24;
-    final int C = 67;
 
     public void sendFile() throws IOException {
         SerialPort port = SerialPort.getCommPorts()[1];
@@ -134,12 +133,11 @@ public class PrimaryController {
     public void receiveFile() throws IOException {
         SerialPort port = SerialPort.getCommPorts()[1];
         port.openPort();
-        port.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0, 0);
+        port.setComPortTimeouts(SerialPort.TIMEOUT_READ_BLOCKING, 10000, 10000);
         OutputStream outputStream = port.getOutputStream();
         InputStream inputStream = port.getInputStream();
         List<Byte> receivedData = new ArrayList<>();
         outputStream.write(NAK);
-
         while (true) {
             try {
                 int header = inputStream.read();
@@ -173,6 +171,7 @@ public class PrimaryController {
                 System.out.println("odczytano blok numer " + response[0]);
                 outputStream.write(ACK);
             }
+
         }
         bytes = new byte[receivedData.size()];
         for(int i = 0; i < receivedData.size(); i++){
