@@ -65,7 +65,7 @@ if __name__ == '__main__':
     # plt.plot(punkty[0], punkty[1])
     # plt.show()
     algorithm = LagrangeInterpolationAlgorithm()
-    wezly = calculate_points(fifth_option, Division(-5, 5), 7)
+    wezly = calculate_points(fifth_option, Division(-5, 5), 50)
 
     algorithm.calculate_coefficients(wezly[0], wezly[1])
 
