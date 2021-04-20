@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 from Division import *
 from LagrangeInterpolationAlgorithm import *
@@ -5,77 +7,64 @@ from functions import *
 # Twórcy: Antoni Karwowski, Michał Gebel
 
 
-def draw_division(function, division):
-    plt.scatter(division.begin_x, function(division.begin_x))
-    plt.scatter(division.end_x, function(division.end_x))
-
-
-def first_option(x):
-    # 2*x^3 + 4*x^2 + 2
-    return calculate_by_horner_method(x, [2, 4, 0, 2])
-
-
-def second_option(x):
-    # sin(x)^3 + x
-    return calculate_by_horner_method(math.sin(x), [1, 0, 0, 0]) + calculate_by_horner_method(x, [1, 0])
-
-
-def third_option(x):
-    # -3^x + 10x
-    return -pow(3, x) + calculate_by_horner_method(x, [10, 0])
-
-
-def fourth_option(x):
-    # (sin(x)+2)^2 + 5cos(x)
-    return calculate_by_horner_method(math.sin(x)+2, [1, 0, 0]) + calculate_by_horner_method(math.cos(x), [5, 0])
-
-
-def fifth_option(x):
-    # 7^sin(x)
-    return pow(7, math.sin(x))
-
-
 if __name__ == '__main__':
-    # print("1) 2*x^3 + 4*x^2 + 2")
-    # print("2) sin(x)^3 + x")
-    # print("3)  -3^x + 10x")
-    # print("4)  (sin(x) + 2)^2 + 5cos(x))")
-    # print("5)  7^sin(x))")
-    #
-    # print("Wprowadź numer funkcji, przy blednym numerze sie pozegnamy: ")
-    # answer = input()
-    # chosen_function = 0
-    # if answer == '1':
-    #     chosen_function = first_option
-    # elif answer == '2':
-    #     chosen_function = second_option
-    # elif answer == '3':
-    #     chosen_function = third_option
-    # elif answer == '4':
-    #     chosen_function = fourth_option
-    # elif answer == '5':
-    #     chosen_function = fifth_option
-    # else:
-    #     print("Polecenie było niejasne, do widzenia")
-    #     sys.exit()
+    print("1) 2*x^3 + 4*x^2 + 2")
+    print("2) sin(x)^3 + x")
+    print("3)  -3^x + 10x")
+    print("4)  (sin(x) + 2)^2 + 5cos(x))")
+    print("5)  7^sin(x))")
+    print("6)  |x + 3| - 2")
+    print("7)  |-20x^3 + 100x^2 + |8x| - 3|")
 
-    # plt.scatter(x, chosen_function(x)) # rysuje punkt
+    print("Wprowadź numer funkcji, przy blednym numerze sie pozegnamy: ")
+    answer = input()
+    chosen_function = 0
+    if answer == '1':
+        chosen_function = first_option
+    elif answer == '2':
+        chosen_function = second_option
+    elif answer == '3':
+        chosen_function = third_option
+    elif answer == '4':
+        chosen_function = fourth_option
+    elif answer == '5':
+        chosen_function = fifth_option
+    elif answer == '6':
+        chosen_function = sixth_option
+    elif answer == '7':
+        chosen_function = seventh_option
+    else:
+        print("Polecenie było niejasne, do widzenia")
+        sys.exit()
 
-    # punkty = calculate_points(chosen_function, division, 10000)   # rysuje wykres
-    # plt.plot(punkty[0], punkty[1])
-    # plt.show()
+    print("Wprowadź liczbę węzłów: ")
+    node_number = int(input())
+
+    print("1) węzły równoodległe")
+    print("2) węzły Czebyszewa")
+    print("Wprowadź numer metody wyznaczania współrzędnych x węzłów: ")
+    method = input()
+
+    if method == "1":
+        nodes = calculate_points(chosen_function, Division(-5, 5), node_number)
+    elif method == "2":
+        nodes = calculate_czebyszew_points(chosen_function, Division(-5, 5), node_number)
+    else:
+        print("wprowadzono błędny numer metody, do widzenia")
+        sys.exit()
+
     algorithm = LagrangeInterpolationAlgorithm()
-    wezly = calculate_points(fifth_option, Division(-5, 5), 50)
+    algorithm.calculate_coefficients(nodes[0], nodes[1])
 
-    algorithm.calculate_coefficients(wezly[0], wezly[1])
+    # draw nodes
+    for i in range(len(nodes[0])):
+        plt.scatter(nodes[0][i], nodes[1][i])
 
-    for i in range(len(wezly[0])):
-        plt.scatter(wezly[0][i], wezly[1][i])
-
-    punkty_funkcji_wejsciowej = calculate_points(fifth_option, Division(-5, 5), 10000)
-    punkty_funkcji_wyjsciowej = calculate_points(algorithm.calculate_value, Division(-5, 5), 10000)
-    plt.plot(punkty_funkcji_wejsciowej[0], punkty_funkcji_wejsciowej[1])
-    plt.plot(punkty_funkcji_wyjsciowej[0], punkty_funkcji_wyjsciowej[1])
+    # draw graphs
+    input_function_points = calculate_points(chosen_function, Division(-5, 5), 10000)
+    output_function_points = calculate_points(algorithm.calculate_value, Division(-5, 5), 10000)
+    plt.plot(input_function_points[0], input_function_points[1])
+    plt.plot(output_function_points[0], output_function_points[1])
 
     plt.show()
 

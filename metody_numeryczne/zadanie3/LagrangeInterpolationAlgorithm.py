@@ -6,7 +6,7 @@ class LagrangeInterpolationAlgorithm:
     x_array = []
 
     def j(self, k, x):
-        return math.prod([x-self.x_array[i] if k != i else 1 for i in range(len(self.x_array))])
+        return math.prod([x - self.x_array[i] if k != i else 1 for i in range(len(self.x_array))])
 
     def calculate_coefficients(self, x_array, y_array):
         self.x_array = x_array
