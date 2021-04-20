@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+//Klasa w której znajduje się metoda main, dzięki której uruchamiamy aplikację
 
 public class App extends Application {
 

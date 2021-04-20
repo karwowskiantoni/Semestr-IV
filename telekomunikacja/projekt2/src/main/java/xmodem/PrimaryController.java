@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import xmodem.model.BitArray;
 
 import java.io.*;
+import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -35,7 +36,8 @@ public class PrimaryController {
     @FXML
     RadioButton crcON = new RadioButton();
 
-    byte[] bytes = new byte[0];
+    //Ustawienie stałych wartości komunikatów, które zostaną wysłane lub odebrane
+    byte[] bytes = new byte[0]; //przedstawienie bajtowe pliku, który odbieramy
     final int SOH = 1;
     final int NAK = 21;
     final int ACK = 6;
@@ -43,6 +45,7 @@ public class PrimaryController {
     final int CAN = 24;
 
     public void sendFile() throws IOException {
+        //ustawienie portu komunikacyjnego (COM2) oraz strumieni transmisji danych
         SerialPort port = SerialPort.getCommPorts()[1];
         port.openPort();
         port.setComPortTimeouts(SerialPort.TIMEOUT_SCANNER, 0, 0);
@@ -130,6 +133,7 @@ public class PrimaryController {
         port.closePort();
     }
 
+    //odbieranie wiadomości (ustawienie programu na funkcję odbiornika)
     public void receiveFile() throws IOException {
         SerialPort port = SerialPort.getCommPorts()[1];
         port.openPort();
@@ -183,12 +187,15 @@ public class PrimaryController {
         outputStream.close();
     }
 
+
+    //zapisanie pliku do lokalizacji kodu programu
     public void saveFile() throws IOException {
         try (FileOutputStream stream = new FileOutputStream("output")) {
             stream.write(bytes);
         }
     }
 
+    //wczytanie pliku z sytemu gospodarza
     public void loadFile() throws IOException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Wybierz plik");
@@ -207,6 +214,7 @@ public class PrimaryController {
         App.main(args);
     }
 
+    //przełącznik pomiędzy checksumem, a CRC
     public void setChecksumON(){
         checksumON.setSelected(true);
         crcON.setSelected(false);
@@ -217,6 +225,7 @@ public class PrimaryController {
         crcON.setSelected(true);
     }
 
+    //implementacja algorytmu wyliczania podstawowej sumy kontrolnej (suma bitowa)
     private int calculateChecksum(byte[] block) {
         byte sum = 0;
         for (byte element : block) {
@@ -241,26 +250,5 @@ public class PrimaryController {
             }
         }
         return crc_value;
-    }
-
-    int CRC16(byte[] bytes) {
-        int tmp = 0, val = 0x18005 << 15;
-        for (int i = 0; i < 3; i++) {
-            tmp = tmp * 256 + bytes[i];
-        }
-        tmp *= 256;
-
-        for (int i = 3; i < 134; i++) {
-            if (i < 128) {
-                tmp += bytes[i];
-            }
-            for (int j = 0; j < 8; j++) {
-                if (tmp == (1 << 31)) {
-                    tmp ^= val;
-                }
-                tmp <<= 1;
-            }
-        }
-        return tmp >> 16;
     }
 }
