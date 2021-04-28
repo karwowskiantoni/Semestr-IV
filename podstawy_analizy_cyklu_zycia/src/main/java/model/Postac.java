@@ -1,6 +1,5 @@
 package model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +15,10 @@ public class Postac {
     private List<Wzmocnienie> cechy = new ArrayList<>();
 
     public Postac(){
-
+//bo tak
     }
 
-    public String walka(Postac wrog) throws IOException {
+    public String walka(Postac wrog){
         StringBuilder logWalki = new StringBuilder();
         int inicjatywaBohatera = szybkoscAtaku;
         int inicjatywaWroga = wrog.szybkoscAtaku;
@@ -195,7 +194,7 @@ public class Postac {
             zbior.append(cecha.getNazwa());
             licznik++;
             if(cechy.size() == licznik){
-                zbior.append(".");
+//                zbior.append("");
             } else {
                 zbior.append(", ").append(System.lineSeparator());
             }
@@ -205,7 +204,7 @@ public class Postac {
 
     private String listaPrzedmiotow(){
         StringBuilder lista = new StringBuilder();
-        if(przedmioty.size() == 0){
+        if(przedmioty.isEmpty()){
             lista.append("Brak przedmiotów w sakwie. Trzeba ograbić więcej przeciwników!");
             return lista.toString();
         }

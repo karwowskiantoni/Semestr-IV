@@ -103,6 +103,13 @@ public class Renderer {
         return IntStream.range(0, liczba_powtorzen).mapToObj(i -> tekst).collect(Collectors.joining(""));
     }
 
+    /**
+    pierole cie
+     kurwa
+     paczu jebany
+
+     */
+
     private static List<String> dodajEntery(String tekst, int szerokoscTekstu) {
         List<String> wiersze = new ArrayList<>();
         String kopia_tekstu = tekst;

@@ -7,7 +7,6 @@ zdarzenie walki&{
 	"przeciwnik":{
 
 		"iloscPunktowZycia":10,
-		"regeneracjaPunktowZycia":0,
 		"wartoscAtaku":55,
 		"szybkoscAtaku":5,
 		"wartoscPancerza":3,
