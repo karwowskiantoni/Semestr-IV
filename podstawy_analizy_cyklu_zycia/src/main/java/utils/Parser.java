@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import model.Postac;
 import model.widoki.Zdarzenie;
 import model.widoki.ZdarzenieWalki;
+import model.widoki.ZdarzenieWarunkowe;
+import model.widoki.ZdarzenieWzmocnienia;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -22,10 +24,22 @@ public class Parser {
 
         Zdarzenie zdarzenie = null;
 
-        if(typZdarzenia.equals("zdarzenie")) {
-            zdarzenie = gson.fromJson(dane, Zdarzenie.class);
-        } else if(typZdarzenia.equals("zdarzenie walki")) {
-            zdarzenie = gson.fromJson(dane, ZdarzenieWalki.class);
+        switch (typZdarzenia) {
+            case "zdarzenie":
+                zdarzenie = gson.fromJson(dane, Zdarzenie.class);
+                break;
+            case "zdarzenie walki":
+                zdarzenie = gson.fromJson(dane, ZdarzenieWalki.class);
+                break;
+            case "zdarzenie wzmocnienia":
+                zdarzenie = gson.fromJson(dane, ZdarzenieWzmocnienia.class);
+                break;
+            case "zdarzenie warunkowe":
+                zdarzenie = gson.fromJson(dane, ZdarzenieWarunkowe.class);
+                break;
+            default:
+                System.out.println("BŁĘDNA NAZWA TYPU ZDARZENIA W PLIKU: " + nazwaPliku);
+                System.exit(1);
         }
         return zdarzenie;
     }

@@ -12,11 +12,14 @@ zdarzenie&{
 
 ~opcja 1 - wyjdź ze stodoły
 
-~opcja 2 - zbadaj stodołę",
+~opcja 2 - zbadaj stodołę
+
+~opcja 3 - zobacz co jest w skrzynce obok Ciebie
+",
 
 
 "nastepne":
-["prologA1", "prologB1"]
+["prologA1", "prologB1", "testZdarzeniaWzmocnienia"]
 
 
 }

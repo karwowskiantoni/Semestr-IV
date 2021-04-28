@@ -70,46 +70,36 @@ public class Postac {
     }
 
     public String wypiszInformacjeOBohaterze(String naglowek){
-        StringBuilder tekst = new StringBuilder();
-        tekst.append(wypiszInformacjeOStatystykach(naglowek)).append(wypiszInformacjeOCechach()).append(wypiszInformacjeOPrzedmiotach());
-        return tekst.toString();
+        return wypiszInformacjeOStatystykach(naglowek) + wypiszInformacjeOCechach() + wypiszInformacjeOPrzedmiotach();
     }
 
     public String wypiszInformacjeOPrzeciwniku(String naglowek){
-        StringBuilder tekst = new StringBuilder();
-        tekst.append(wypiszInformacjeOStatystykach(naglowek));
-        return tekst.toString();
+        return wypiszInformacjeOStatystykach(naglowek);
     }
 
     public String wypiszInformacjeOStatystykach(String naglowek) {
-        StringBuilder info = new StringBuilder();
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                       ***").append(naglowek).append("***                       ").append(System.lineSeparator());
-        info.append("Nazwa: ").append(nazwaPostaci).append(System.lineSeparator());
-        info.append("Ilość punktów życia: ").append(iloscPunktowZycia).append(System.lineSeparator());
-        info.append("Wartość pancerza:    ").append(wartoscPancerza).append(System.lineSeparator());
-        info.append("Wartość ataku:       ").append(wartoscAtaku).append(System.lineSeparator());
-        info.append("Szybkość ataku:     ").append(szybkoscAtaku).append(System.lineSeparator());
-        info.append("Szansa na trafienie: ").append(procentowaSzansaNaTrafienie).append("%").append(System.lineSeparator());
-        info.append("Szansa na unik: ").append(procentowaSzansaNaUnik).append("%").append(System.lineSeparator());
-        return info.toString();
+        return "==================================================================" + System.lineSeparator() +
+                "                       ***" + naglowek + "***                       " + System.lineSeparator() +
+                "Nazwa: " + nazwaPostaci + System.lineSeparator() +
+                "Ilość punktów życia: " + iloscPunktowZycia + System.lineSeparator() +
+                "Wartość pancerza:    " + wartoscPancerza + System.lineSeparator() +
+                "Wartość ataku:       " + wartoscAtaku + System.lineSeparator() +
+                "Szybkość ataku:     " + szybkoscAtaku + System.lineSeparator() +
+                "Szansa na trafienie: " + procentowaSzansaNaTrafienie + "%" + System.lineSeparator() +
+                "Szansa na unik: " + procentowaSzansaNaUnik + "%" + System.lineSeparator();
     }
 
     public String wypiszInformacjeOCechach(){
-        StringBuilder info = new StringBuilder();
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                           ***CECHY***                            ").append(System.lineSeparator());
-        info.append(zbiorCech()).append(System.lineSeparator());
-        return info.toString();
+        return "==================================================================" + System.lineSeparator() +
+                "                           ***CECHY***                            " + System.lineSeparator() +
+                zbiorCech() + System.lineSeparator();
     }
 
     public String wypiszInformacjeOPrzedmiotach(){
-        StringBuilder info = new StringBuilder();
-        info.append("==================================================================").append(System.lineSeparator());
-        info.append("                   ***PRZEDMIOTY W SAKWIE***                      ").append(System.lineSeparator());
-        info.append(listaPrzedmiotow()).append(System.lineSeparator());
-        info.append("==================================================================").append(System.lineSeparator());
-        return info.toString();
+        return "==================================================================" + System.lineSeparator() +
+                "                   ***PRZEDMIOTY W SAKWIE***                      " + System.lineSeparator() +
+                listaPrzedmiotow() + System.lineSeparator() +
+                "==================================================================" + System.lineSeparator();
     }
 
 

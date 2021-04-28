@@ -29,8 +29,7 @@ public class ZdarzenieWalki extends Zdarzenie{
         this.przeciwnik = przeciwnik;
     }
 
-    //bohater to bohater
-    //przeciwnik to przeciwnik
+
     @Override
     public Zdarzenie wykonajZdarzenie(Renderer renderer, Postac bohater) throws IOException, ZapisOdczytException {
         Parser parser = new Parser();
