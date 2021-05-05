@@ -1,0 +1,16 @@
+zdarzenie&{
+
+"opis":"
+Bohater nasz bezimienny przechadzał się gościńcem w kierunku lasu. Nic szczególnego nie przyciągało jego uwagi. Szedł i szedł, nie przejmując się upływającym czasem, porą dnia ani dzielącym go dystansem. Przez całą tę beztroską człapaninę przez głowę bohatera przelatywały wciąż to nowe fanatazje dotyczące niebezpieczeństw i strasznych przygód które to przyjdzie mu przezwyciężyć dzięki swej odwadze, sile i sprytowi. historie te przelatywały, ponieważ żadna z nich nie była w stanie utrzymać się w bohaterskiej świadomości przez dłużej niż mgnienie oka. Być może jednym z powodów tejże przelotności był całkowity absurd i bezsens tychże fantazji, jednak narrator nasz nigdy nie podzieli się tym przypuszczeniem z bohaterem, mając na uwadze jego dość wrażliwe poczucie własnej wartości.
+
+~tak czy inaczej, w końcu bohater dotarł do granicy lasu. Miejsce to zostało nazwane przez narratora granicą, ponieważ las zaczynał się tak nagle i był tak nieprzenikniony iż miejsce w którym się zaczynał, wyglądało jak prastary mur, ciągnący się w nieskończoność w prawo i w lewo. Gościniec zaś znikający w mroku lasu przywoływał na myśl most zwodzony, który opuszczony zapraszał podróżnika do przekroczenia groźnych murów. 
+
+~Bohater nasz instynktownie zatrzymał się przed wejściem do lasu i zawachał się przez moment. Las zdecydowanie nie sprawiał wrażenia niewinnego, naturalnego i przyjaznego zagajnika. Emanował wręcz magią - bohater próbując usilnie przebić swym wzrokiem gęstwinę był przekonany, iż dostrzegał gdzieniegdzie rozbłyski tajemniczego światła. dodatkowo Uwagę bohatera przykuł nieznaczny ruch na gościńcu, tuż za granicą drzew.
+
+~opcja 1 - wejdź do lasu
+~opcja 2 - zawróć i idź w kierunku miasta
+",
+
+"nastepne":[1rozdzial3B2, 1rozdzial3A]
+
+}

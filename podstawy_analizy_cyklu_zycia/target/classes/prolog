@@ -1,0 +1,25 @@
+zdarzenie&{
+
+"opis": "ETAP 1
+
+~Opowieść naszą rozpoczynamy w czasach pradawnych, w krainie pełnej magii, smoków, bohaterów, tortur, czarnej ospy, braku higieny, ogólnego braku kultury oraz wszelkich plag jakie tylko wyobraźnia drogiego nam czytelnika jest w stanie pomieścić.
+
+~Historia ta, jak każda historia niosąca ze sobą treść i głębokie przesłanie, jest historią mężnego bohatera, oraz, jakżeby inaczej, historią jego baby. Baby - znaczy się naturalnie - pięknej królewny. Baby - prawie żony, żony potencjalnej, żony w sferze idei - bowiem to od naszego drogiego czytelnika zależeć będą losy możliwego zamążpójścia naszego herosa. 
+
+~Baba nasza, prawie żona, została, jakżeby inaczej, porwana. Jednak nie było to zwyczajne porwanie. Albowiem audiencji ostatniej udzieliwszy babie swojej, bohater nasz budzi się niespodziewanie dziurę w pamięci posiadając i pozycję horyzontalną przyjmując w miejscu audiencji swej ostatniej - stogu siana. Wstawszy z głową obolałą, rozejrzawszy się wokoło podjąć musi decyzyję - gdzie należy baby szukać. 
+
+~Sprawa ta jawi się być conajmniej nieoczywistą. Nie uprzedzając jednak przyszłych i niedoszłych wypadków, bohater nasz postanawia naturalnie pod przysięgą przyjąć za jedyny cel swego żywota odnalezienie baby swojej prawie-żony. Kwestię tę, mamy nadzieję, podejmie nasz czytelnik pomagając bohaterowi w decyzji - w którą stronę szukać baby.
+
+~opcja 1 - wyjdź ze stodoły
+
+~opcja 2 - zbadaj stodołę
+
+~opcja 3 - zobacz co jest w skrzynce obok Ciebie
+",
+
+
+"nastepne":
+["prologA1", "prologB1", "testZdarzeniaWzmocnienia"]
+
+
+}

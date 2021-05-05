@@ -1,0 +1,12 @@
+zdarzenie&{
+
+"opis":"
+Zbliżając się do miasta bohater dostrzegł sporą grupę podejrzanych postaci, obozujących tuż przy wejściu do miasta. Pomimo całej swej odwagi i brawury postanowił zejść z gościńca i zakraść się bliżej skrywając swe szlachetne lico w gąszczu pola, wśród dojrzewającej wysokoglutenowej pszenicy. podchodząc bliżej zauważył iż wszystkie postacie są zamaskowane i tajemnicze w dokładnie tym samym tajemniczym i zamaskowanym stylu co atakujący go wcześniej w stodole agresorzy.
+~używając swej niesamowitej inteligencji doszedł do wniosku iż ta grupa ma zapewne zamiary co do jego osoby niezbyt przyjazne. Nie zastanawiając się długo i o dziwo tym razem nie konsultując tej kwestii z drogim czytelnikiem bohater postanawia wrócić do karczmy.
+
+~opcja 1 - wróć do karczmy
+",
+
+"nastepne":[1rozdzial3AA]
+
+}

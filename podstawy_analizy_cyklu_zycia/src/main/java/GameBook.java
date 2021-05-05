@@ -31,8 +31,8 @@ public class GameBook {
         plaszczyk.setProcentowaSzansaNaUnik(50);
         bohater.zdobadzPrzedmiot(plaszczyk);
 
-        bohater.setNazwaPostaci("Pucio");
-        bohater.setIloscPunktowZycia(100);
+        bohater.setNazwaPostaci("Bezimienny Bohater");
+        bohater.setIloscPunktowZycia(50);
         bohater.setWartoscAtaku(10);
         bohater.setWartoscPancerza(3);
         bohater.setProcentowaSzansaNaTrafienie(100);

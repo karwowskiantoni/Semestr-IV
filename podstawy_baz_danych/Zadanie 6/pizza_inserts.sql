@@ -16,7 +16,7 @@ INSERT INTO menu (pizza, price, country, base) VALUES
 	('viennese', 7.40, 'Italy', 'white flour')
 ;
 INSERT INTO items (ingredient, type) VALUES
-	('anchovies', 'fish'),
+	('anchovies', 'fish'), 
 	('bacon', 'meat'),
 	('capsicum', 'veg'),
 	('cheese', 'dairy'),
