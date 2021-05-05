@@ -104,9 +104,11 @@ public class Renderer {
     }
 
     /**
-    pierole cie
-     kurwa
-     paczu jebany
+   Prawda, dodawanie dokumentacji
+     bardzo ważne przy wydawaniu oprogramowania,
+     czyli jak sobie skomentujesz tak sobie zakomitujesz,
+     prawda, czyli jak, tak.
+     ; )
 
      */
 
