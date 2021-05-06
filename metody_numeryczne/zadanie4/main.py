@@ -38,8 +38,13 @@ if __name__ == '__main__':
         print("Polecenie było niejasne, do widzenia")
         sys.exit()
 
-    print("całka oznaczona na przedziale [-5, 5] dla zadanej funkcji wynosi")
-    print(calculate_newton_cotes_integral(Division(-3, 7), 0.1, chosen_function))
+    print("całka oznaczona na przedziale [-3, 7] dla zadanej funkcji wynosi")
+    print(calculate_integral(Division(-3, 7), chosen_function, calculate_newton_cotes_integral, 300))
+    print(calculate_integral(Division(-3, 7), chosen_function, calculate_gauss_legendre_integral, 300))
+
+    points = calculate_points(chosen_function, Division(-3, 7), 10000)
+    plt.plot(points[0], points[1])
+    plt.show()
 
     # draw nodes
     # for i in range(len(nodes[0])):
@@ -47,14 +52,14 @@ if __name__ == '__main__':
 
     # error_function = lambda x: abs((chosen_function(x) - algorithm.calculate_value(x)))
     # draw graphs
-    input_function_points = calculate_points(chosen_function, Division(-3, 7), 10000)
+    # input_function_points = calculate_points(chosen_function, Division(-3, 7), 10000)
     # output_function_points = calculate_points(algorithm.calculate_value, Division(-5, 5), 10000)
     # error_function_points = calculate_points(error_function, Division(-5, 5), 10000)
 
-    plt.plot(input_function_points[0], input_function_points[1])
+    # plt.plot(input_function_points[0], input_function_points[1])
     # plt.plot(output_function_points[0], output_function_points[1])
 
-    plt.show()
+    # plt.show()
     # input()
     # plt.close()
     # plt.plot(error_function_points[0], error_function_points[1], color="red")
