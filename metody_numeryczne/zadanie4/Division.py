@@ -4,7 +4,7 @@ class Division:
     end_x = 0
 
     def show(self):
-        print("przedział < " + str(self.begin_x) + "; " + str(self.end_x) + " >")
+        return "[" + str(self.begin_x) + "; " + str(self.end_x) + "]"
 
     def calculate_length(self):
         return abs(self.end_x - self.begin_x)

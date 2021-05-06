@@ -3,14 +3,7 @@
 import math
 
 
-def calculate_by_horner_method(x, coefficients):
-    value = coefficients[0]
-    for i in range(1, len(coefficients)):
-        value = value * x + coefficients[i]
-    return value
-
-
-# zwraca 'number' równoodległych punktów funkcji 'function' z przedziału 'division'
+# zwraca 'number_of_points' równoodległych punktów funkcji 'function' z przedziału 'division'
 def calculate_points(function, division, number_of_points):
     X = [0] * number_of_points
     Y = [0] * number_of_points
@@ -24,15 +17,11 @@ def calculate_points(function, division, number_of_points):
     return [X, Y]
 
 
-# zwraca 'number' równoodległych punktów funkcji 'function' z przedziału 'division'
-def calculate_czebyszew_points(function, division, number_of_points):
-    X = [0] * number_of_points
-    Y = [0] * number_of_points
-
-    for i in range(number_of_points):
-        X[i] = ((division.end_x - division.begin_x) * math.cos((2 * i + 1) * math.pi / (2 * number_of_points + 1)) + (division.begin_x + division.end_x)) / 2
-        Y[i] = function(X[i])
-    return [X, Y]
+def calculate_by_horner_method(x, coefficients):
+    value = coefficients[0]
+    for i in range(1, len(coefficients)):
+        value = value * x + coefficients[i]
+    return value
 
 
 def first_option(x):
