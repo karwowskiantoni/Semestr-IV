@@ -9,6 +9,15 @@ class Division:
     def calculate_length(self):
         return abs(self.end_x - self.begin_x)
 
+    def split_division(self, number):
+        divisions = []
+        last_end = self.begin_x
+        step = self.calculate_length()/number
+        for x in range(number):
+            divisions.append(Division(last_end, last_end + step))
+            last_end += step
+        return divisions
+
     def calculate_middle_of_the_division(self):
         return self.begin_x + self.calculate_length() / 2
 
