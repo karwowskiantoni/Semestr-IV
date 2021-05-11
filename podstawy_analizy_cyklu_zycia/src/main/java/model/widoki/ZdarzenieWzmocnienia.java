@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZdarzenieWzmocnienia extends Zdarzenie{
-
+    //tso
     List<Wzmocnienie> cechy = new ArrayList<>();
     List<Wzmocnienie> przedmioty = new ArrayList<>();
     boolean serafinNiewiadomskiego = true;

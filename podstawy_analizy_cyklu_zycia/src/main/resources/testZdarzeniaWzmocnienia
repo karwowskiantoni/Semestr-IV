@@ -2,7 +2,7 @@
 zdarzenie wzmocnienia&{
 
 	"opis": "Znalazles kratke harnasia i jakies smieci
-	~opcja 1 - wypij harnasia
+	~opcja 1 - wydoj harnasia
 	",
 
 	"nastepne":[testZdarzeniaWarunkowego],

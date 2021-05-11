@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ZdarzenieWarunkowe extends Zdarzenie{
-
+    //tso
     String alternatywnyOpis;
     Postac wzorzec;
 
