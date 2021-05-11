@@ -14,7 +14,7 @@ zdarzenie wzmocnienia&{
                 "szybkoscAtaku": +3
 			},
 		    {
-		        "nazwa": "cieple gacie Morawieckiego",
+		        "nazwa": "cieple gacie Morawskiego",
 		        "wartoscAtaku": +20,
 		        "szybkoscAtaku": -3
 		    }
@@ -22,7 +22,8 @@ zdarzenie wzmocnienia&{
 		"cechy":[
             {
                 "nazwa":"lyk harnasia",
-                "wartoscAtaku": +50,
+                "wartoscAtaku": +100,
+                "wartoscPancerza": +50,
                 "iloscPunktowZycia": +100
             }
         ]

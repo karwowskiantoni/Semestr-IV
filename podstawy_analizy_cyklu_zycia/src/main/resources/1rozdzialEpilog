@@ -1,0 +1,17 @@
+zdarzenie&{
+
+"opis": "
+Cała karczma zaroiła się od trupów. Trudno stwierdzić czy liczba siedem mieści się już w kategorii `rój`, jednak narrator pokłada nadzieję w wyrozumiałości czytelnika w kwestii doboru epitetów odnoszących się do ilości. 
+
+~ Tak czy inaczej, obraz był cudowny, niemal sielankowy. Trudno wyobrazić sobie widok piękniejszy niż spokojna, późnowieczorna, letnia karczma wypełniona po brzegi pijanymi podróżnymi, miejscowymi wieśniakami i całym mnóstwem zmaskakrowanych ciał pokonanych przeciwników. Dodatkowych walorów przydawał obrzydliwy zapach niemytych ciał pomieszany z tanim, wiejskim piwem lejącym się z pouszkadzanych nieco beczek. Zachwycone spojrzenia ludzi wokół zdradzały nabożny niemal podziw. Bohater stał na środku całego bałaganu oparty o jeden ze stołów i spoglądał z lekkim lekceważeniem w przestrzeń. Uznał iż jest to jego najbardziej bohaterska poza, jaką był w stanie wyprodukować w krótkiej chwili czasu dostępnej po pokonaniu wszystkich przeciwników.
+
+~ Moment był tak patetyczny iż bohater słyszał już prawie brawa i okrzyki wydobywające się z wszystkich gardeł naraz. Był też już gotów na wysłuchiwanie pieśni opiewających jego wspaniały czyn oraz na gorące podziękowania ze strony karczmarza, którego domostwo stało jeszcze na swoim miejscu, z lekkim jedynie uszczerbkiem na zdrowiu, co było niewątpliwie zasługą naszego herosa.
+
+~ chwila triumfu jednak jeszcze nie nastąpiła, a wszystko to z powodu siedzącego tuż obok bohatera tajemniczego Najmanito. Z każdą sekundą nasz podróżnik czuł, jak zachwycająca uwaga wszystkich obecnych powolutku wymyka mu się z rąk i wędruje nieśpiesznie, leniwie niemal do Najmanito. Trwało to kilka chwil. W pewnym momencie, kiedy nikt nie miał już wątpliwości, że siedzący obok człowiek wyssał już całą atencję ze słabnącego powoli bohatera, bezruch załamał się. Najmanito Wstał. Wstał bardzo majestatycznie, powoli, świadom skoncentrowanej na nim uwagi dziesiątek spojrzeń. Obrócił się w kierunku herosa i wypowiedział słów kilka, a głos jego brzęczący niby dzwon, poruszał każdą cząstkę powietrza w karczmie.
+~opcja 1 - słuchaj co powie Najmanito
+~opcja 2 - uciekaj
+",
+
+"nastepne":[1rozdzialEpilog2, 1rozdzialAAAB]
+
+}

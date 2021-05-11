@@ -2,16 +2,18 @@ from functions import *
 from math import sqrt
 
 
-def calculate_integral(division, function, integral_calculation_function, iterations):
+def calculate_integral(division, function, integral_calculation_function, accuracy):
     current_integral = integral_calculation_function(function, division)
     iterations_number = 2
-    while iterations_number < iterations:
+    while True:
         divisions = division.split_division(iterations_number)
-        # last_integral = current_integral
+        last_integral = current_integral
         current_integral = sum([integral_calculation_function(function, x) for x in divisions])
         iterations_number += 1
-        # if last_integral - current_integral < accuracy:
-        #     break
+        if abs(last_integral - current_integral) < accuracy:
+            print("liczba iteracji: " + str(iterations_number))
+            print("wartość całki oznaczonej z przedziału " + division.show() + " wynosi: " + str(current_integral))
+            break
     return current_integral
 
 
@@ -27,8 +29,6 @@ def calculate_gauss_legendre_integral(function, division):
 
 
 def calculate_minus_one_one_integral(chosen_function):
-    # X = [-1/21*sqrt(245+14*sqrt(70)), -1/21*sqrt(245-14*sqrt(70)), 0, 1/21*sqrt(245-14*sqrt(70)), 1/21*sqrt(245+14*sqrt(70))]
-    # A = [1/900*(322-13*sqrt(70)), 1/900*(322+13*sqrt(70)), 128/255 - jest zle, 1/900*(322+13*sqrt(70)), 1/900*(322-13*sqrt(70))]
     X = [-0.90618, -0.538469, 0, 0.538469, 0.90618]
     A = [0.236927, 0.478629, 0.568889, 0.478629, 0.236927]
     return sum([chosen_function(X[i]) * A[i] for i in range(len(X))])

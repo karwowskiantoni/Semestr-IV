@@ -1,0 +1,11 @@
+zdarzenie&{
+
+"opis":"
+gdy tylko bohater został otoczony przez cień drzew, natychmiast rzucił się na niego z mroku gigantyczny wąż.
+
+~opcja 1 - broń się przed potworem
+",
+
+"nastepne":[1rozdzial3B3]
+
+}

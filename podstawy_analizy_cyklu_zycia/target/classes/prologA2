@@ -1,0 +1,27 @@
+zdarzenie walki&{
+
+	"opis": "WALCZYSZ Z OPEMJEŁOPEM",
+
+
+	"nastepne":["prologA2F", "prologA2Z"],
+
+	"przeciwnik":{
+
+		"iloscPunktowZycia":100,
+		"wartoscAtaku":20,
+		"szybkoscAtaku":3,
+		"wartoscPancerza":20,
+		"procentowaSzansaNaTrafienie":100,
+		"procentowaSzansaNaUnik":0,
+		"nazwaPostaci":"Ogr OpJełop",
+
+		"przedmioty":[{
+			"nazwa":"maczuga ogra",
+			"wartoscAtaku":30,
+			"szybkoscAtaku": -3
+		}]
+
+	}
+
+
+}

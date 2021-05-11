@@ -1,0 +1,33 @@
+zdarzenie walki&{
+
+	"opis": "WALCZYSZ PIERWSZYM BLIZNIAKIEM",
+
+	"nastepne":["1rozdzial3B3F", "999"],
+
+	"przeciwnik":{
+
+		"iloscPunktowZycia":15,
+		"wartoscAtaku":10,
+		"szybkoscAtaku":10,
+		"wartoscPancerza":5,
+		"procentowaSzansaNaTrafienie":100,
+		"procentowaSzansaNaUnik":0,
+		"nazwaPostaci":"Pierwszy bliźniak",
+
+		"przedmioty":[
+			{
+				"nazwa":"szpada",
+				"wartoscAtaku": 10,
+				"procentowaSzansaNaUnik": 10
+			},
+			{
+				"nazwa":"kapelusz",
+				"wartoscPancerza": 5
+			},
+			{
+				"nazwa":"nóż",
+				"wartoscAtaku": 5
+			}
+		]
+	}
+}

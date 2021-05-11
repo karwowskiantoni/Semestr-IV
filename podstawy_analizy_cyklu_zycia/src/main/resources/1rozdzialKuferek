@@ -1,0 +1,33 @@
+
+zdarzenie wzmocnienia&{
+
+	"opis": "W kuferku znalazłeś całkiem fajne zabawki.
+	~opcja 1 - idź, próbuj powstrzymać awanturę w karczmie, nowe zabawki też wypróbuj.
+	",
+
+	"nastepne":[1rozdzialAAAA],
+
+		"przedmioty":[
+		    {
+                "nazwa":"pancerny kaftanik",
+                "wartoscPancerza": +20
+			},
+		    {
+		        "nazwa": "buciki szybsze niz swiatlo",
+		        "szybkoscAtaku": +10
+		    },
+		    {
+		        "nazwa": "GIGANTYCZNY topor",
+		        "wartoscAtaku": +50
+		    },
+		    {
+		        "nazwa": "pancerna rekawica",
+		        "wartoscPancerza": +5
+		    },
+		    {
+		        "nazwa": "pancerna rekawica",
+		        "wartoscPancerza": +5
+		    }
+		],
+		"cechy":[]
+}

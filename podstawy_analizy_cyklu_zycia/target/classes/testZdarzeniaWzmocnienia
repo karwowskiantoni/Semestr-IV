@@ -1,0 +1,30 @@
+
+zdarzenie wzmocnienia&{
+
+	"opis": "Znalazles kratke harnasia i jakies smieci
+	~opcja 1 - wypij harnasia
+	",
+
+	"nastepne":[testZdarzeniaWarunkowego],
+
+		"przedmioty":[
+		    {
+                "nazwa":"gotowy kod na wbudy",
+                "wartoscAtaku": +15,
+                "szybkoscAtaku": +3
+			},
+		    {
+		        "nazwa": "cieple gacie Morawskiego",
+		        "wartoscAtaku": +20,
+		        "szybkoscAtaku": -3
+		    }
+		],
+		"cechy":[
+            {
+                "nazwa":"lyk harnasia",
+                "wartoscAtaku": +100,
+                "wartoscPancerza": +50,
+                "iloscPunktowZycia": +100
+            }
+        ]
+}
