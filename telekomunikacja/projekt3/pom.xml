@@ -49,7 +49,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>xmodem.App</mainClass>
+                    <mainClass>huffman.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
