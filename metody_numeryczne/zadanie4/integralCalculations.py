@@ -2,7 +2,25 @@ from functions import *
 from time import time
 
 
-def calculate_integral(division, function, integral_calculation_function, accuracy, progress=True):
+def calculate_integral(division, function, integral_calculation_function, accuracy, add_one_division=True):
+    timer = time()
+    current_integral = integral_calculation_function(function, division)
+    iterations_number = 2
+    while True:
+        if add_one_division:
+            divisions = division.split_division(iterations_number)
+        else:
+            divisions = division.split_division(pow(2, iterations_number-1))
+        last_integral = current_integral
+        current_integral = sum([integral_calculation_function(function, x) for x in divisions])
+        iterations_number += 1
+        if abs(last_integral - current_integral) < accuracy:
+            print(accuracy)
+            break
+    return current_integral, iterations_number, time() - timer
+
+
+def calculate_integral_by_iterations(division, function, integral_calculation_function, iterations, progress=True):
     timer = time()
     current_integral = integral_calculation_function(function, division)
     iterations_number = 2
@@ -14,10 +32,8 @@ def calculate_integral(division, function, integral_calculation_function, accura
         last_integral = current_integral
         current_integral = sum([integral_calculation_function(function, x) for x in divisions])
         iterations_number += 1
-        if abs(last_integral - current_integral) < accuracy:
-            print(accuracy)
-            # print("liczba iteracji: " + str(iterations_number))
-            # print("wartość całki oznaczonej z przedziału " + division.show() + " wynosi: " + str(current_integral))
+        if iterations_number > iterations:
+            print(iterations)
             break
     return current_integral, iterations_number, time() - timer
 
