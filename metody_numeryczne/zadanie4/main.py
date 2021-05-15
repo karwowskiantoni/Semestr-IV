@@ -28,10 +28,13 @@ if __name__ == '__main__':
         print("Polecenie było niejasne, do widzenia")
         sys.exit()
 
+
+
+
     accuracy = [0.0000001 * (i+1) for i in range(1000)]
     newton_cotes_result = [calculate_integral(Division(-3, 7), chosen_function, calculate_newton_cotes_integral, acc) for acc in accuracy]
     gauss_legendre_result = [calculate_integral(Division(-3, 7), chosen_function, calculate_gauss_legendre_integral, acc) for acc in accuracy]
-
+z
     plt.plot(accuracy, [i[1] for i in newton_cotes_result])
     plt.plot(accuracy, [i[1] for i in gauss_legendre_result])
     plt.title("iteracje dla przedziałów zwiększających się o 1")
@@ -50,14 +53,32 @@ if __name__ == '__main__':
     input()
     plt.close()
 
-    plt.scatter([i[1] for i in newton_cotes_result], [i[2] for i in newton_cotes_result], s=1)
-    plt.scatter([i[1] for i in gauss_legendre_result], [i[2] for i in gauss_legendre_result], s=1)
+
+
+
+
+    iterations = [i for i in range(100)]
+    newton_cotes_iteration_result = [calculate_integral_by_iterations(Division(-3, 7), chosen_function, calculate_newton_cotes_integral, iteration) for iteration in iterations]
+    gauss_legendre_iteration_result = [calculate_integral_by_iterations(Division(-3, 7), chosen_function, calculate_gauss_legendre_integral, iteration) for iteration in iterations]
+
+
+    plt.scatter([i[1] for i in newton_cotes_iteration_result], [i[2] for i in newton_cotes_iteration_result], s=1)
+    plt.scatter([i[1] for i in gauss_legendre_iteration_result], [i[2] for i in gauss_legendre_iteration_result], s=1)
     plt.title("czas na iteracje dla przedzialow zwiekszajacych sie o 1")
     plt.xlabel("liczba iteracji [1]")
     plt.ylabel("czas wykonania wszystkich iteracji [s]")
     plt.show()
     input()
     plt.close()
+
+
+
+
+
+
+
+
+
 
     accuracy = [0.00000000001 * (i+1) for i in range(1000)]
     newton_cotes_second_result = [calculate_integral(Division(-3, 7), chosen_function, calculate_newton_cotes_integral, acc, False) for acc in accuracy]
@@ -81,11 +102,16 @@ if __name__ == '__main__':
     input()
     plt.close()
 
+
+    newton_cotes_iteration_result = [calculate_integral_by_iterations(Division(-3, 7), chosen_function, calculate_newton_cotes_integral, iteration, True) for iteration in iterations]
+    gauss_legendre_iteration_result = [calculate_integral_by_iterations(Division(-3, 7), chosen_function, calculate_gauss_legendre_integral, iteration, True) for iteration in iterations]
+
+
     plt.title("czas na iteracje dla przedziałów zwiększających się dwukrotnie")
     plt.xlabel("liczba iteracji [1]")
     plt.ylabel("czas wykonania wszystkich iteracji [s]")
-    plt.scatter([i[1] for i in newton_cotes_second_result], [i[2] for i in newton_cotes_second_result], s=1)
-    plt.scatter([i[1] for i in newton_cotes_second_result], [i[2] for i in gauss_legendre_second_result], s=1)
+    plt.scatter([i[1] for i in newton_cotes_iteration_result], [i[2] for i in newton_cotes_iteration_result], s=1)
+    plt.scatter([i[1] for i in gauss_legendre_iteration_result], [i[2] for i in gauss_legendre_iteration_result], s=1)
     plt.show()
     input()
     plt.close()
