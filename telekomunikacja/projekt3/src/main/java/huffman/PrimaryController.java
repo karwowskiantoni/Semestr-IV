@@ -1,5 +1,6 @@
 package huffman;
 
+import com.google.common.primitives.Bytes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -13,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 //Twórcy: Antoni Karwowski 229908, Michał Gebel 229879
 
 public class PrimaryController {
@@ -69,14 +72,17 @@ public class PrimaryController {
     }
 
     public void receiveFile() throws IOException{
-        String result = "";
+        List<Byte> receivedData = new ArrayList<>();
         int counter = 1;
         while (inputStream.ready()) {
             System.out.println("czytam linię numer " + counter);
-            result += inputStream.readLine().getBytes();
+            receivedData.addAll(Bytes.asList(inputStream.readLine().getBytes()));
             counter++;
         }
-        bytes = result.getBytes();
+        bytes = new byte[receivedData.size()];
+        for (int i = 0; i < receivedData.size(); i++){
+            bytes[i] = receivedData.get(i);
+        }
         fileText.setText("odebrano plik o treści: ");
         fileText.setText(fileText.getText() + System.lineSeparator() + new String(bytes));
         saveFile();
