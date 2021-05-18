@@ -10,6 +10,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class PrimaryController {
 
@@ -80,16 +81,23 @@ public class PrimaryController {
     }
 
     public void sendFile() throws IOException {
+        byte numberOfChars = (byte) new String(bytes).toCharArray().length;
         BitArray array = convertToHuffmanCode(bytes);
-        outputStream.write(array.length % 8);
-        outputStream.write(bytes);
-        fileText.setText("wysłano plik o treści: ");
-        fileText.setText(fileText.getText() + System.lineSeparator() + new String(bytes));
+        byte[] data = array.getBytes();
+        System.out.println(new BitArray(bytes).bitArrayToBitString());
+        System.out.println(array.bitArrayToBitString());
+        System.out.println(new BitArray(data).bitArrayToBitString());
+        outputStream.write(numberOfChars);
+        outputStream.write(data);
+        fileText.setText("wysłano plik o treści: " + System.lineSeparator() + new String(data));
     }
 
     public void receiveFile() throws IOException {
         int length = inputStream.read();
-        bytes = inputStream.readNBytes(inputStream.available());
+        BitArray cryptedData = new BitArray(inputStream.readNBytes(inputStream.available()));
+        String decryptedPhrase = new String(convertFromHuffmanCode(cryptedData));
+        String cut = decryptedPhrase.substring(0, length);
+        bytes = cut.getBytes();
         fileText.setText("odebrano plik o treści: ");
         fileText.setText(fileText.getText() + System.lineSeparator() + new String(bytes));
         saveFile();
@@ -132,21 +140,28 @@ public class PrimaryController {
     }
 
         private byte[] convertFromHuffmanCode(BitArray message) {
-            String result = "";
+            StringBuilder result = new StringBuilder();
             while (message.length > 0) {
                 int i = 0;
+
                 while (true){
                     int index = positionInHuffmanLibrary(message.getBitsFromLeftSide(i));
                     if (index != -1) {
-                        result += huffmanLibraryHeaders[index];
+
+
+                        result.append(huffmanLibraryHeaders[index]);
                         message = message.getBitsFromRightSide(i);
+
+
                         break;
                     }
                     i++;
+
                 }
             }
-            return result.getBytes();
+            return result.toString().getBytes();
         }
+
     private int positionInHuffmanLibrary(char c) {
         int index = -1;
         for (int i = 0; i < huffmanLibraryHeaders.length; i++) {
@@ -159,7 +174,7 @@ public class PrimaryController {
     private int positionInHuffmanLibrary(BitArray b) {
         int index = -1;
         for (int i = 0; i < huffmanLibrary.length; i++) {
-            if (b.bitArrayToBitString().equals(huffmanLibrary[i].bitArrayToBitString())) {
+            if (b.isEqual(huffmanLibrary[i])) {
                 index = i;
             }
         }
