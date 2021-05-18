@@ -1,47 +1,60 @@
 package huffman;
 
-import com.google.common.primitives.Bytes;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.net.*;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-//Twórcy: Antoni Karwowski 229908, Michał Gebel 229879
 
 public class PrimaryController {
+
+    private final BitArray[] huffmanLibrary = new BitArray[]{
+            BitArray.bitStringToBitArray("00"),
+            BitArray.bitStringToBitArray("110"),
+            BitArray.bitStringToBitArray("100"),
+            BitArray.bitStringToBitArray("011"),
+            BitArray.bitStringToBitArray("1110"),
+            BitArray.bitStringToBitArray("1111"),
+            BitArray.bitStringToBitArray("1010"),
+            BitArray.bitStringToBitArray("0101"),
+            BitArray.bitStringToBitArray("0100"),
+            BitArray.bitStringToBitArray("10110"),
+            BitArray.bitStringToBitArray("10111")
+    };
+
+    private final char[] huffmanLibraryHeaders = new char[]{
+            'a', 't', 'i', ' ', 'v', 'n', 's', 'm', 'u', 'e', 'o'
+    };
 
     @FXML
     TextArea portText = new TextArea();
     @FXML
-    TextField fileText = new TextField();
+    TextArea fileText = new TextArea();
     @FXML
     Button receiveButton = new Button();
-
-    private byte[] bytes;
     ServerSocket serverSocket;
     Socket clientSocket;
-    private BufferedReader inputStream;
-    private PrintWriter outputStream;
+    private byte[] bytes;
+    private InputStream inputStream;
+    private OutputStream outputStream;
 
+    public static void main(String[] args) {
+        App.main(args);
+    }
 
     public void openPort() {
+        portText.setText("PORT 5000 OTWARTY");
+        portText.setText(portText.getText() + System.lineSeparator() + "oczekiwanie na połączenie ...");
         try {
             serverSocket = new ServerSocket(5000);
-            portText.setText("PORT 5000 OTWARTY");
-            portText.setText(portText.getText() + System.lineSeparator() + "oczekiwanie na połączenie ...");
             clientSocket = serverSocket.accept();
-            inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            outputStream = new PrintWriter(clientSocket.getOutputStream(), true);
+            inputStream = clientSocket.getInputStream();
+            outputStream = clientSocket.getOutputStream();
             portText.setText(portText.getText() + System.lineSeparator() + "połączono :)");
         } catch (IOException e) {
             portText.setText(portText.getText() + System.lineSeparator() + "błędny numer lub port zajęty");
@@ -51,38 +64,32 @@ public class PrimaryController {
     public void connectToPort() {
         try {
             clientSocket = new Socket("127.0.0.1", 5000);
-            inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            outputStream = new PrintWriter(clientSocket.getOutputStream(), true);
+            inputStream = clientSocket.getInputStream();
+            outputStream = clientSocket.getOutputStream();
             portText.setText("POŁĄCZONO Z PORTEM 5000");
         } catch (IOException e) {
             portText.setText("błędny numer lub port zajęty");
         }
     }
 
-    public void stop() throws IOException{
+    public void stop() throws IOException {
         serverSocket.close();
         clientSocket.close();
         inputStream.close();
         outputStream.close();
     }
-    public void sendFile(){
-        outputStream.println(new String(bytes));
+
+    public void sendFile() throws IOException {
+        BitArray array = convertToHuffmanCode(bytes);
+        outputStream.write(array.length % 8);
+        outputStream.write(bytes);
         fileText.setText("wysłano plik o treści: ");
         fileText.setText(fileText.getText() + System.lineSeparator() + new String(bytes));
     }
 
-    public void receiveFile() throws IOException{
-        List<Byte> receivedData = new ArrayList<>();
-        int counter = 1;
-        while (inputStream.ready()) {
-            System.out.println("czytam linię numer " + counter);
-            receivedData.addAll(Bytes.asList(inputStream.readLine().getBytes()));
-            counter++;
-        }
-        bytes = new byte[receivedData.size()];
-        for (int i = 0; i < receivedData.size(); i++){
-            bytes[i] = receivedData.get(i);
-        }
+    public void receiveFile() throws IOException {
+        int length = inputStream.read();
+        bytes = inputStream.readNBytes(inputStream.available());
         fileText.setText("odebrano plik o treści: ");
         fileText.setText(fileText.getText() + System.lineSeparator() + new String(bytes));
         saveFile();
@@ -110,7 +117,52 @@ public class PrimaryController {
         }
     }
 
-    public static void main(String[] args) {
-        App.main(args);
+    private BitArray convertToHuffmanCode(byte[] bytes) {
+        String message = new String(bytes);
+        BitArray result = new BitArray(0);
+        for (int i = 0; i < message.length(); i++) {
+            int index = positionInHuffmanLibrary(message.toCharArray()[i]);
+            if(index == -1) {
+                System.out.println("brak liter w słowniku");
+                return new BitArray(0);
+            }
+            result = result.connect(huffmanLibrary[index]);
+        }
+        return result;
+    }
+
+        private byte[] convertFromHuffmanCode(BitArray message) {
+            String result = "";
+            while (message.length > 0) {
+                int i = 0;
+                while (true){
+                    int index = positionInHuffmanLibrary(message.getBitsFromLeftSide(i));
+                    if (index != -1) {
+                        result += huffmanLibraryHeaders[index];
+                        message = message.getBitsFromRightSide(i);
+                        break;
+                    }
+                    i++;
+                }
+            }
+            return result.getBytes();
+        }
+    private int positionInHuffmanLibrary(char c) {
+        int index = -1;
+        for (int i = 0; i < huffmanLibraryHeaders.length; i++) {
+            if (huffmanLibraryHeaders[i] == c)
+                index = i;
+        }
+        return index;
+    }
+
+    private int positionInHuffmanLibrary(BitArray b) {
+        int index = -1;
+        for (int i = 0; i < huffmanLibrary.length; i++) {
+            if (b.bitArrayToBitString().equals(huffmanLibrary[i].bitArrayToBitString())) {
+                index = i;
+            }
+        }
+        return index;
     }
 }
