@@ -1,7 +1,7 @@
 # zwraca wartość wielomianu w punkcie 'x' obliczoną schematem
 # Hornera na podstawie współczynników wielomianu 'coefficients'
 import math
-
+import random
 
 # zwraca 'number_of_points' równoodległych punktów funkcji 'function' z przedziału 'division'
 def calculate_points(function, division, number_of_points):
@@ -58,5 +58,8 @@ def seventh_option(x):
     # |-4x^3 + 100x^2 + |8x| - 3|
     return abs(calculate_by_horner_method(x, [-20, 100, 0, -3])) + calculate_by_horner_method(abs(x), [8, 0])
 
+
+def random_polynomial_coefficients(n):
+    return [random.randrange(-10, 10, 1) for i in range(n)]
 
 
