@@ -28,14 +28,35 @@ if __name__ == '__main__':
         print("Polecenie było niejasne, do widzenia")
         sys.exit()
 
-    points = calculate_points(chosen_function, Division(-10, 3), 1000)
+    print("Wprowadź zadaną dokładność: ")
+    accuracy = float(input())
+    division = Division(-10, 3)
+
+    calculator = ApproximationFunctionCalculator(calculate_points(chosen_function, division, 2))
+    points = calculate_points(chosen_function, division, 1000)
+    approximated_points = calculate_points(calculator.approximated_function, division, 1000)
+
+    numbers = []
+    errors = []
+    node_number = 3
+    error = calculate_approximation_error(points, approximated_points)
+    while accuracy < error:
+        numbers.append(node_number)
+        errors.append(error)
+        calculator = ApproximationFunctionCalculator(calculate_points(chosen_function, division, node_number))
+        points = calculate_points(chosen_function, division, 1000)
+        approximated_points = calculate_points(calculator.approximated_function, division, 1000)
+        node_number += 1
+        error = calculate_approximation_error(points, approximated_points)
+        print(f'liczba węzłów: {node_number}, średni błąd aproksymacji: {error}')
+
+
     plt.plot(points[0], points[1])
-
-    calculator = ApproximationFunctionCalculator(calculate_points(chosen_function, Division(-10,3), 50))
-
-    approximated_points = calculate_points(lambda x: calculator.multiply_coefficients_and_legendre_polynomial(-10, 3, x), Division(-100,100), 1000)
     plt.plot(approximated_points[0], approximated_points[1])
-
+    plt.show()
+    input()
+    plt.close()
+    plt.plot(numbers, errors)
     plt.show()
 
 
