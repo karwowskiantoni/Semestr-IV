@@ -3,12 +3,9 @@ package ac;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
 
 import java.io.*;
 import javax.sound.sampled.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 //Twórcy: Antoni Karwowski 229908, Michał Gebel 229879
 
@@ -28,8 +25,7 @@ public class PrimaryController {
 
     public void playSound() throws LineUnavailableException, UnsupportedAudioFileException, IOException, InterruptedException {
         Clip clip = AudioSystem.getClip();
-        File record = new File("record");
-        clip.open(AudioSystem.getAudioInputStream(record));
+        clip.open(AudioSystem.getAudioInputStream(new File("nagranie.wav")));
         clip.start();
         Thread.sleep(clip.getMicrosecondLength() / 1000);
     }
@@ -48,14 +44,13 @@ public class PrimaryController {
         }
     }
 
-    public void stopAudio() {
+    private void stopAudio() {
         targetDataLine.stop();
         targetDataLine.close();
     }
 
-    public void captureAudio() throws LineUnavailableException {
+    private void captureAudio() throws LineUnavailableException {
         audioFormat = new AudioFormat(8000.0F, 16, 1, true, false);
-        // sampleRate, sampleSizeInBits, channels, signed, bigEndian)
         DataLine.Info dataLineInfo = new DataLine.Info(TargetDataLine.class, audioFormat);
         targetDataLine = (TargetDataLine) AudioSystem.getLine(dataLineInfo);
         CaptureThread captureThread = new CaptureThread();
@@ -66,7 +61,7 @@ public class PrimaryController {
         @Override
         public void run() {
             AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
-            File audioFile = new File("record");
+            File audioFile = new File("nagranie.wav");
             try {
                 targetDataLine.open(audioFormat);
                 targetDataLine.start();
