@@ -21,33 +21,11 @@ public class PrimaryController {
 
     private AudioFormat audioFormat;
     private TargetDataLine targetDataLine;
-    private byte[] bytes;
 
     public static void main(String[] args) {
         App.main(args);
     }
 
-    public void saveFile() {
-        try (FileOutputStream stream = new FileOutputStream("output")) {
-            stream.write(bytes);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void loadFile() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Wybierz plik");
-        File selectedDirectory = fileChooser.showOpenDialog(terminal.getScene().getWindow());
-        terminal.setText(selectedDirectory.getAbsolutePath());
-
-        try {
-            bytes = Files.readAllBytes(Paths.get(terminal.getText()));
-            saveFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
     public void playSound() throws LineUnavailableException, UnsupportedAudioFileException, IOException, InterruptedException {
         Clip clip = AudioSystem.getClip();
         File record = new File("record");
