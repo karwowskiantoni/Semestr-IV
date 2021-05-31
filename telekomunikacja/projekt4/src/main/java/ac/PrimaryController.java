@@ -12,18 +12,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 //Twórcy: Antoni Karwowski 229908, Michał Gebel 229879
-//Główna klasa odpowiadająca za widok i logikę aplikacji - wyjątkowo z braku potrzeby rozdzielania logiki od widoku
-//(ten przedmiot nie sprawdza dobrych technik programistycznych)
-//Aplikacja powstawała współbieżnie za pomocą pluginu "Code with me" do IDE Intelij firmy JetBrains
-//W związku z tym cały kod powstał przy udziale dwóch osób jednocześnie
-//Przełożyo się to na lepsze zrozumienie zagadnienia i wyeliminowało przypadek, gdzie druga osoba nie wie co dzieje
-//się w danej części programu, nad którym nie pracowała.
-//Program posiada dwie główne funkcjonalności
-//1. Połączenie dwóch instancji aplikacji poprzez gniazdo sieciowe (socket)
-//Dzieje się to poprzez połączenie przez wolny port o numerze 5000
-//Jedna z instancji jest serwerem, druga klientem
-//2. Zakodowanie wybranej sentencji zgodnie ze stworzonym do niego kodem Huffmana i wysłanie jej przez jedną z instancji aplikacji
-//Odebranie, odkodowanie i zapisanie jej przez drugą instancję aplikacji
 
 public class PrimaryController {
     //deklaracja słownika kodowego Huffmana
